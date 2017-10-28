@@ -1,7 +1,7 @@
 import View.*;
 import java.util.Scanner;
 
-public class MainUI {
+public class Main {
     public static void main(String[] args) {
         while (true) {
             System.out.println("Hello there, please make a selection:");
