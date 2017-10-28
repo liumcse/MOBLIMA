@@ -1,11 +1,13 @@
 package Model;
 
+import java.util.LinkedList;
+
 public class Movie {
     private String title;
-    private String status;
+    private Status movieStatus;
     private String synopsis;
     private String director;
-    private String cast;
-    private String rating;
-    private String review;
+    private LinkedList<String> casters;
+    private double overallRating;
+    private LinkedList<Review> reviews;
 }
