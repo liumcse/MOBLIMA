@@ -11,11 +11,11 @@ import java.util.Scanner;
  * Created by LiuMingyu on 6/11/17.
  */
 
-public class MovieListingUI {
+public class MovieListing {
     Scanner sc;
     CineplexManager cineplexManager;
 
-    public MovieListingUI() {
+    public MovieListing() {
         sc = new Scanner(System.in);
         cineplexManager = new CineplexManager();
         displayMenu();

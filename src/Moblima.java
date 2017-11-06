@@ -3,17 +3,18 @@ import View.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Main {
+public class Moblima {
     public static void main(String[] args) {
-        while (true) {
-            System.out.println("Hello there, please make a selection:");
-            System.out.println("1). I'm a moviegoer");
-            System.out.println("2). I'm a staff");
-            System.out.println("3). Exit application");
+        int choice = 0;
+        Scanner sc = new Scanner(System.in);
+        while (choice != 3) {
+            System.out.println("Welcome to MOBLIMA, please make a selection:");
+            System.out.println("1. I'm a moviegoer");
+            System.out.println("2. I'm a staff");
+            System.out.println("3. Exit application");
 
-            Scanner sc = new Scanner(System.in);
             try {
-                int choice = sc.nextInt();
+                choice = sc.nextInt();
                 switch(choice) {
                     case 1:
                         new MovieGoerUI();
@@ -22,13 +23,14 @@ public class Main {
                         new StaffUI();
                         break;
                     case 3:
-                        return;
+                        break;
                     default:
                         System.out.println("Invalid selection.");
                 }
             }
             catch (InputMismatchException e) {
                 System.out.println("Invalid selection.");
+                sc.nextLine();  // to flush the buffer
                 continue;
             }
         }

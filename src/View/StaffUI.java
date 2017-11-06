@@ -21,10 +21,11 @@ public class StaffUI {
         password = sc.next();
 
         // authentication
-        if (username == "123" && password == "123") System.out.println("Login successful!");
-        else {
-            System.out.println("Invalid username or password, please retry.");
-            login();
-        }
+        // TODO use DataManager to authenticate
+//        if (username == "123" && password == "123") System.out.println("Login successful!");
+//        else {
+//            System.out.println("Invalid username or password, please retry.");
+//            login();
+//        }
     }
 }

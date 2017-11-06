@@ -5,4 +5,9 @@ package Model;
  */
 
 public class Cinema {
+    private Constant.Cineplex cineplex;
+    private boolean isPlatinum;
+    private Constant.MovieType movieType;
+
+    private Showtime showtime;
 }
