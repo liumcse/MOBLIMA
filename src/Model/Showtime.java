@@ -11,7 +11,7 @@ public class Showtime implements Serializable {
     private Cinema cinema;
 
     // TODO modify this
-    public Showtime(String hour) {
+    public Showtime(String hour, String minute) {
         this.hour = hour;
     }
 
@@ -26,6 +26,6 @@ public class Showtime implements Serializable {
 
     @Override
     public String toString() {
-        return cinema + ": " + hour + minute;
+        return cinema.getCineplex().toString() + ": " + hour + minute;
     }
 }
