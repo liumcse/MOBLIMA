@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Scanner;
 
 import Controller.CineplexManager;
 import Model.Constant.Status;
@@ -68,9 +69,15 @@ public class Movie implements Serializable {
             }
         });
 
-        int index = 1;
-        for (Showtime s : showtime) System.out.println(index++ + ": " + showtime);
+        int index = 0;
+        for (Showtime s : showtime) System.out.println(++index + ": " + s);
 
+        System.out.println("Please choose a showtime (enter 0 to go back):");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        if (choice == 0) return;
+
+        showtime.get(choice - 1).displayMenu();
     }
 
     @Override

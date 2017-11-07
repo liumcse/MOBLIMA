@@ -1,4 +1,6 @@
 import Controller.DataManager;
+import Model.Cinema;
+import Model.Constant;
 import Model.Movie;
 import Model.Showtime;
 
@@ -16,7 +18,10 @@ public class TestWriteShowtime {
         for (Movie movie : movieArrayList) {
             System.out.println(movie.getTitle() + ": input showtime");
             ArrayList<Showtime> tempArrayList = new ArrayList<>();
-            tempArrayList.add(new Showtime());
+            Showtime tempShowtime1 = new Showtime("09", "30", new Cinema(Constant.Cineplex.TheCathay));
+            Showtime tempShowtime2 = new Showtime("18", "30", new Cinema(Constant.Cineplex.WestMall));
+            tempArrayList.add(tempShowtime1);
+            tempArrayList.add(tempShowtime2);
             movieShowtime.put(movie, tempArrayList);
         }
 

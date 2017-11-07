@@ -35,13 +35,13 @@ public class MovieListing {
                     case 1:
                         break;
                     case 2:
-                        listMovie(0);
+                        displayMovieList(0);
                         break;
                     case 3:
-                        listMovie(1);
+                        displayMovieList(1);
                         break;
                     case 4:
-                        listMovie(2);
+                        displayMovieList(2);
                         break;
                     case 5:
                         break;
@@ -56,27 +56,26 @@ public class MovieListing {
 
     }
 
-    private void listMovie(int option) {
+    private void displayMovieList(int option) {
         if (option == 0) {  // list all movies
             ArrayList<Movie> movieList = CineplexManager.getMovieListing();
-            int i = 1;
+            int i = 0;
 
             System.out.println("---Movies---");
             for (Movie movie : movieList) {
-                System.out.println(i + ". " + movie.getTitle() + " (" + movie.getStatus().toString() + ")");
-                i++;
+                System.out.println(++i + ". " + movie.getTitle() + " (" + movie.getStatus().toString() + ")");
             }
-            System.out.println(i + ". Go back");
+            System.out.println(i + 1 + ". Go back");
 
             Scanner sc = new Scanner(System.in);
             int choice = sc.nextInt();
 
-            if (choice == i) return;
-            else movieOptions(movieList.get(i - 2));
+            if (choice == i + 1) return;
+            else displayMovieOptions(movieList.get(i - 1));
         }
     }
 
-    private void movieOptions(Movie movie) {
+    private void displayMovieOptions(Movie movie) {
         System.out.println("---Movie details---");
         System.out.println(movie);
 
