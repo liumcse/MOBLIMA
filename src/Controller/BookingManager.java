@@ -2,6 +2,6 @@ package Controller;
 
 import Model.Customer;
 
-public class Booking {
+public class BookingManager {
     private Customer customer;
 }

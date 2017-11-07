@@ -2,6 +2,10 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+import Controller.CineplexManager;
 import Model.Constant.Status;
 
 /**
@@ -16,6 +20,7 @@ public class Movie implements Serializable {
     private ArrayList<String> cast;
     private double rating;  // TODO can we delete this? put rating in Review class
     private ArrayList<Review> reviews;
+//    private ArrayList<Showtime> showtime;
 
     public Movie(String title) {
         this.title = title;
@@ -45,10 +50,27 @@ public class Movie implements Serializable {
         return status;
     }
 
+    public ArrayList<Showtime> getShowtime() {
+        return CineplexManager.getMovieShowtime(this);
+    }
 
     public ArrayList<Review> getReviews() {
         // TODO complete method: getReviews()
         return null;
+    }
+
+    public void displayShowtime() {
+        ArrayList<Showtime> showtime = getShowtime();
+        Collections.sort(showtime, new Comparator<Showtime>() {
+            @Override
+            public int compare(Showtime o1, Showtime o2) {
+                return o1.getCinema().getCineplex().toString().compareTo(o2.getCinema().getCineplex().toString());
+            }
+        });
+
+        int index = 1;
+        for (Showtime s : showtime) System.out.println(index++ + ": " + showtime);
+
     }
 
     @Override
@@ -67,6 +89,24 @@ public class Movie implements Serializable {
         stringBuilder.append("Status: " + status.toString() + "\n");
 
         return stringBuilder.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Movie movie = (Movie) o;
+
+        if (title != null ? !title.equals(movie.title) : movie.title != null) return false;
+        return director != null ? director.equals(movie.director) : movie.director == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (director != null ? director.hashCode() : 0);
+        return result;
     }
 
     public double getRating() {

@@ -1,5 +1,5 @@
 package Controller;
 
-public class Payment {
+public class PaymentManager {
     private String TID;
 }

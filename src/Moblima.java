@@ -3,6 +3,10 @@ import View.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Main function is here.
+ */
+
 public class Moblima {
     public static void main(String[] args) {
         int choice = 0;

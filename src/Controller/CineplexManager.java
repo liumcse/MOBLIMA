@@ -2,12 +2,16 @@ package Controller;
 
 import Model.Constant;
 import Model.Movie;
+import Model.Showtime;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CineplexManager extends DataManager {
     private static final String FILENAME_MOVIE = "res/data/movie.dat";  // location of movie.dat file
-    private ArrayList<Movie> movieListing;
+    private static final String FILENAME_SHOWTIME = "res/data/showtime.dat";  // location of showtime.dat file
+    private static ArrayList<Movie> movieListing;
+    private static HashMap<Movie, ArrayList<Showtime>> movieShowtime;
 
     public CineplexManager() {
         // TODO
@@ -15,17 +19,28 @@ public class CineplexManager extends DataManager {
         readMovieListing();
     }
 
-    private void readMovieListing() {
+    private static void readMovieListing() {
         movieListing = (ArrayList) readSerializedObject(FILENAME_MOVIE);
     }
 
-    public ArrayList<Movie> getMovieListing() {
+    public static ArrayList<Movie> getMovieListing() {
         readMovieListing();  // TODO redundant?
         return movieListing;
     }
 
+
+    private static void readMovieShowtime() {
+        movieShowtime = (HashMap<Movie, ArrayList<Showtime>>) readSerializedObject(FILENAME_SHOWTIME);
+    }
+
+
+    public static ArrayList<Showtime> getMovieShowtime(Movie m) {
+        readMovieShowtime();
+        return movieShowtime.get(m);
+    }
+
     @Deprecated
-    public void displayMovieListing() {
+    public static void displayMovieListing() {
         ArrayList<Movie> toDisplay = new ArrayList<>();
 
         // all the COMMING_SOON

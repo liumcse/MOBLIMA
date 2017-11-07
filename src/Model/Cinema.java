@@ -9,5 +9,7 @@ public class Cinema {
     private boolean isPlatinum;
     private Constant.MovieType movieType;
 
-    private Showtime showtime;
+    public Constant.Cineplex getCineplex() {
+        return cineplex;
+    }
 }

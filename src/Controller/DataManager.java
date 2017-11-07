@@ -15,15 +15,15 @@ public class DataManager {
      * @return List object
      */
 
-    public static List readSerializedObject(String filename) {
-        List data = null;
+    public static Object readSerializedObject(String filename) {
+        Object data = null;
         FileInputStream fileInputStream;
         ObjectInputStream objectInputStream;
 
         try {
             fileInputStream = new FileInputStream(filename);
             objectInputStream = new ObjectInputStream(fileInputStream);
-            data = (ArrayList) objectInputStream.readObject();
+            data = objectInputStream.readObject();
             objectInputStream.close();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -37,16 +37,16 @@ public class DataManager {
     /**
      * Write serialized object to files.
      * @param filename
-     * @param list
+     * @param data
      */
-    public static void writeSerializedObject(String filename, List list) {
+    public static void writeSerializedObject(String filename, Object data) {
         FileOutputStream fileOutputStream;
         ObjectOutputStream objectOutputStream;
 
         try {
             fileOutputStream = new FileOutputStream(filename);
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(list);
+            objectOutputStream.writeObject(data);
             objectOutputStream.close();
         } catch (IOException ex) {
             ex.printStackTrace();

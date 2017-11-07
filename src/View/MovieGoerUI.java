@@ -3,6 +3,10 @@ package View;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * This is the user interface for moviegoer.
+ */
+
 public class MovieGoerUI {
     Scanner sc;
     public MovieGoerUI() {

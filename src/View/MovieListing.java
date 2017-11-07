@@ -9,15 +9,14 @@ import java.util.Scanner;
 
 /**
  * Created by LiuMingyu on 6/11/17.
+ * This is the interface when user wants to see movie listing.
  */
 
 public class MovieListing {
     Scanner sc;
-    CineplexManager cineplexManager;
 
     public MovieListing() {
         sc = new Scanner(System.in);
-        cineplexManager = new CineplexManager();
         displayMenu();
     }
 
@@ -59,7 +58,7 @@ public class MovieListing {
 
     private void listMovie(int option) {
         if (option == 0) {  // list all movies
-            ArrayList<Movie> movieList = cineplexManager.getMovieListing();
+            ArrayList<Movie> movieList = CineplexManager.getMovieListing();
             int i = 1;
 
             System.out.println("---Movies---");
@@ -87,10 +86,12 @@ public class MovieListing {
             System.out.println("2. Display reviews");
             System.out.println("3. Write reviews");
             System.out.println("4. Go back");
+            choice = sc.nextInt();
             try {
                 switch (choice) {
                     case 1:
                         // TODO movie.getShowtime()
+                        movie.displayShowtime();
                         break;
                     case 2:
                         // TODO movie.getReview()
