@@ -1,14 +1,15 @@
 package View;
 
+import Controller.CineplexManager;
+
 import java.util.Scanner;
 
-public class StaffUI {
+public class StaffView {
 
-    public StaffUI() {
+    public StaffView() {
         // login
         System.out.println("Please login before continuing.\n");
         login();
-
 
     }
 
@@ -20,12 +21,10 @@ public class StaffUI {
         System.out.println("Please enter your password: ");
         password = sc.next();
 
-        // authentication
-        // TODO use DataManager to authenticate
-//        if (username == "123" && password == "123") System.out.println("Login successful!");
-//        else {
-//            System.out.println("Invalid username or password, please retry.");
-//            login();
-//        }
+        if (CineplexManager.authentication(username, password)) System.out.println("Login successful!");
+        else {
+            System.out.println("Invalid username or password, please retry.");
+            login();
+        }
     }
 }

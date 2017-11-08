@@ -7,9 +7,9 @@ import java.util.Scanner;
  * This is the user interface for moviegoer.
  */
 
-public class MovieGoerUI {
+public class MovieGoerView {
     Scanner sc;
-    public MovieGoerUI() {
+    public MovieGoerView() {
         sc = new Scanner(System.in);
         displayMenu();
     }

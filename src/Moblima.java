@@ -1,3 +1,4 @@
+import Controller.CineplexManager;
 import View.*;
 
 import java.util.InputMismatchException;
@@ -9,6 +10,13 @@ import java.util.Scanner;
 
 public class Moblima {
     public static void main(String[] args) {
+        // initialize CineplexManager
+        boolean initialized = CineplexManager.initialize();
+        if (!initialized) {
+            System.out.println("Error: failed to read data, application terminating...");
+            return;
+        }
+
         int choice = 0;
         Scanner sc = new Scanner(System.in);
         while (choice != 3) {
@@ -21,10 +29,10 @@ public class Moblima {
                 choice = sc.nextInt();
                 switch(choice) {
                     case 1:
-                        new MovieGoerUI();
+                        new MovieGoerView();
                         break;
                     case 2:
-                        new StaffUI();
+                        new StaffView();
                         break;
                     case 3:
                         break;

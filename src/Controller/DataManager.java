@@ -15,6 +15,7 @@ public class DataManager {
      * @return List object
      */
 
+    // TODO change to protected later
     public static Object readSerializedObject(String filename) {
         Object data = null;
         FileInputStream fileInputStream;
@@ -39,6 +40,8 @@ public class DataManager {
      * @param filename
      * @param data
      */
+
+    // TODO change to protected later
     public static void writeSerializedObject(String filename, Object data) {
         FileOutputStream fileOutputStream;
         ObjectOutputStream objectOutputStream;

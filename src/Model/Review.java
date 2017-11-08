@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Review {
     private Date date;
-    private int rating;
+    private double rating;
     private String content;
 
-    private static final int maxRating = 5;
-    private static final int minRating = 1;
+    private static final double maxRating = 5;
+    private static final double minRating = 1;
 
     public Review(int movieId, int rating, String content) {
         if(rating > maxRating)
@@ -23,7 +23,7 @@ public class Review {
 
     }
 
-    public Review(int movieId, int rating, Date date, String content) {
+    public Review(int movieId, double rating, Date date, String content) {
         if(rating > maxRating)
             this.rating = maxRating;
         else if (rating < minRating)
@@ -39,7 +39,7 @@ public class Review {
         return content;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 

@@ -2,6 +2,7 @@ package Model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Showtime implements Serializable {
@@ -18,10 +19,6 @@ public class Showtime implements Serializable {
         this.cinema = cinema;
     }
 
-    public void checkSeat() {
-
-    }
-
     public void displayMenu() {
         int choice = 0;
         Scanner sc = new Scanner(System.in);
@@ -30,9 +27,28 @@ public class Showtime implements Serializable {
             System.out.println("1. Check seat availability");
             System.out.println("2. Book seat");
             System.out.println("3. Go back");
-
-            choice = sc.nextInt();
+            try {
+                choice = sc.nextInt();
+                switch (choice) {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    default:
+                        System.out.println("Invalid selection.");
+                }
+            } catch (InputMismatchException ex) {
+                System.out.println("Invalid selection.");
+                sc.nextLine();
+                continue;
+            }
         }
+    }
+
+    public void checkSeat() {
+
     }
 
     public Cinema getCinema() {
