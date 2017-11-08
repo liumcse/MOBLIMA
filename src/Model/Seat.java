@@ -8,9 +8,10 @@ public class Seat implements Serializable{
     private Showtime showtime;
     private boolean booked;
 
-    public Seat(int row, int col) {
+    public Seat(int row, int col, Showtime showtime) {
         this.row = row;
         this.col = col;
+        this.showtime = showtime;
         booked = false;
     }
 

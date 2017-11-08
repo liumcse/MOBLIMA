@@ -60,20 +60,20 @@ public class Showtime implements Serializable {
         for (int row = 0; row <= 3; row++) {
             for (int col = 2; col <= 16; col++) {
                 if (col == 8) continue;
-                seats[row][col] = new Seat(row, col);
+                seats[row][col] = new Seat(row, col, this);
             }
         }
 
         for (int row = 4; row <= 7; row++) {
             for (int col = 0; col <= 16; col++) {
                 if (col == 8) continue;
-                seats[row][col] = new Seat(row, col);
+                seats[row][col] = new Seat(row, col, this);
             }
         }
 
         for (int col = 0; col <= 16; col++) {
             if (col == 8 || col == 9 || col == 10) continue;
-            seats[8][col] = new Seat(8, col);
+            seats[8][col] = new Seat(8, col, this);
         }
     }
 
