@@ -4,7 +4,12 @@ import Model.Constant;
 import Model.Movie;
 import Model.Showtime;
 
+import java.io.EOFException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class CineplexManager extends DataManager {
@@ -36,32 +41,59 @@ public class CineplexManager extends DataManager {
             readMovieShowtime();
             readStaffAccount();
             return true;
-        } catch (Exception ex) {
+        } catch (EOFException ex) {
+            return true;
+        } catch (IOException ex) {
             return false;
+        } catch (ClassNotFoundException ex) {
+            return true;
         }
     }
 
 
 
-    private static void readMovieListing() {
-        movieListing = (ArrayList) readSerializedObject(FILENAME_MOVIE);
+    private static void readMovieListing() throws IOException, ClassNotFoundException {
+        if (readSerializedObject(FILENAME_MOVIE) == null) movieListing = null;
+        else {
+            movieListing = (ArrayList) readSerializedObject(FILENAME_MOVIE);
+            Collections.sort(movieListing, new Comparator<Movie>() {  // sort listing by movie status
+                @Override
+                public int compare(Movie o1, Movie o2) {
+                    return o1.getStatus().toString().compareTo(o2.getStatus().toString());
+                }
+            });
+        }
     }
 
-    private static void readMovieShowtime() {
-        movieShowtime = (HashMap<Movie, ArrayList<Showtime>>) readSerializedObject(FILENAME_SHOWTIME);
+    private static void readMovieShowtime() throws IOException, ClassNotFoundException {
+        if (readSerializedObject(FILENAME_SHOWTIME) == null) movieShowtime = null;
+        else movieShowtime = (HashMap<Movie, ArrayList<Showtime>>) readSerializedObject(FILENAME_SHOWTIME);
     }
-    private static void readStaffAccount() {
-        staffAccount = (HashMap<String, String>) readSerializedObject(FILENAME_STAFFACCOUNT);
+    private static void readStaffAccount() throws IOException, ClassNotFoundException {
+        if (readSerializedObject(FILENAME_STAFFACCOUNT) == null) staffAccount = null;
+        else staffAccount = (HashMap<String, String>) readSerializedObject(FILENAME_STAFFACCOUNT);
+    }
+
+    private static void writeMovieListing() throws IOException {
+        DataManager.writeSerializedObject(FILENAME_MOVIE, movieListing);
     }
 
     public static ArrayList<Movie> getMovieListing() {
         return movieListing;
     }
 
-
-
     public static ArrayList<Showtime> getMovieShowtime(Movie m) {
         return movieShowtime.get(m);
+    }
+
+    public static void addNewListing(Movie movie) throws IOException{
+        movieListing.add(movie);
+        writeMovieListing();
+    }
+
+    public static void removeListing(Movie movie) throws IOException{
+        movieListing.get(movieListing.indexOf(movie)).setStatus(Constant.Status.END_OF_SHOWING);
+        writeMovieListing();
     }
 
     public static boolean authentication (String username, String password) {
@@ -73,9 +105,9 @@ public class CineplexManager extends DataManager {
     public static void displayMovieListing() {
         ArrayList<Movie> toDisplay = new ArrayList<>();
 
-        // all the COMMING_SOON
+        // all the COMING_SOON
         for (Movie movie : movieListing) {
-            if (movie.getStatus() == Constant.Status.COMMING_SOON) toDisplay.add(movie);
+            if (movie.getStatus() == Constant.Status.COMING_SOON) toDisplay.add(movie);
         }
 
         // all the NOW_SHOWING

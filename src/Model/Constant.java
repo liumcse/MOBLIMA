@@ -2,7 +2,7 @@ package Model;
 
 public class Constant {
     public enum Status {
-        COMMING_SOON("Coming soon"),
+        COMING_SOON("Coming soon"),
         END_OF_SHOWING("End of showing"),
         NOW_SHOWING("Now showing");
 
@@ -47,6 +47,20 @@ public class Constant {
         @Override
         public String toString() {
             return movieType;
+        }
+    }
+
+    public enum MovieRestriction {
+        G("G"), PG("PG"), PG13("PG13"), NC16("NC16"), M18("M18"), R21("R21");
+
+        private String movieRestriction;
+        MovieRestriction(String movieRestriction) {
+            this.movieRestriction = movieRestriction;
+        }
+
+        @Override
+        public String toString() {
+            return movieRestriction;
         }
     }
 }

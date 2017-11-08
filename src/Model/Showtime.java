@@ -1,16 +1,18 @@
 package Model;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.Calendar;
+
 
 public class Showtime implements Serializable {
     // TODO date
     // TODO time
-    private String hour;
+    private Movie movie;
+    private String hour;    // TODO change this to real hour/minute instead of string
     private String minute;
     private Cinema cinema;
+    private Calendar time;
+    private Seat[] seats;
 
     // TODO modify this
     public Showtime(String hour, String minute, Cinema cinema) {
@@ -19,40 +21,28 @@ public class Showtime implements Serializable {
         this.cinema = cinema;
     }
 
-    public void displayMenu() {
-        int choice = 0;
-        Scanner sc = new Scanner(System.in);
-        while (choice != 3) {
-            System.out.println("---" + this + "---");
-            System.out.println("1. Check seat availability");
-            System.out.println("2. Book seat");
-            System.out.println("3. Go back");
-            try {
-                choice = sc.nextInt();
-                switch (choice) {
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    default:
-                        System.out.println("Invalid selection.");
-                }
-            } catch (InputMismatchException ex) {
-                System.out.println("Invalid selection.");
-                sc.nextLine();
-                continue;
-            }
-        }
+    public void setTime(Calendar time) {
+        this.time = time;
     }
 
-    public void checkSeat() {
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
+    }
 
+    public void displaySeat() {
+
+    }
+
+    public Movie getMovie() {
+        return movie;
     }
 
     public Cinema getCinema() {
         return cinema;
+    }
+
+    public Seat[] getSeats() {
+        return seats;
     }
 
     @Override

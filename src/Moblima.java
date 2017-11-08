@@ -13,7 +13,8 @@ public class Moblima {
         // initialize CineplexManager
         boolean initialized = CineplexManager.initialize();
         if (!initialized) {
-            System.out.println("Error: failed to read data, application terminating...");
+            System.out.println("Error: failed to read data, please check file integrity.");
+            System.out.println("Application terminating...");
             return;
         }
 

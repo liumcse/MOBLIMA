@@ -15,20 +15,25 @@ import Model.Constant.Status;
 
 public class Movie implements Serializable {
     private String title;
-    private Status status;
-    private String synopsis;
+    private Constant.MovieRestriction movieRestriction;
     private String director;
+    private String synopsis;
     private ArrayList<String> cast;
     private double rating;  // TODO can we delete this? put rating in Review class
+    private Status status;
     private ArrayList<Review> reviews;
 //    private ArrayList<Showtime> showtime;
 
-    public Movie(String title) {
+    public Movie() {
+        // empty constructor
+    }
+
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setMovieRestriction(Constant.MovieRestriction movieRestriction) {
+        this.movieRestriction = movieRestriction;
     }
 
     public void setSynopsis(String synopsis) {
@@ -43,6 +48,11 @@ public class Movie implements Serializable {
         this.cast = cast;
     }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+
     public String getTitle() {
         return title;
     }
@@ -51,39 +61,20 @@ public class Movie implements Serializable {
         return status;
     }
 
-    public ArrayList<Showtime> getShowtime() {
-        return CineplexManager.getMovieShowtime(this);
-    }
+//    public ArrayList<Showtime> getShowtime() {
+//        return CineplexManager.getMovieShowtime(this);
+//    }
 
     public ArrayList<Review> getReviews() {
         // TODO complete method: getReviews()
         return null;
     }
 
-    public void displayShowtime() {
-        ArrayList<Showtime> showtime = getShowtime();
-        Collections.sort(showtime, new Comparator<Showtime>() {
-            @Override
-            public int compare(Showtime o1, Showtime o2) {
-                return o1.getCinema().getCineplex().toString().compareTo(o2.getCinema().getCineplex().toString());
-            }
-        });
-
-        int index = 0;
-        for (Showtime s : showtime) System.out.println(++index + ": " + s);
-
-        System.out.println("Please choose a showtime (enter 0 to go back):");
-        Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
-        if (choice == 0) return;
-
-        showtime.get(choice - 1).displayMenu();
-    }
-
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Title: " + title + "\n");
+        stringBuilder.append(movieRestriction.toString() + "\n");
         stringBuilder.append("Director: " + director + "\n");
         stringBuilder.append("Synopsis: " + synopsis + "\n");
 

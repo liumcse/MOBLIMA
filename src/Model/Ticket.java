@@ -5,4 +5,5 @@ package Model;
  */
 
 public class Ticket {
+    private Showtime showtime;
 }

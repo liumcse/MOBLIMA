@@ -16,21 +16,15 @@ public class DataManager {
      */
 
     // TODO change to protected later
-    public static Object readSerializedObject(String filename) {
-        Object data = null;
+    public static Object readSerializedObject(String filename) throws IOException, ClassNotFoundException {
+        Object data;
         FileInputStream fileInputStream;
         ObjectInputStream objectInputStream;
 
-        try {
-            fileInputStream = new FileInputStream(filename);
-            objectInputStream = new ObjectInputStream(fileInputStream);
-            data = objectInputStream.readObject();
-            objectInputStream.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
+        fileInputStream = new FileInputStream(filename);
+        objectInputStream = new ObjectInputStream(fileInputStream);
+        data = objectInputStream.readObject();
+        objectInputStream.close();
 
         return data;
     }
@@ -42,17 +36,13 @@ public class DataManager {
      */
 
     // TODO change to protected later
-    public static void writeSerializedObject(String filename, Object data) {
+    public static void writeSerializedObject(String filename, Object data) throws IOException {
         FileOutputStream fileOutputStream;
         ObjectOutputStream objectOutputStream;
 
-        try {
-            fileOutputStream = new FileOutputStream(filename);
-            objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(data);
-            objectOutputStream.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        fileOutputStream = new FileOutputStream(filename);
+        objectOutputStream = new ObjectOutputStream(fileOutputStream);
+        objectOutputStream.writeObject(data);
+        objectOutputStream.close();
     }
 }
