@@ -1,14 +1,25 @@
 package Model;
 
-public class Seat {
+import java.io.Serializable;
+
+public class Seat implements Serializable{
     private int row;
     private int col;
+    private Showtime showtime;
     private boolean booked;
 
     public Seat(int row, int col) {
         this.row = row;
         this.col = col;
         booked = false;
+    }
+
+    public void setShowtime(Showtime showtime) {
+        this.showtime = showtime;
+    }
+
+    public Showtime getShowtime() {
+        return showtime;
     }
 
     public int getCol() {
@@ -39,4 +50,9 @@ public class Seat {
         booked = true;
     }
 
+    @Override
+    public String toString() {
+        if (!booked) return "[ ]";
+        else return "[*]";
+    }
 }

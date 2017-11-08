@@ -5,7 +5,6 @@ import Model.Movie;
 import Model.Showtime;
 
 import java.io.EOFException;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -101,24 +100,26 @@ public class CineplexManager extends DataManager {
         else return staffAccount.get(username).equals(password);  // password does not match
     }
 
-    @Deprecated
-    public static void displayMovieListing() {
-        ArrayList<Movie> toDisplay = new ArrayList<>();
 
-        // all the COMING_SOON
-        for (Movie movie : movieListing) {
-            if (movie.getStatus() == Constant.Status.COMING_SOON) toDisplay.add(movie);
-        }
 
-        // all the NOW_SHOWING
-        for (Movie movie : movieListing) {
-            if (movie.getStatus() == Constant.Status.NOW_SHOWING) toDisplay.add(movie);
-        }
-
-        for (Movie movie : toDisplay) {
-            System.out.println(movie);
-            System.out.println();
-        }
-    }
+//    @Deprecated
+//    public static void displayMovieListing() {
+//        ArrayList<Movie> toDisplay = new ArrayList<>();
+//
+//        // all the COMING_SOON
+//        for (Movie movie : movieListing) {
+//            if (movie.getStatus() == Constant.Status.COMING_SOON) toDisplay.add(movie);
+//        }
+//
+//        // all the NOW_SHOWING
+//        for (Movie movie : movieListing) {
+//            if (movie.getStatus() == Constant.Status.NOW_SHOWING) toDisplay.add(movie);
+//        }
+//
+//        for (Movie movie : toDisplay) {
+//            System.out.println(movie);
+//            System.out.println();
+//        }
+//    }
 
 }

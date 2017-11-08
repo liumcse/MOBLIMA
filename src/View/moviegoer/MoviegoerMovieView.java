@@ -2,6 +2,7 @@ package View.moviegoer;
 
 import Controller.CineplexManager;
 import Model.Movie;
+import Model.Seat;
 import Model.Showtime;
 
 import java.util.*;
@@ -151,8 +152,10 @@ public class MoviegoerMovieView {
                 choice = sc.nextInt();
                 switch (choice) {
                     case 1:
+                        displaySeat(showtime.getSeats());
                         break;
                     case 2:
+                        displayBookSeatMenu(showtime);
                         break;
                     case 3:
                         break;
@@ -164,6 +167,57 @@ public class MoviegoerMovieView {
                 sc.nextLine();
                 continue;
             }
+        }
+    }
+
+    private void displaySeat(Seat[][] seats) {
+        System.out.println("                    -------Screen------");
+        System.out.println("     1  2  3  4  5  6  7  8     9 10 11 12 13 14 15 16");
+        seats[4][3].bookSeat();
+        for (int row = 0; row <= 8; row++) {
+            System.out.print(row + 1 + "   ");
+            for (int col = 0; col <= 16; col++) {
+                if (seats[row][col] == null) System.out.print("   ");
+                else System.out.print(seats[row][col]);
+            }
+            System.out.println();
+        }
+    }
+
+    private void displayBookSeatMenu(Showtime showtime) {
+        int row, col;
+
+        System.out.println("Enter the row (1 - 9) of the seat:");
+        try {
+            row = sc.nextInt();
+        }
+        catch (InputMismatchException ex) {
+            System.out.println("Invalid input.");
+            sc.nextLine();
+            return;
+        }
+        System.out.println("Enter the column (1 - 16) of the seat: ");
+        try {
+            col = sc.nextInt();
+        }
+        catch (InputMismatchException ex) {
+            System.out.println("Invalid input.");
+            sc.nextLine();
+            return;
+        }
+
+        if (showtime.getSeatAt(row, col) == null) {
+            System.out.println("No such seat. Please choose another one.");
+            displayBookSeatMenu(showtime);
+            return;
+        }
+        else if (showtime.getSeatAt(row, col).isBooked()) {
+            System.out.println("The seat has been booked. Please choose another one.");
+            displayBookSeatMenu(showtime);
+            return;
+        }
+        else {
+            // TODO BookingManager
         }
     }
 }
