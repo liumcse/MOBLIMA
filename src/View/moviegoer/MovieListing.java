@@ -16,15 +16,15 @@ import java.util.*;
  * This is the class for movie view.
  */
 
-public class MoviegoerMovieView extends View {
-    public MoviegoerMovieView() {
+public class MovieListing extends View {
+    public MovieListing() {
 
     }
 
     @Override
     protected void start() {
-        printMenu("---Search or list movies---",
-                "1. Search movies",
+        printHeader("Search or list movies");
+        printMenu("1. Search movies",
                 "2. List all movies",
                 "3. List the top 5 movies by ticket sales",
                 "4. List the top 5 movies by overall ratings",
@@ -43,6 +43,7 @@ public class MoviegoerMovieView extends View {
                 displayMovieListing(2);
                 break;
             case 5:
+                destroy();
                 break;
         }
     }
@@ -52,7 +53,7 @@ public class MoviegoerMovieView extends View {
         if (option == 0) {  // list all movies
             movieListing = getMovieListing();
 
-            System.out.println("---Movies---");
+            printHeader("Movies");
             if (movieListing == null) {
                 System.out.println("Movie listing is not available");
                 return;
@@ -69,13 +70,13 @@ public class MoviegoerMovieView extends View {
             int choice = sc.nextInt();
 
             if (choice == index + 1) return;
-            else displayMovieDetailMenu(movieListing.get(index - 1));
+            else displayMovieDetailMenu(movieListing.get(choice - 1));
         }
     }
 
     private void displayMovieDetailMenu(Movie movie) {
-        printMenu("---Movie details---",
-                movie.toString(),
+        printHeader("Movie details");
+        printMenu(movie.toString(),
                 "1. Display showtime",
                 "2. Display reviews",
                 "3. Write reviews",
@@ -121,8 +122,8 @@ public class MoviegoerMovieView extends View {
     }
 
     private void displayShowtimeDetailMenu(Showtime showtime) {
-        printMenu("---" + showtime + "---",
-                "1. Check seat availability",
+        printHeader(showtime.toString());
+        printMenu("1. Check seat availability",
                 "2. Book seat",
                 "3. Go back");
         int choice = IOController.readChoice(1, 3);
@@ -170,27 +171,10 @@ public class MoviegoerMovieView extends View {
         else if (showtime.getSeatAt(row, col).isBooked()) {
             System.out.println("The seat has been booked. Please choose another one.");
             displayBookSeatMenu(showtime);
-            return;
         }
         else {
             // TODO BookingManager
-            displayBookingMenu(showtime.getSeatAt(row, col));
-        }
-    }
-
-    private void displayBookingMenu(Seat seat) {
-        printMenu("---Booking detail---");
-        printBookingDetail(seat);
-        printMenu("1. Proceed",
-                "2. Go back");
-        int choice = IOController.readChoice(1, 2);
-        switch (choice) {
-            case 1:
-                // TODO proceed booking
-                break;
-            case 2:
-                displayBookSeatMenu(seat.getShowtime());
-                break;
+            intent(this, new Booking(showtime.getSeatAt(row, col)));
         }
     }
 }

@@ -1,48 +1,38 @@
 package View;
 
-import View.moviegoer.MoviegoerMovieView;
-
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import View.moviegoer.BookingHistory;
+import View.moviegoer.MovieListing;
+import static Controller.IOController.*;
 
 /**
  * This is the user interface for moviegoer.
  */
 
-public class MovieGoerView {
-    Scanner sc;
+public class MovieGoerView extends View {
     public MovieGoerView() {
-        sc = new Scanner(System.in);
-        displayMenu();
+
     }
 
-    private void displayMenu() {
-        int choice = -1;
+    @Override
+    protected void start() {
+        printHeader("Movie goer");
+        printMenu("Welcome, please make a selection:",
+                "1. Search or list movies",
+                "2. View booking history",
+                "3. Go back");
 
-        while (choice != 3) {
-            System.out.println("---Moviegoer---");
-            System.out.println("Welcome, please make a selection:");
-            System.out.println("1. Search or list movies");
-            System.out.println("2. View booking history");
-            System.out.println("3. Go back");
-            try {
-                choice = sc.nextInt();
-                switch (choice) {
-                    case 1:
-                        new MoviegoerMovieView();
-                        break;
-                    case 2:
-                        // TODO
-                        break;
-                    case 3:
-                        break;
-                    default:
-                        System.out.println("Invalid selection, try again:");
-                }
-            } catch (InputMismatchException ex) {
-                System.out.println("Invalid selection, try again:");
-                sc.nextLine();  // to flush the buffer
-            }
+        int choice = readChoice(1, 3);
+
+        switch (choice) {
+            case 1:
+                intent(this, new MovieListing());
+                break;
+            case 2:
+                intent(this, new BookingHistory());
+                break;
+            case 3:
+                destroy();
+                break;
         }
     }
 }

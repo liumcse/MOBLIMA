@@ -2,12 +2,7 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
-
-import Controller.CineplexManager;
-import Model.Constant.Status;
+import Model.Constant.*;
 
 /**
  * Represent a movie with details.
@@ -15,7 +10,7 @@ import Model.Constant.Status;
 
 public class Movie implements Serializable {
     private String title;
-    private Constant.MovieRestriction movieRestriction;
+    private AgeRestriction ageRestriction;
     private String director;
     private String synopsis;
     private ArrayList<String> cast;
@@ -32,8 +27,8 @@ public class Movie implements Serializable {
         this.title = title;
     }
 
-    public void setMovieRestriction(Constant.MovieRestriction movieRestriction) {
-        this.movieRestriction = movieRestriction;
+    public void setAgeRestriction(AgeRestriction ageRestriction) {
+        this.ageRestriction = ageRestriction;
     }
 
     public void setSynopsis(String synopsis) {
@@ -61,7 +56,11 @@ public class Movie implements Serializable {
         return status;
     }
 
-//    public ArrayList<Showtime> getShowtime() {
+    public AgeRestriction getAgeRestriction() {
+        return ageRestriction;
+    }
+
+    //    public ArrayList<Showtime> getShowtime() {
 //        return CineplexManager.getMovieShowtime(this);
 //    }
 
@@ -74,7 +73,7 @@ public class Movie implements Serializable {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Title: " + title + "\n");
-        stringBuilder.append(movieRestriction.toString() + "\n");
+        stringBuilder.append(ageRestriction.toString() + "\n");
         stringBuilder.append("Director: " + director + "\n");
         stringBuilder.append("Synopsis: " + synopsis + "\n");
 

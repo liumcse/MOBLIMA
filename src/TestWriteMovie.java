@@ -1,5 +1,4 @@
 import Controller.CineplexManager;
-import Controller.DataManager;
 import Model.Constant;
 import Model.Movie;
 
@@ -8,8 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import static Model.Constant.Status.COMING_SOON;
-import static Model.Constant.Status.NOW_SHOWING;
 
 /**
  * Created by LiuMingyu on 6/11/17.
@@ -28,7 +25,7 @@ public class TestWriteMovie {
 //        sc = new Scanner(System.in);
 
         String title, director, synopsis;
-        Constant.MovieRestriction movieRestriction;
+        Constant.AgeRestriction ageRestriction;
         ArrayList<String> cast;
         Constant.Status status;
         while (sc.hasNextLine()) {
@@ -41,22 +38,22 @@ public class TestWriteMovie {
                         "G, PG, PG13, NC16, M18, R21");
                 switch (sc.nextLine().toUpperCase()) {
                     case "G":
-                        movieRestriction = Constant.MovieRestriction.G;
+                        ageRestriction = Constant.AgeRestriction.G;
                         break;
                     case "PG":
-                        movieRestriction = Constant.MovieRestriction.PG;
+                        ageRestriction = Constant.AgeRestriction.PG;
                         break;
                     case "PG13":
-                        movieRestriction = Constant.MovieRestriction.PG13;
+                        ageRestriction = Constant.AgeRestriction.PG13;
                         break;
                     case "NC16":
-                        movieRestriction = Constant.MovieRestriction.NC16;
+                        ageRestriction = Constant.AgeRestriction.NC16;
                         break;
                     case "M18":
-                        movieRestriction = Constant.MovieRestriction.M18;
+                        ageRestriction = Constant.AgeRestriction.M18;
                         break;
                     case "R21":
-                        movieRestriction = Constant.MovieRestriction.R21;
+                        ageRestriction = Constant.AgeRestriction.R21;
                         break;
                     default:
                         System.out.println("Invalid input. Try again.");
@@ -98,7 +95,7 @@ public class TestWriteMovie {
             // create movie object
             Movie movie = new Movie();
             movie.setTitle(title);
-            movie.setMovieRestriction(movieRestriction);
+            movie.setAgeRestriction(ageRestriction);
             movie.setDirector(director);
             movie.setSynopsis(synopsis);
             movie.setCast(cast);

@@ -1,4 +1,10 @@
 package View.moviegoer;
 
-public class BookingHistory {
+import View.View;
+
+public class BookingHistory extends View{
+    @Override
+    protected void start() {
+
+    }
 }

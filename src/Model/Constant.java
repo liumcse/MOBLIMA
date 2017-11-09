@@ -50,11 +50,11 @@ public class Constant {
         }
     }
 
-    public enum MovieRestriction {
+    public enum AgeRestriction {
         G("G"), PG("PG"), PG13("PG13"), NC16("NC16"), M18("M18"), R21("R21");
 
         private String movieRestriction;
-        MovieRestriction(String movieRestriction) {
+        AgeRestriction(String movieRestriction) {
             this.movieRestriction = movieRestriction;
         }
 

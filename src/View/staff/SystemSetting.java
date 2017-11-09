@@ -1,4 +1,10 @@
 package View.staff;
 
-public class SystemSetting {
+import View.View;
+
+public class SystemSetting extends View{
+    @Override
+    protected void start() {
+
+    }
 }

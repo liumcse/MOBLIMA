@@ -1,7 +1,7 @@
 package Model;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
 
 public class Showtime implements Serializable {
@@ -11,7 +11,8 @@ public class Showtime implements Serializable {
     private String hour;    // TODO change this to real hour/minute instead of string
     private String minute;
     private Cinema cinema;
-    private Calendar time;
+    private Date time;
+    private double price;
     private Seat[][] seats;
 
     private final static int COLS = 17;
@@ -28,12 +29,24 @@ public class Showtime implements Serializable {
         initializeSeat(seats);
     }
 
-    public void setTime(Calendar time) {
+    public Showtime() {
+
+    }
+
+    public void setTime(Date time) {
         this.time = time;
     }
 
     public void setCinema(Cinema cinema) {
         this.cinema = cinema;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public Movie getMovie() {
@@ -48,12 +61,20 @@ public class Showtime implements Serializable {
         return seats;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
     public Seat getSeatAt(int row, int col) {
         if (row < 1 || row > 9 || col < 1 || col > 16) return null;
 
         if (col >= 9) col++;
 
         return seats[row - 1][col - 1];
+    }
+
+    public Date getTime() {
+        return time;
     }
 
     private void initializeSeat(Seat[][] seats) {

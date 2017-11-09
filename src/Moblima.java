@@ -1,4 +1,5 @@
 import Controller.CineplexManager;
+import static Controller.IOController.*;
 import View.*;
 
 import java.util.InputMismatchException;
@@ -8,8 +9,10 @@ import java.util.Scanner;
  * Main function is here.
  */
 
-public class Moblima {
-    public static void main(String[] args) {
+public class Moblima extends View {
+
+    @Override
+    protected void start() {
         // initialize CineplexManager
         boolean initialized = CineplexManager.initialize();
         if (!initialized) {
@@ -18,34 +21,30 @@ public class Moblima {
             return;
         }
 
-        int choice = 0;
-        Scanner sc = new Scanner(System.in);
-        while (choice != 3) {
-            System.out.println("Welcome to MOBLIMA, please make a selection:");
-            System.out.println("1. I'm a moviegoer");
-            System.out.println("2. I'm a staff");
-            System.out.println("3. Exit application");
+        printHeader("MOBLIMA");
+        printMenu("Welcome to MOBLIMA, please make a selection:",
+                "1. I'm a moviegoer",
+                "2. I'm a staff",
+                "3. Exit application");
 
-            try {
-                choice = sc.nextInt();
-                switch(choice) {
-                    case 1:
-                        new MovieGoerView();
-                        break;
-                    case 2:
-                        new StaffView();
-                        break;
-                    case 3:
-                        break;
-                    default:
-                        System.out.println("Invalid selection.");
-                }
-            }
-            catch (InputMismatchException e) {
+        int choice = readChoice(1, 3);
+
+        switch(choice) {
+            case 1:
+                intent(this, new MovieGoerView());
+                break;
+            case 2:
+                intent(this, new StaffView());
+                break;
+            case 3:
+                destroy();
+                break;
+            default:
                 System.out.println("Invalid selection.");
-                sc.nextLine();  // to flush the buffer
-                continue;
-            }
         }
+    }
+
+    public static void main(String[] args) {
+        new Moblima().start();
     }
 }
