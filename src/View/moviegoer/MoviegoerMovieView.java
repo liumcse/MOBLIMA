@@ -1,9 +1,12 @@
 package View.moviegoer;
 
 import Controller.CineplexManager;
+import Controller.IOController;
 import Model.Movie;
 import Model.Seat;
 import Model.Showtime;
+
+import static Controller.IOController.*;
 
 import java.util.*;
 
@@ -21,39 +24,27 @@ public class MoviegoerMovieView {
     }
 
     private void displayMenu() {
-        int choice = -1;
-        while (choice != 5) {
-            System.out.println("---Search or list movies---");
-            System.out.println("1. Search movies");
-            System.out.println("2. List all movies");
-            System.out.println("3. List the top 5 movies by ticket sales");
-            System.out.println("4. List the top 5 movies by overall ratings");
-            System.out.println("5. Go back");
-            try {
-                choice = sc.nextInt();
-                switch (choice) {
-                    case 1:
-                        break;
-                    case 2:
-                        displayMovieListing(0);
-                        break;
-                    case 3:
-                        displayMovieListing(1);
-                        break;
-                    case 4:
-                        displayMovieListing(2);
-                        break;
-                    case 5:
-                        break;
-                    default:
-                        System.out.println("Invalid selection, try again:");
-                }
-            } catch (InputMismatchException ex) {
-                System.out.println("Invalid selection, try again:");
-                sc.nextLine();  // to flush the buffer
-            }
+        printMenu("---Search or list movies---",
+                "1. Search movies",
+                "3. List the top 5 movies by ticket sales",
+                "4. List the top 5 movies by overall ratings",
+                "5. Go back");
+        int choice = readChoice(1, 5);
+        switch (choice) {
+            case 1:
+                break;
+            case 2:
+                displayMovieListing(0);
+                break;
+            case 3:
+                displayMovieListing(1);
+                break;
+            case 4:
+                displayMovieListing(2);
+                break;
+            case 5:
+                break;
         }
-
     }
 
     private void displayMovieListing(int option) {
@@ -85,6 +76,8 @@ public class MoviegoerMovieView {
     private void displayMovieDetailMenu(Movie movie) {
         System.out.println("---Movie details---");
         System.out.println(movie);
+
+        printMenu();
 
         int choice = -1;
         while (choice != 4) {
@@ -131,8 +124,7 @@ public class MoviegoerMovieView {
         for (Showtime s : showtimeList) System.out.println(++index + ": " + s);
 
         System.out.println("Please choose a showtime (enter 0 to go back):");
-        Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
+        int choice = readChoice(1, showtimeList.size());
         if (choice == 0) return;
 
         Showtime showtime = showtimeList.get(choice - 1);
@@ -141,32 +133,21 @@ public class MoviegoerMovieView {
     }
 
     private void displayShowtimeDetailMenu(Showtime showtime) {
-        int choice = 0;
-        Scanner sc = new Scanner(System.in);
-        while (choice != 3) {
-            System.out.println("---" + showtime + "---");
-            System.out.println("1. Check seat availability");
-            System.out.println("2. Book seat");
-            System.out.println("3. Go back");
-            try {
-                choice = sc.nextInt();
-                switch (choice) {
-                    case 1:
-                        displaySeat(showtime.getSeats());
-                        break;
-                    case 2:
-                        displayBookSeatMenu(showtime);
-                        break;
-                    case 3:
-                        break;
-                    default:
-                        System.out.println("Invalid selection.");
-                }
-            } catch (InputMismatchException ex) {
-                System.out.println("Invalid selection.");
-                sc.nextLine();
-                continue;
-            }
+        printMenu("---" + showtime + "---",
+                "1. Check seat availability",
+                "2. Book seat",
+                "3. Go back");
+        int choice = IOController.readChoice(1, 3);
+        switch (choice) {
+            case 1:
+                displaySeat(showtime.getSeats());
+                break;
+            case 2:
+                displayBookSeatMenu(showtime);
+                break;
+            case 3:
+                displayShowtimeMenu(showtime.getMovie());
+                break;
         }
     }
 
@@ -188,23 +169,9 @@ public class MoviegoerMovieView {
         int row, col;
 
         System.out.println("Enter the row (1 - 9) of the seat:");
-        try {
-            row = sc.nextInt();
-        }
-        catch (InputMismatchException ex) {
-            System.out.println("Invalid input.");
-            sc.nextLine();
-            return;
-        }
-        System.out.println("Enter the column (1 - 16) of the seat: ");
-        try {
-            col = sc.nextInt();
-        }
-        catch (InputMismatchException ex) {
-            System.out.println("Invalid input.");
-            sc.nextLine();
-            return;
-        }
+        row = IOController.readChoice(1, 9);
+        System.out.println("Enter the column (1 - 16) of the seat:");
+        col = IOController.readChoice(1, 16);
 
         if (showtime.getSeatAt(row, col) == null) {
             System.out.println("No such seat. Please choose another one.");
@@ -219,5 +186,9 @@ public class MoviegoerMovieView {
         else {
             // TODO BookingManager
         }
+    }
+
+    private void displayBookingMenu(Seat seat) {
+        int choice = IOController.readChoice(0, 0);
     }
 }
