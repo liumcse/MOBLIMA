@@ -5,27 +5,27 @@ import Controller.IOController;
 import Model.Movie;
 import Model.Seat;
 import Model.Showtime;
+import View.View;
 
+import static Controller.CineplexManager.*;
 import static Controller.IOController.*;
-
 import java.util.*;
 
 /**
  * Created by LiuMingyu on 6/11/17.
- * This is the interface when user wants to see movie listing.
+ * This is the class for movie view.
  */
 
-public class MoviegoerMovieView {
-    Scanner sc;
-
+public class MoviegoerMovieView extends View {
     public MoviegoerMovieView() {
-        sc = new Scanner(System.in);
-        displayMenu();
+
     }
 
-    private void displayMenu() {
+    @Override
+    protected void start() {
         printMenu("---Search or list movies---",
                 "1. Search movies",
+                "2. List all movies",
                 "3. List the top 5 movies by ticket sales",
                 "4. List the top 5 movies by overall ratings",
                 "5. Go back");
@@ -50,7 +50,7 @@ public class MoviegoerMovieView {
     private void displayMovieListing(int option) {
         ArrayList<Movie> movieListing;
         if (option == 0) {  // list all movies
-            movieListing = CineplexManager.getMovieListing();
+            movieListing = getMovieListing();
 
             System.out.println("---Movies---");
             if (movieListing == null) {
@@ -74,40 +74,28 @@ public class MoviegoerMovieView {
     }
 
     private void displayMovieDetailMenu(Movie movie) {
-        System.out.println("---Movie details---");
-        System.out.println(movie);
+        printMenu("---Movie details---",
+                movie.toString(),
+                "1. Display showtime",
+                "2. Display reviews",
+                "3. Write reviews",
+                "4. Go back");
 
-        printMenu();
-
-        int choice = -1;
-        while (choice != 4) {
-            System.out.println("1. Display showtime");
-            System.out.println("2. Display reviews");
-            System.out.println("3. Write reviews");
-            System.out.println("4. Go back");
-            choice = sc.nextInt();
-            try {
-                switch (choice) {
-                    case 1:
-                        // TODO movie.getShowtime()
-                        displayShowtimeMenu(movie);
-                        break;
-                    case 2:
-                        // TODO movie.getReview()
-                        break;
-                    case 3:
-                        // TODO writeReview()
-                        break;
-                    case 4:
-                        break;
-                    default:
-                        System.out.println("Invalid selection, try again:");
-                        break;
-                }
-            }   catch (InputMismatchException ex) {
-                System.out.println("Invalid selection, try again:");
-                sc.nextLine();  // to flush the buffer
-            }
+        int choice = readChoice(1, 4);
+        switch (choice) {
+            case 1:
+                // TODO movie.getShowtime()
+                displayShowtimeMenu(movie);
+                break;
+            case 2:
+                // TODO movie.getReview()
+                break;
+            case 3:
+                // TODO writeReview()
+                break;
+            case 4:
+                displayMovieListing(0);
+                break;
         }
     }
 
@@ -143,6 +131,7 @@ public class MoviegoerMovieView {
                 displaySeat(showtime.getSeats());
                 break;
             case 2:
+                displaySeat(showtime.getSeats());
                 displayBookSeatMenu(showtime);
                 break;
             case 3:
@@ -185,10 +174,23 @@ public class MoviegoerMovieView {
         }
         else {
             // TODO BookingManager
+            displayBookingMenu(showtime.getSeatAt(row, col));
         }
     }
 
     private void displayBookingMenu(Seat seat) {
-        int choice = IOController.readChoice(0, 0);
+        printMenu("---Booking detail---");
+        printBookingDetail(seat);
+        printMenu("1. Proceed",
+                "2. Go back");
+        int choice = IOController.readChoice(1, 2);
+        switch (choice) {
+            case 1:
+                // TODO proceed booking
+                break;
+            case 2:
+                displayBookSeatMenu(seat.getShowtime());
+                break;
+        }
     }
 }
