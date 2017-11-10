@@ -1,16 +1,19 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Review {
+public class Review implements Serializable {
     private Date date;
     private double rating;
     private String content;
+    private Movie movie;
+    private String name;
 
     private static final double maxRating = 5;
-    private static final double minRating = 1;
+    private static final double minRating = 0;
 
-    public Review(int movieId, int rating, String content) {
+    public Review(Movie movie, double rating, String content, String name) {
         if(rating > maxRating)
             this.rating = maxRating;
         else if (rating < minRating)
@@ -18,21 +21,15 @@ public class Review {
         else
             this.rating = rating;
 
-        this.content = content;
         this.date = new Date();
+        this.content = content;
+        this.movie = movie;
+        this.name = name;
 
     }
 
-    public Review(int movieId, double rating, Date date, String content) {
-        if(rating > maxRating)
-            this.rating = maxRating;
-        else if (rating < minRating)
-            this.rating = minRating;
-        else
-            this.rating = rating;
-
-        this.date = date;
-        this.content = content;
+    public Movie getMovie() {
+        return movie;
     }
 
     public String getContent() {
@@ -43,14 +40,7 @@ public class Review {
         return rating;
     }
 
-    public String getStars() {
-        StringBuffer stars = new StringBuffer();
-        for(int i = 0; i < rating; i++)
-            stars.append("★");
-        for(int i = 0; i < maxRating-rating; i++)
-            stars.append("☆");
+    public String getName() { return name; }
 
-        return stars.toString();
-    }
 }
 
