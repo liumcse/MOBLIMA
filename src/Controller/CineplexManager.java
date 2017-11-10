@@ -167,6 +167,10 @@ public class CineplexManager extends DataManager {
         writeBookingHistory();
     }
 
+    public static void overwriteShowtime() throws IOException {
+        writeShowtime();
+    }
+
     public static void addNewReview(Movie movie, Review review) throws IOException{
         try {
             if(reviewList.get(movie) == null) reviewList.put(movie, new ArrayList<>());

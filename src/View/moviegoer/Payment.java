@@ -1,5 +1,6 @@
 package View.moviegoer;
 
+
 import Controller.CineplexManager;
 import Model.BookingHistory;
 import Model.Customer;
@@ -75,11 +76,15 @@ public class Payment extends View {
         BookingHistory record = new BookingHistory(TID, customer);
         try {
             CineplexManager.logBooking(record);
+            seat.bookSeat();
+            CineplexManager.overwriteShowtime();
             System.out.println("Payment has been made. We wish you a great day!");
         }
         catch (IOException ex) {
             ex.printStackTrace();
             System.out.println("Payment failed.");
         }
+
+        new MovieListing().start();
     }
 }

@@ -17,6 +17,7 @@ public class Movie implements Serializable {
     private double rating;  // TODO can we delete this? put rating in Review class
     private MovieStatus movieStatus;
     private ArrayList<Review> reviews;
+    private int sales;
 //    private ArrayList<ShowtimeView> showtime;
 
     public Movie() {
@@ -47,6 +48,10 @@ public class Movie implements Serializable {
         this.movieStatus = movieStatus;
     }
 
+    public void setSales(int sales) {
+        this.sales = sales;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -57,6 +62,10 @@ public class Movie implements Serializable {
 
     public AgeRestriction getAgeRestriction() {
         return ageRestriction;
+    }
+
+    public int getSales() {
+        return sales;
     }
 
     //    public ArrayList<ShowtimeView> getShowtime() {
