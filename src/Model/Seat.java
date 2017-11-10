@@ -6,7 +6,6 @@ public class Seat implements Serializable{
     private int row;
     private int col;
     private Showtime showtime;
-    private double price;
     private boolean booked;
 
     public Seat(int row, int col, Showtime showtime) {
@@ -36,20 +35,12 @@ public class Seat implements Serializable{
         return String.valueOf((char)(65+row)) + (col+1);
     }
 
-    public double getPrice() {
-        return price;
-    }
-
     public void setCol(int colNum) {
         col = colNum;
     }
 
     public void setRow(int rowNum) {
         row = rowNum;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public boolean isBooked() {

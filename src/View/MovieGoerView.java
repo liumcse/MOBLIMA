@@ -1,6 +1,6 @@
 package View;
 
-import View.moviegoer.BookingHistory;
+import View.moviegoer.BookingHistoryView;
 import View.moviegoer.MovieListing;
 import static Controller.IOController.*;
 
@@ -28,7 +28,7 @@ public class MovieGoerView extends View {
                 intent(this, new MovieListing());
                 break;
             case 2:
-                intent(this, new BookingHistory());
+                intent(this, new BookingHistoryView());
                 break;
             case 3:
                 destroy();

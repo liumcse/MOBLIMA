@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.BookingHistory;
 import Model.Cinema;
 import Model.Movie;
 import Model.Showtime;
@@ -18,11 +19,13 @@ public class CineplexManager extends DataManager {
     private static final String FILENAME_SHOWTIME = "res/data/showtime.dat";  // location of showtime.dat
     private static final String FILENAME_STAFFACCOUNT = "res/data/staffAccount.dat";  // location of staffAccount.dat
     private static final String FILENAME_CINEMALIST = "res/data/cinemaList.dat";  // location of cinema.dat
+    private static final String FILENAME_BOOKINGHISTORY = "res/data/bookingHistory.dat";  // location of cinema.dat
 
     private static ArrayList<Movie> movieListing;
     private static HashMap<Movie, ArrayList<Showtime>> movieShowtime;
     private static HashMap<Cineplex, ArrayList<Cinema>> cinemaList;
     private static HashMap<String, String> staffAccount;
+    private static ArrayList<BookingHistory> bookingHistory;
 
     public CineplexManager() {
         /**
@@ -38,16 +41,20 @@ public class CineplexManager extends DataManager {
         movieListing = new ArrayList<>();
         movieShowtime = new HashMap<>();
         staffAccount = new HashMap<>();
+        cinemaList = new HashMap<>();
+        bookingHistory = new ArrayList<>();
 
         try {
             readMovieListing();
             readMovieShowtime();
             readStaffAccount();
             readCinemaList();
+            readBookingHistory();
             return true;
         } catch (EOFException ex) {
             return true;
         } catch (IOException ex) {
+            ex.printStackTrace();
             return false;
         } catch (ClassNotFoundException ex) {
             return true;
@@ -82,6 +89,11 @@ public class CineplexManager extends DataManager {
         else cinemaList = (HashMap<Cineplex, ArrayList<Cinema>>) readSerializedObject(FILENAME_CINEMALIST);
     }
 
+    private static void readBookingHistory() throws IOException, ClassNotFoundException {
+        if (readSerializedObject(FILENAME_BOOKINGHISTORY) == null) bookingHistory = null;
+        else bookingHistory = (ArrayList<BookingHistory>) readSerializedObject(FILENAME_BOOKINGHISTORY);
+    }
+
     private static void writeMovieListing() throws IOException {
         writeSerializedObject(FILENAME_MOVIE, movieListing);
     }
@@ -92,6 +104,10 @@ public class CineplexManager extends DataManager {
 
     private static void writeCinemaList() throws IOException {
         writeSerializedObject(FILENAME_CINEMALIST, cinemaList);
+    }
+
+    private static void writeBookingHistory() throws IOException {
+        writeSerializedObject(FILENAME_BOOKINGHISTORY, bookingHistory);
     }
 
     public static ArrayList<Movie> getMovieListing() {
@@ -106,9 +122,14 @@ public class CineplexManager extends DataManager {
         return cinemaList.get(cinplex);
     }
 
+    public static ArrayList<BookingHistory> getBookingHistory() {
+        return bookingHistory;
+    }
+
     // TODO make it efficient
     public static Cinema getCinemaByCode(String code) {
         for (Cineplex cineplex : Cineplex.values()) {
+            if (getCinemaList(cineplex) == null) continue;
             for (Cinema cinema : getCinemaList(cineplex)) {
                 if (cinema.getCode().equals(code)) return cinema;
             }
@@ -119,6 +140,17 @@ public class CineplexManager extends DataManager {
     public static void addNewListing(Movie movie) throws IOException{
         movieListing.add(movie);
         writeMovieListing();
+    }
+
+    public static void addShowtime(Movie movie, Showtime showtime) throws IOException {
+        if (movieShowtime.get(movie) == null) movieShowtime.put(movie, new ArrayList<>());
+        movieShowtime.get(movie).add(showtime);
+        writeShowtime();
+    }
+
+    public static void logBooking(BookingHistory record) throws IOException {
+        bookingHistory.add(record);
+        writeBookingHistory();
     }
 
     // TODO redundant?

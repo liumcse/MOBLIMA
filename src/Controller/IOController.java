@@ -3,6 +3,11 @@ package Controller;
 import Model.*;
 import Model.Constant.*;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -65,6 +70,18 @@ public class IOController {
         }
     }
 
+    public static Date readTime(String... message) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-DD kk:mm");
+        try {
+            String input = readString(message);
+            Date date = simpleDateFormat.parse(input);
+            return date;
+        } catch (ParseException ex) {
+            System.out.println("Wrong format. Try again.");
+            return readTime(message);
+        }
+    }
+
     public static boolean askConfirm(String... message) {
         for (String m : message) System.out.println(m);
         Scanner sc = new Scanner(System.in);
@@ -79,7 +96,7 @@ public class IOController {
     }
 
     public static void printHeader(String header) {
-        int length = 30;
+        int length = 35;
         for (int i = 0; i < length; i++) System.out.print("-");
         System.out.println();
 
@@ -93,19 +110,15 @@ public class IOController {
         System.out.println();
     }
 
-    public static void printBookingDetail(Seat seat) {
-        Showtime showtime = seat.getShowtime();
-        Movie movie = showtime.getMovie();
-        Cinema cinema = showtime.getCinema();
+    public static String formatTime(Date time) {
+        return new SimpleDateFormat("MM-DD kk:mm").format(time).toString();
+    }
 
-        System.out.println(movie.getTitle() + " (" + cinema.getMovieType() + ")");
-        if (cinema.isPlatinum()) {
-            System.out.println("Platinum cinema");
-        }
-        System.out.println(movie.getAgeRestriction());
-        System.out.println("Showing on " + showtime.getTime());  // TODO format getTime()
-        System.out.println(cinema);   // TODO format getCinema()
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
 
-        System.out.println();
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }

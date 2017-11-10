@@ -1,5 +1,6 @@
 package View.staff;
 
+import Controller.CineplexManager;
 import Model.*;
 import View.View;
 
@@ -7,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 
 import static Controller.CineplexManager.getCinemaByCode;
 import static Controller.CineplexManager.getMovieShowtime;
@@ -92,13 +94,30 @@ public class ShowtimeView extends View {
 
         // get cinema
         String input = readString("Enter cinema code (enter \"help\" to look up cinema code)");
-        if (input.equals("help")) intent(this, new CinemaList());
+        if (input.equals("help")) {
+            intent(this, new CinemaList());
+            return;
+        }
         else cinema = getCinemaByCode(input);  // TODO may get null
 
         // get time
-        String time = readString("Enter time for the show (format: yyyy-MM-dd-HH-mm)");
+        Date time = readTime("Enter the time for the show",
+                "Format: MM-DD HH:MM (e.g. 12-25 09:30)");
 
+        // create showtime object
+        Showtime showtime = new Showtime();
+        showtime.setMovie(movie);
+        showtime.setCinema(cinema);
+        showtime.setTime(time);
 
-
+        try {
+            CineplexManager.addShowtime(movie, showtime);
+            System.out.println("Successfully added showtime.");
+        } catch (IOException ex) {
+            System.out.println("Failed to add showtime");
+        }
+        finally {
+            displayMenu();
+        }
     }
 }

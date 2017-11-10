@@ -22,15 +22,21 @@ public class TestWriteShowtime {
 
             HashMap<Movie, ArrayList<Showtime>> movieShowtime = new HashMap<>();
 
-            SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat ft = new SimpleDateFormat("MM-DD kk:mm");
 
             for (Movie movie : movieArrayList) {
                 System.out.println(movie.getTitle() + ": input showtime");
                 ArrayList<Showtime> tempArrayList = new ArrayList<>();
-                Showtime tempShowtime1 = new Showtime("09", "30", new Cinema(Cineplex.TheCathay, true, MovieType.ThreeD, "abc"));
-                Showtime tempShowtime2 = new Showtime("18", "30", new Cinema(Cineplex.TheCathay, true, MovieType.ThreeD, "sd"));
+                Showtime tempShowtime1 = new Showtime();
+                Showtime tempShowtime2 = new Showtime();
 
-                Date time = ft.parse("2017-01-09");
+                Date time = ft.parse("01-09 18:30");
+
+                tempShowtime1.setMovie(movie);
+                tempShowtime2.setMovie(movie);
+                tempShowtime1.setCinema(new Cinema(Cineplex.TheCathay, true, MovieType.ThreeD, "ACS", 10));
+                tempShowtime2.setCinema(new Cinema(Cineplex.TheCathay, true, MovieType.ThreeD, "ACS", 10));
+
 
                 tempShowtime1.setTime(time);
                 tempShowtime2.setTime(time);

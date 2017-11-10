@@ -1,5 +1,7 @@
 package Model;
 
+import static Controller.IOController.*;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,8 +10,6 @@ public class Showtime implements Serializable {
     // TODO date
     // TODO time
     private Movie movie;
-    private String hour;    // TODO change this to real hour/minute instead of string
-    private String minute;
     private Cinema cinema;
     private Date time;
 //    private double price;     // price should be in somewhere else
@@ -19,18 +19,9 @@ public class Showtime implements Serializable {
     private final static int ROWS = 9;
 
     // TODO modify this
-    public Showtime(String hour, String minute, Cinema cinema) {
-        this.hour = hour;
-        this.minute = minute;
-        this.cinema = cinema;
-
-        seats = new Seat[ROWS][COLS];
-
-        initializeSeat(seats);
-    }
-
     public Showtime() {
-
+        seats = new Seat[ROWS][COLS];
+        initializeSeat(seats);
     }
 
     public void setTime(Date time) {
@@ -105,8 +96,9 @@ public class Showtime implements Serializable {
     }
 
 
+
     @Override
     public String toString() {
-        return cinema.getCineplex().toString() + ": " +time.toString();
+        return cinema.getCineplex().toString() + ": " + formatTime(time);
     }
 }
