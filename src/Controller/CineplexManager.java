@@ -1,8 +1,10 @@
 package Controller;
 
-import Model.Constant;
+import Model.Cinema;
 import Model.Movie;
 import Model.Showtime;
+import static Model.Constant.*;
+
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -12,12 +14,14 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 public class CineplexManager extends DataManager {
-    private static final String FILENAME_MOVIE = "res/data/movie.dat";  // location of movie.dat
+    private static final String FILENAME_MOVIE = "res/data/movieListing.dat";  // location of movie.dat
     private static final String FILENAME_SHOWTIME = "res/data/showtime.dat";  // location of showtime.dat
     private static final String FILENAME_STAFFACCOUNT = "res/data/staffAccount.dat";  // location of staffAccount.dat
+    private static final String FILENAME_CINEMALIST = "res/data/cinemaList.dat";  // location of cinema.dat
 
     private static ArrayList<Movie> movieListing;
     private static HashMap<Movie, ArrayList<Showtime>> movieShowtime;
+    private static HashMap<Cineplex, ArrayList<Cinema>> cinemaList;
     private static HashMap<String, String> staffAccount;
 
     public CineplexManager() {
@@ -39,6 +43,7 @@ public class CineplexManager extends DataManager {
             readMovieListing();
             readMovieShowtime();
             readStaffAccount();
+            readCinemaList();
             return true;
         } catch (EOFException ex) {
             return true;
@@ -50,7 +55,6 @@ public class CineplexManager extends DataManager {
     }
 
 
-
     private static void readMovieListing() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_MOVIE) == null) movieListing = null;
         else {
@@ -58,7 +62,7 @@ public class CineplexManager extends DataManager {
             Collections.sort(movieListing, new Comparator<Movie>() {  // sort listing by movie status
                 @Override
                 public int compare(Movie o1, Movie o2) {
-                    return o1.getStatus().toString().compareTo(o2.getStatus().toString());
+                    return o1.getMovieStatus().toString().compareTo(o2.getMovieStatus().toString());
                 }
             });
         }
@@ -73,16 +77,43 @@ public class CineplexManager extends DataManager {
         else staffAccount = (HashMap<String, String>) readSerializedObject(FILENAME_STAFFACCOUNT);
     }
 
+    private static void readCinemaList() throws IOException, ClassNotFoundException {
+        if (readSerializedObject(FILENAME_CINEMALIST) == null) cinemaList = null;
+        else cinemaList = (HashMap<Cineplex, ArrayList<Cinema>>) readSerializedObject(FILENAME_CINEMALIST);
+    }
+
     private static void writeMovieListing() throws IOException {
-        DataManager.writeSerializedObject(FILENAME_MOVIE, movieListing);
+        writeSerializedObject(FILENAME_MOVIE, movieListing);
+    }
+
+    private static void writeShowtime() throws IOException {
+        writeSerializedObject(FILENAME_SHOWTIME, movieShowtime);
+    }
+
+    private static void writeCinemaList() throws IOException {
+        writeSerializedObject(FILENAME_CINEMALIST, cinemaList);
     }
 
     public static ArrayList<Movie> getMovieListing() {
         return movieListing;
     }
 
-    public static ArrayList<Showtime> getMovieShowtime(Movie m) {
-        return movieShowtime.get(m);
+    public static ArrayList<Showtime> getMovieShowtime(Movie movie) {
+        return movieShowtime.get(movie);
+    }
+
+    public static ArrayList<Cinema> getCinemaList(Cineplex cinplex) {
+        return cinemaList.get(cinplex);
+    }
+
+    // TODO make it efficient
+    public static Cinema getCinemaByCode(String code) {
+        for (Cineplex cineplex : Cineplex.values()) {
+            for (Cinema cinema : getCinemaList(cineplex)) {
+                if (cinema.getCode().equals(code)) return cinema;
+            }
+        }
+        return null;  // not found
     }
 
     public static void addNewListing(Movie movie) throws IOException{
@@ -90,36 +121,24 @@ public class CineplexManager extends DataManager {
         writeMovieListing();
     }
 
-    public static void removeListing(Movie movie) throws IOException{
-        movieListing.get(movieListing.indexOf(movie)).setStatus(Constant.Status.END_OF_SHOWING);
+    // TODO redundant?
+    public static void overwriteListing() throws IOException {
         writeMovieListing();
+    }
+
+    public static void removeListing(Movie movie) throws IOException {
+        movie.setMovieStatus(MovieStatus.END_OF_SHOWING);
+        writeMovieListing();
+    }
+
+    public static void removeShowtime(Showtime showtime) throws IOException {
+        movieShowtime.get(showtime.getMovie()).remove(showtime);
+        writeShowtime();
     }
 
     public static boolean authentication (String username, String password) {
         if (staffAccount.get(username) == null) return false;  // username does not exist
         else return staffAccount.get(username).equals(password);  // password does not match
     }
-
-
-
-//    @Deprecated
-//    public static void displayMovieListing() {
-//        ArrayList<Movie> toDisplay = new ArrayList<>();
-//
-//        // all the COMING_SOON
-//        for (Movie movie : movieListing) {
-//            if (movie.getStatus() == Constant.Status.COMING_SOON) toDisplay.add(movie);
-//        }
-//
-//        // all the NOW_SHOWING
-//        for (Movie movie : movieListing) {
-//            if (movie.getStatus() == Constant.Status.NOW_SHOWING) toDisplay.add(movie);
-//        }
-//
-//        for (Movie movie : toDisplay) {
-//            System.out.println(movie);
-//            System.out.println();
-//        }
-//    }
 
 }

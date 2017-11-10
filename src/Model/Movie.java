@@ -15,9 +15,9 @@ public class Movie implements Serializable {
     private String synopsis;
     private ArrayList<String> cast;
     private double rating;  // TODO can we delete this? put rating in Review class
-    private Status status;
+    private MovieStatus movieStatus;
     private ArrayList<Review> reviews;
-//    private ArrayList<Showtime> showtime;
+//    private ArrayList<ShowtimeView> showtime;
 
     public Movie() {
         // empty constructor
@@ -43,24 +43,23 @@ public class Movie implements Serializable {
         this.cast = cast;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setMovieStatus(MovieStatus movieStatus) {
+        this.movieStatus = movieStatus;
     }
-
 
     public String getTitle() {
         return title;
     }
 
-    public Status getStatus() {
-        return status;
+    public MovieStatus getMovieStatus() {
+        return movieStatus;
     }
 
     public AgeRestriction getAgeRestriction() {
         return ageRestriction;
     }
 
-    //    public ArrayList<Showtime> getShowtime() {
+    //    public ArrayList<ShowtimeView> getShowtime() {
 //        return CineplexManager.getMovieShowtime(this);
 //    }
 
@@ -72,7 +71,7 @@ public class Movie implements Serializable {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Title: " + title + "\n");
+        stringBuilder.append(getTitle() + "\n");
         stringBuilder.append(ageRestriction.toString() + "\n");
         stringBuilder.append("Director: " + director + "\n");
         stringBuilder.append("Synopsis: " + synopsis + "\n");
@@ -83,7 +82,7 @@ public class Movie implements Serializable {
 
         stringBuilder.append("Rating: " + getRating() + "\n");
 
-        stringBuilder.append("Status: " + status.toString() + "\n");
+        stringBuilder.append("MovieStatus: " + movieStatus.toString() + "\n");
 
         return stringBuilder.toString();
     }

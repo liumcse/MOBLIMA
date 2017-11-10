@@ -16,7 +16,7 @@ public class TestWriteShowtime {
         try {
             CineplexManager.initialize();
 
-            ArrayList<Movie> movieArrayList = (ArrayList<Movie>) DataManager.readSerializedObject("res/data/movie.dat");
+            ArrayList<Movie> movieArrayList = (ArrayList<Movie>) DataManager.readSerializedObject("res/data/movieListing.dat");
 
             for (Movie movie : movieArrayList) System.out.println(movie);
 

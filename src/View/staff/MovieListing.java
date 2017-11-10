@@ -2,18 +2,14 @@ package View.staff;
 
 import Model.Constant.*;
 import Model.Movie;
-import Model.Showtime;
 import View.View;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 import static Controller.CineplexManager.*;
 import static Controller.IOController.*;
-import static Model.Constant.AgeRestriction.*;
-import static Model.Constant.Status.*;
+import static Model.Constant.MovieStatus.*;
 
 
 public class MovieListing extends View {
@@ -30,63 +26,39 @@ public class MovieListing extends View {
         int index = 0;
         printHeader("Modify movie listing");
         for (Movie movie : movieListing) {
-            System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getStatus().toString() + ")");
+            System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ")");
         }
         System.out.println(index + 1 + ". Go back");
 
         printMenu("Please choose a movie to modify.",
-                "To list a new movie, enter 0.");
+                "To list a new movie, enter 0:");
 
         int choice = readChoice(0, index + 1);
 
         if (choice == index + 1) destroy();
         else if (choice == 0) {
-            listNewMovie();
+            addMovieListing();
         }
         else displayMovieDetailMenu(movieListing.get(choice - 1));
     }
 
-    private void listNewMovie() {
+    private void addMovieListing() {
         String title, director, synopsis;
-        AgeRestriction ageRestriction;
+        AgeRestriction ageRestriction = null;
         ArrayList<String> cast;
-        Status status;
+        MovieStatus movieStatus = null;
 
-        printHeader("List new movie");
+        printHeader("Add movie listing");
         title = readString("Enter the title:");
 
         // set age restriction
-        String input = readString("Choose the movie restriction, please enter one of the following:",
-                "G, PG, PG13, NC16, M18, R21").toUpperCase();
-        while (true) {
-            switch (input) {
-                case "G":
-                    ageRestriction = G;
-                    break;
-                case "PG":
-                    ageRestriction = PG;
-                    break;
-                case "PG13":
-                    ageRestriction = PG13;
-                    break;
-                case "NC16":
-                    ageRestriction = NC16;
-                    break;
-                case "M18":
-                    ageRestriction = M18;
-                    break;
-                case "R21":
-                    ageRestriction = R21;
-                    break;
-                default:
-                    System.out.println("Invalid input. Try again.");
-                    input = readString().toUpperCase();
-                    continue;
-            }
-            break;  // exit loop
+        while (ageRestriction == null) {
+            String input = readString("Choose the movie restriction, please enter one of the following:",
+                    "G, PG, PG13, NC16, M18, R21").toUpperCase();
+            ageRestriction = readAgeRestriction(input);
         }
 
-        director = readString("Enter director");
+        director = readString("Enter director:");
         synopsis = readString("Enter synopsis:");
 
         // set casts
@@ -94,26 +66,11 @@ public class MovieListing extends View {
         cast = new ArrayList<>();
         for (int i = 0; i < castArray.length; i++) cast.add(castArray[i]);
 
-        // set movie status
-        input = readString("Enter movie status, please enter one of the following:",
-                "Coming soon, Now showing, End of showing").toUpperCase();
-        while (true) {
-            switch (input) {
-                case "COMING SOON":
-                    status = COMING_SOON;
-                    break;
-                case "NOW SHOWING":
-                    status = NOW_SHOWING;
-                    break;
-                case "END OF SHOWING":
-                    status = END_OF_SHOWING;
-                default:
-                    System.out.println("Invalid input. Try again.");
-                    input = readString("Enter movie status, please enter one of the following:",
-                            "Coming soon, Now showing, End of showing").toUpperCase();
-                    continue;
-            }
-            break;
+        // set movie movieStatus
+        while(movieStatus == null) {
+            String input = readString("Enter movie movieStatus, please enter one of the following:",
+                    "Coming soon, Now showing, End of showing").toUpperCase();
+            movieStatus = readMovieStatus(input);
         }
 
         // create movie object
@@ -123,7 +80,7 @@ public class MovieListing extends View {
         movie.setDirector(director);
         movie.setSynopsis(synopsis);
         movie.setCast(cast);
-        movie.setStatus(status);
+        movie.setMovieStatus(movieStatus);
 
         // write to file
         try {
@@ -139,48 +96,132 @@ public class MovieListing extends View {
     }
 
     private void displayMovieDetailMenu(Movie movie) {
-        // TODO bug here, what is there's no showtime?
-        ArrayList<Showtime> showtimeList = getMovieShowtime(movie);
-        Collections.sort(showtimeList, new Comparator<Showtime>() {
-            @Override
-            public int compare(Showtime o1, Showtime o2) {
-                return o1.getCinema().getCineplex().toString().compareTo(o2.getCinema().getCineplex().toString());
-            }
-        });
+        printHeader("Movie details");
+        printMenu(movie.toString(),
+                "1. Update movie details",
+                "2. Remove the listing",
+                "3. Add/drop showtime",
+                "4. Go back");
 
-        int index = 0;
-        for (Showtime s : showtimeList) System.out.println(++index + ": " + s);
-
-        printMenu("Please choose a showtime (enter 0 to go back):");
-        int choice = readChoice(0, index + 1);
-        if (choice == 0) start();
-        else {
-            Showtime showtime = showtimeList.get(choice - 1);
-            displayShowtimeDetailMenu(showtime);
-        }
-    }
-
-    private void displayShowtimeDetailMenu(Showtime showtime) {
-        printHeader(showtime.toString());
-        printMenu("1. Set cineplex",
-                "2. Set cinema",
-                "3. Set date and time",
-                "4. Set ticket price",
-                "5. Go back");
-
-        int choice = readChoice(1, 5);
+        int choice = readChoice(1, 4);
         switch (choice) {
             case 1:
+                updateMovieDetailsMenu(movie);
                 break;
             case 2:
+                removeListingMenu(movie);
                 break;
             case 3:
+               intent(this, new ShowtimeView(movie));
                 break;
             case 4:
-                break;
-            case 5:
-                displayMovieDetailMenu(showtime.getMovie());
-                break;
+                start();
         }
     }
+
+    private void updateMovieDetailsMenu(Movie movie) {
+        printHeader("Modify movie details");
+        printMenu("1. Change title",
+                "2. Change age restriction",
+                "3. Change director",
+                "4. Change synopsis",
+                "5. Change casts",
+                "6. Switch status",
+                "7. Apply changes",
+                "8. Go back");
+
+        boolean changed = false;
+        int choice = -1;
+        while (choice != 8) {
+            choice = readChoice(1, 8);
+            switch (choice) {
+                case 1:
+                    movie.setTitle(readString("Enter the title:"));
+                    changed = true;
+                    System.out.println("Title changed. Please make another selection.");
+                    break;
+                case 2:
+                    AgeRestriction ageRestriction = null;
+                    while (ageRestriction == null) {
+                        String input = readString("Choose the movie restriction, please enter one of the following:",
+                                "G, PG, PG13, NC16, M18, R21").toUpperCase();
+                        ageRestriction = readAgeRestriction(input);
+                    }
+                    movie.setAgeRestriction(ageRestriction);
+                    changed = true;
+                    System.out.println("Age restriction changed. Apply changes or make another selection.");
+                    break;
+                case 3:
+                    movie.setDirector(readString("Enter director:"));
+                    changed = true;
+                    System.out.println("Director changed. Apply changes or make another selection.");
+                    break;
+                case 4:
+                    movie.setSynopsis(readString("Enter synopsis"));
+                    changed = true;
+                    System.out.println("Synopsis changed. Apply changes or make another selection.");
+                    break;
+                case 5:
+                    String[] castArray = readString("Enter casts, separate with semicolon(;)").split(";");
+                    ArrayList<String> cast = new ArrayList<>();
+                    for (int i = 0; i < castArray.length; i++) cast.add(castArray[i]);
+                    movie.setCast(cast);
+                    changed = true;
+                    System.out.println("Casts changed. Apply changes or make another selection.");
+                    break;
+                case 6:
+                    if (movie.getMovieStatus().equals(NOW_SHOWING)) {
+                        if (askConfirm("Are you sure to change the movie status to Coming Soon?",
+                                "Enter Y to confirm, N to cancel:")) {
+                            movie.setMovieStatus(COMING_SOON);
+                        }
+                    } else {
+                        if (askConfirm("Are you sure to change the movie status to Now showing?",
+                                "Enter Y to confirm, N to cancel:")) {
+                            movie.setMovieStatus(NOW_SHOWING);
+                        }
+                    }
+                    changed = true;
+                    System.out.println("Movie status changed. Apply changes or make another selection.");
+                    break;
+                case 7:
+                    try {
+                        overwriteListing();
+                        System.out.println("Changes have been applied. Go back or make another selection.");
+                        changed = false;
+                    } catch (IOException ex) {
+                        System.out.println("Failed to apply changes.");
+                    }
+                    break;
+                case 8:
+                    if (changed) {
+                        if (askConfirm("Changes haven't been applied. Are you sure to go back?",
+                                "Enter Y to discard changes, N to remain:")) {
+                            break;
+                        }
+                        else {
+                            System.out.println("Please enter your selection.");
+                            continue;
+                        }
+                    }
+                    break;
+            }
+        }
+        displayMovieDetailMenu(movie);
+    }
+
+    private void removeListingMenu(Movie movie) {
+        if (askConfirm("Are you sure to remove the listing?",
+                "Enter Y to confirm, N to cancel:")) {
+            try {
+                removeListing(movie);
+                System.out.println("The listing has been removed.");
+            } catch (IOException ex) {
+                System.out.println("Failed to remove listing");
+            }
+        }
+
+        start();
+    }
+
 }

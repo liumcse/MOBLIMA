@@ -27,7 +27,7 @@ public class TestWriteMovie {
         String title, director, synopsis;
         Constant.AgeRestriction ageRestriction;
         ArrayList<String> cast;
-        Constant.Status status;
+        Constant.MovieStatus movieStatus;
         while (sc.hasNextLine()) {
             System.out.println("---List new movie---");
             System.out.println("Enter the title:");
@@ -74,17 +74,17 @@ public class TestWriteMovie {
             for (int i = 0; i < castArray.length; i++) cast.add(castArray[i]);
 
             while (true) {
-                System.out.println("Enter movie status, please enter one of the following:\n" +
+                System.out.println("Enter movie movieStatus, please enter one of the following:\n" +
                         "Coming soon, Now showing, End of showing");
                 switch (sc.nextLine().toLowerCase()) {
                     case "coming soon":
-                        status = Constant.Status.COMING_SOON;
+                        movieStatus = Constant.MovieStatus.COMING_SOON;
                         break;
                     case "now showing":
-                        status = Constant.Status.NOW_SHOWING;
+                        movieStatus = Constant.MovieStatus.NOW_SHOWING;
                         break;
                     case "end of showing":
-                        status = Constant.Status.END_OF_SHOWING;
+                        movieStatus = Constant.MovieStatus.END_OF_SHOWING;
                     default:
                         System.out.println("Invalid input. Try again.");
                         continue;
@@ -99,7 +99,7 @@ public class TestWriteMovie {
             movie.setDirector(director);
             movie.setSynopsis(synopsis);
             movie.setCast(cast);
-            movie.setStatus(status);
+            movie.setMovieStatus(movieStatus);
 
             // write to file
             try {

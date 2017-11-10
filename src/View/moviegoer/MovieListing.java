@@ -62,7 +62,7 @@ public class MovieListing extends View {
             int index = 0;
 
             for (Movie movie : movieListing) {
-                System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getStatus().toString() + ")");
+                System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ")");
             }
             System.out.println(index + 1 + ". Go back");
 
@@ -89,6 +89,7 @@ public class MovieListing extends View {
                 displayShowtimeMenu(movie);
                 break;
             case 2:
+
                 // TODO movie.getReview()
                 break;
             case 3:
@@ -101,6 +102,7 @@ public class MovieListing extends View {
     }
 
     private void displayShowtimeMenu(Movie movie) {
+        printHeader("ShowtimeView");
         ArrayList<Showtime> showtimeList = CineplexManager.getMovieShowtime(movie);
         Collections.sort(showtimeList, new Comparator<Showtime>() {
             @Override
@@ -140,6 +142,7 @@ public class MovieListing extends View {
                 break;
         }
     }
+
 
     private void displaySeat(Seat[][] seats) {
         System.out.println("                    -------Screen------");

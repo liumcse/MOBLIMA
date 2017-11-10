@@ -1,13 +1,13 @@
 package Model;
 
 public class Constant {
-    public enum Status {
+    public enum MovieStatus {
         COMING_SOON("Coming soon"),
         END_OF_SHOWING("End of showing"),
         NOW_SHOWING("Now showing");
 
         private String status;
-        Status(String status) {
+        MovieStatus(String status) {
             this.status = status;
         }
 

@@ -1,9 +1,7 @@
 package Controller;
 
-import Model.Cinema;
-import Model.Movie;
-import Model.Seat;
-import Model.Showtime;
+import Model.*;
+import Model.Constant.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -33,6 +31,45 @@ public class IOController {
         for (String m : message) System.out.println(m);
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
+    }
+
+    public static AgeRestriction readAgeRestriction(String input) {
+        switch (input.toUpperCase()) {
+            case "G":
+                return AgeRestriction.G;
+            case "PG":
+                return AgeRestriction.PG;
+            case "PG13":
+                return AgeRestriction.PG13;
+            case "NC16":
+                return AgeRestriction.NC16;
+            case "M18":
+                return AgeRestriction.M18;
+            case "R21":
+                return AgeRestriction.R21;
+            default:
+                return null;
+        }
+    }
+
+    public static MovieStatus readMovieStatus(String input) {
+        switch (input.toUpperCase()) {
+            case "COMING SOON":
+                return MovieStatus.COMING_SOON;
+            case "NOW SHOWING":
+                return MovieStatus.NOW_SHOWING;
+            case "END OF SHOWING":
+                return MovieStatus.END_OF_SHOWING;
+            default:
+                return null;
+        }
+    }
+
+    public static boolean askConfirm(String... message) {
+        for (String m : message) System.out.println(m);
+        Scanner sc = new Scanner(System.in);
+        if (sc.nextLine().toUpperCase().equals("Y")) return true;
+        else return false;
     }
 
     public static void printMenu(String... menu) {

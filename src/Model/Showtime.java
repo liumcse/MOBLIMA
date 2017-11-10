@@ -12,7 +12,7 @@ public class Showtime implements Serializable {
     private String minute;
     private Cinema cinema;
     private Date time;
-    private double price;
+//    private double price;     // price should be in somewhere else
     private Seat[][] seats;
 
     private final static int COLS = 17;
@@ -45,9 +45,9 @@ public class Showtime implements Serializable {
         this.movie = movie;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
+//    public void setPrice(double price) {
+//        this.price = price;
+//    }
 
     public Movie getMovie() {
         return movie;
@@ -61,9 +61,9 @@ public class Showtime implements Serializable {
         return seats;
     }
 
-    public double getPrice() {
-        return price;
-    }
+//    public double getPrice() {
+//        return price;
+//    }
 
     public Seat getSeatAt(int row, int col) {
         if (row < 1 || row > 9 || col < 1 || col > 16) return null;
@@ -98,8 +98,15 @@ public class Showtime implements Serializable {
         }
     }
 
+    public String getDetails() {
+        return "Cineplex: " + cinema.getCineplex() + "\n" +
+                "Cinema: " + cinema.toString() + "\n" +
+                "Time: " + time.toString() + "\n";
+    }
+
+
     @Override
     public String toString() {
-        return cinema.getCineplex().toString() + ": " + hour + minute;
+        return cinema.getCineplex().toString() + ": " +time.toString();
     }
 }

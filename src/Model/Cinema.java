@@ -24,12 +24,31 @@ public class Cinema implements Serializable {
         return movieType;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cinema cinema = (Cinema) o;
+
+        return code.equals(cinema.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
+    }
+
     public boolean isPlatinum() {
         return isPlatinum;
     }
 
     public Cineplex getCineplex() {
         return cineplex;
+    }
+
+    public String getCode() {
+        return code;
     }
 
     @Override

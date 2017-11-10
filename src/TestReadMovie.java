@@ -12,7 +12,7 @@ public class TestReadMovie {
         DataManager dataManager = new DataManager();
         ArrayList<Movie> arrayList = new ArrayList<>();
         try {
-            arrayList = (ArrayList) dataManager.readSerializedObject("res/data/movie.dat");
+            arrayList = (ArrayList) dataManager.readSerializedObject("res/data/movieListing.dat");
 
             for (Movie movie : arrayList) System.out.println(movie);
         } catch (Exception ex) {
