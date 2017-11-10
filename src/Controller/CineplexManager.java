@@ -1,9 +1,7 @@
 package Controller;
 
-import Model.BookingHistory;
-import Model.Cinema;
-import Model.Movie;
-import Model.Showtime;
+import Model.*;
+
 import static Model.Constant.*;
 
 
@@ -18,7 +16,8 @@ public class CineplexManager extends DataManager {
     private static final String FILENAME_MOVIE = "res/data/movieListing.dat";  // location of movie.dat
     private static final String FILENAME_SHOWTIME = "res/data/showtime.dat";  // location of showtime.dat
     private static final String FILENAME_STAFFACCOUNT = "res/data/staffAccount.dat";  // location of staffAccount.dat
-    private static final String FILENAME_CINEMALIST = "res/data/cinemaList.dat";  // location of cinema.dat
+    private static final String FILENAME_CINEMALIST = "res/data/cinemaList.dat";  // location of cinemaList.dat
+    private static final String FILENAME_REVIEWLIST = "res/data/reviewList.dat"; //location of reviewList.dat
     private static final String FILENAME_BOOKINGHISTORY = "res/data/bookingHistory.dat";  // location of cinema.dat
 
     private static ArrayList<Movie> movieListing;
@@ -26,6 +25,8 @@ public class CineplexManager extends DataManager {
     private static HashMap<Cineplex, ArrayList<Cinema>> cinemaList;
     private static HashMap<String, String> staffAccount;
     private static ArrayList<BookingHistory> bookingHistory;
+    private static HashMap<Movie, ArrayList<Review>> reviewList;
+
 
     public CineplexManager() {
         /**
@@ -43,6 +44,8 @@ public class CineplexManager extends DataManager {
         staffAccount = new HashMap<>();
         cinemaList = new HashMap<>();
         bookingHistory = new ArrayList<>();
+        reviewList = new HashMap<>();
+
 
         try {
             readMovieListing();
@@ -50,11 +53,11 @@ public class CineplexManager extends DataManager {
             readStaffAccount();
             readCinemaList();
             readBookingHistory();
+            readReview();
             return true;
         } catch (EOFException ex) {
             return true;
         } catch (IOException ex) {
-            ex.printStackTrace();
             return false;
         } catch (ClassNotFoundException ex) {
             return true;
@@ -94,6 +97,11 @@ public class CineplexManager extends DataManager {
         else bookingHistory = (ArrayList<BookingHistory>) readSerializedObject(FILENAME_BOOKINGHISTORY);
     }
 
+    private static void readReview() throws IOException, ClassNotFoundException {
+        if (readSerializedObject(FILENAME_REVIEWLIST) == null) reviewList = null;
+        else reviewList = (HashMap<Movie, ArrayList<Review>>) readSerializedObject(FILENAME_REVIEWLIST);
+    }
+
     private static void writeMovieListing() throws IOException {
         writeSerializedObject(FILENAME_MOVIE, movieListing);
     }
@@ -108,6 +116,10 @@ public class CineplexManager extends DataManager {
 
     private static void writeBookingHistory() throws IOException {
         writeSerializedObject(FILENAME_BOOKINGHISTORY, bookingHistory);
+    }
+
+    private static void writeReviewList() throws IOException {
+        writeSerializedObject(FILENAME_REVIEWLIST, reviewList);
     }
 
     public static ArrayList<Movie> getMovieListing() {
@@ -125,6 +137,8 @@ public class CineplexManager extends DataManager {
     public static ArrayList<BookingHistory> getBookingHistory() {
         return bookingHistory;
     }
+
+    public static ArrayList<Review> getReviewList(Movie movie) { return reviewList.get(movie); }
 
     // TODO make it efficient
     public static Cinema getCinemaByCode(String code) {
@@ -151,6 +165,17 @@ public class CineplexManager extends DataManager {
     public static void logBooking(BookingHistory record) throws IOException {
         bookingHistory.add(record);
         writeBookingHistory();
+    }
+
+    public static void addNewReview(Movie movie, Review review) throws IOException{
+        try {
+            if(reviewList.get(movie) == null) reviewList.put(movie, new ArrayList<>());
+            reviewList.get(movie).add(review);
+            writeReviewList();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // TODO redundant?

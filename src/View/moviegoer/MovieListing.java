@@ -78,25 +78,21 @@ public class MovieListing extends View {
         printHeader("Movie details");
         printMenu(movie.toString(),
                 "1. Display showtime",
-                "2. Display reviews",
-                "3. Write reviews",
-                "4. Go back");
+                "2. Display/write reviews",
+                "3. Go back");
 
-        int choice = readChoice(1, 4);
+        int choice = readChoice(1, 3);
         switch (choice) {
             case 1:
                 // TODO movie.getShowtime()
                 displayShowtimeMenu(movie);
                 break;
             case 2:
-//                intent(this, new ReviewView(movie));
+                intent(this, new ReviewView(movie));
                 // TODO movie.getReview()
                 break;
             case 3:
-                // TODO writeReview()
-                break;
-            case 4:
-                displayMovieListing(0);
+                destroy();
                 break;
         }
     }
@@ -115,7 +111,7 @@ public class MovieListing extends View {
         for (Showtime s : showtimeList) System.out.println(++index + ": " + s);
 
         System.out.println("Please choose a showtime (enter 0 to go back):");
-        int choice = readChoice(0, showtimeList.size());
+        int choice = readChoice(1, showtimeList.size());
         if (choice == 0) return;
 
         Showtime showtime = showtimeList.get(choice - 1);
