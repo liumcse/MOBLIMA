@@ -42,5 +42,7 @@ public class Review implements Serializable {
 
     public String getName() { return name; }
 
+    public Date  getDate() { return date; }
+
 }
 

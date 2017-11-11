@@ -37,7 +37,7 @@ public class Payment extends View {
     private void generateTID() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(seat.getShowtime().getCinema().getCode());
-        stringBuffer.append(new SimpleDateFormat("YYYYMMDDhhmm").format(new Date().getTime()));  // TODO month is not correctly displayed
+        stringBuffer.append(new SimpleDateFormat("YYYYMMddhhmm").format(new Date().getTime()));  // TODO month is not correctly displayed
         TID = stringBuffer.toString();
     }
 
@@ -73,10 +73,10 @@ public class Payment extends View {
     }
 
     private void logBooking() {
-        BookingHistory record = new BookingHistory(TID, customer);
+        seat.bookSeat();
+        BookingHistory record = new BookingHistory(TID, customer, seat);
         try {
             CineplexManager.logBooking(record);
-            seat.bookSeat();
             CineplexManager.overwriteShowtime();
             System.out.println("Payment has been made. We wish you a great day!");
         }

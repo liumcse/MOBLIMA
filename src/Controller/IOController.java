@@ -115,7 +115,7 @@ public class IOController {
 
     // TODO month is not correctly formatted
     public static String formatTime(Date time) {
-        return new SimpleDateFormat("MM-DD kk:mm").format(time).toString();
+        return new SimpleDateFormat("EEEE, MMMM d, yyyy hh:mm:ss a").format(time).toString();
     }
 
     /**
