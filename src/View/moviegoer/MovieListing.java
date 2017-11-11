@@ -27,8 +27,7 @@ public class MovieListing extends View {
         printMenu("1. Search movies",
                 "2. List all movies",
                 "3. List the top 5 movies",
-                "4. List the top 5 movies",
-                "5. Go back","");
+                "4. Go back","");
         int choice = readChoice(1, 5);
         switch (choice) {
             case 1:
@@ -41,9 +40,6 @@ public class MovieListing extends View {
                 displayMovieListing(1);
                 break;
             case 4:
-                displayMovieListing(2);
-                break;
-            case 5:
                 destroy();
                 break;
         }
@@ -75,28 +71,34 @@ public class MovieListing extends View {
 
     private void displayMovieListing(int option) {
         ArrayList<Movie> movieListing;
-        if (option == 0) {  // list all movies
-            movieListing = getMovieListing();
 
-            printHeader("Movies");
-            if (movieListing == null) {
-                System.out.println("Movie listing is not available");
-                start();
-            }
-
-            int index = 0;
-
-            for (Movie movie : movieListing) {
-                System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ")");
-            }
-            System.out.println(index + 1 + ". Go back");
-            System.out.println();
-
-            int choice = readChoice(1, index + 1);
-
-            if (choice == index + 1) start();
-            else displayMovieDetailMenu(movieListing.get(choice - 1));
+        switch (option) {
+            case 0:
+                movieListing = getMovieListing();
+                break;
+            default:
+                movieListing = getTop5MovieListing();
         }
+
+        printHeader("Movies");
+        if (movieListing == null) {
+            System.out.println("Movie listing is not available");
+            start();
+        }
+
+        int index = 0;
+
+        for (Movie movie : movieListing) {
+            System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ") " + movie.getSales());
+        }
+        System.out.println(index + 1 + ". Go back");
+        System.out.println();
+
+        int choice = readChoice(1, index + 1);
+
+        if (choice == index + 1) start();
+        else displayMovieDetailMenu(movieListing.get(choice - 1));
+
     }
 
     private void displayMovieDetailMenu(Movie movie) {

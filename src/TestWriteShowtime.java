@@ -22,7 +22,7 @@ public class TestWriteShowtime {
 
             HashMap<Movie, ArrayList<Showtime>> movieShowtime = new HashMap<>();
 
-            SimpleDateFormat ft = new SimpleDateFormat("MM-DD kk:mm");
+            SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd kk:mm");
 
             for (Movie movie : movieArrayList) {
                 System.out.println(movie.getTitle() + ": input showtime");
@@ -30,7 +30,7 @@ public class TestWriteShowtime {
                 Showtime tempShowtime1 = new Showtime();
                 Showtime tempShowtime2 = new Showtime();
 
-                Date time = ft.parse("01-09 18:30");
+                Date time = ft.parse("2017-11-11 18:30");
 
                 tempShowtime1.setMovie(movie);
                 tempShowtime2.setMovie(movie);

@@ -14,14 +14,13 @@ public class Movie implements Serializable {
     private String director;
     private String synopsis;
     private ArrayList<String> cast;
-    private double rating;  // TODO can we delete this? put rating in Review class
     private MovieStatus movieStatus;
-    private ArrayList<Review> reviews;
     private int sales;
 //    private ArrayList<ShowtimeView> showtime;
 
     public Movie() {
         // empty constructor
+        this.sales = 0;
     }
 
     public void setTitle(String title) {
@@ -52,6 +51,10 @@ public class Movie implements Serializable {
         this.sales = sales;
     }
 
+    public void incrementSales() {
+        this.sales += 1;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -66,11 +69,6 @@ public class Movie implements Serializable {
 
     public int getSales() {
         return sales;
-    }
-
-    public ArrayList<Review> getReviews() {
-        // TODO complete method: getReviews()
-        return null;
     }
 
     @Override

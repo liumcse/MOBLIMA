@@ -36,6 +36,7 @@ public class CinemaList extends View {
 
     @Override
     protected void destroy() {
-        ((ShowtimeView)prevView).addShowtime();
+        // TODO bug here
+        if (prevView.getClass() == ShowtimeView.class) ((ShowtimeView)prevView).addShowtime();
     }
 }

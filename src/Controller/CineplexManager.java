@@ -16,6 +16,7 @@ public class CineplexManager extends DataManager {
     private static final String FILENAME_REVIEWLIST = "res/data/reviewList.dat"; //location of reviewList.dat
     private static final String FILENAME_BOOKINGHISTORY = "res/data/bookingHistory.dat";  // location of cinema.dat
     private static final String FILENAME_HOLIDAY = "res/data/holidayList.dat";  // location of holiday.dat
+    private static final String FILENAME_SYSTEM = "res/data/system.dat"; // location of system.dat
 
     private static ArrayList<Movie> movieListing;
     private static HashMap<Movie, ArrayList<Showtime>> movieShowtime;
@@ -24,6 +25,7 @@ public class CineplexManager extends DataManager {
     private static ArrayList<BookingHistory> bookingHistory;
     private static HashMap<Movie, ArrayList<Review>> reviewList;
     private static HashMap<String, Holiday> holidayList;
+    private static HashMap<String, Boolean> system;
 
 
     public CineplexManager() {
@@ -44,19 +46,22 @@ public class CineplexManager extends DataManager {
         bookingHistory = new ArrayList<>();
         reviewList = new HashMap<>();
         holidayList = new HashMap<>();
+        system = new HashMap<>();
 
         try {
-            readMovieListing();
-            readMovieShowtime();
-            readStaffAccount();
-            readCinemaList();
-            readBookingHistory();
-            readReviewList();
-            readHolidayList();
+            readSystem();  // must not have class not found exception
+            readMovieListing();  // may have class not found exception
+            readMovieShowtime();  // may have class not found exception
+            readStaffAccount();  // may have class not found exception
+            readCinemaList();  // may have class not found exception
+            readBookingHistory();  // may have class not found exception
+            readReviewList();  // may have class not found exception
+            readHolidayList();  // may have class not found exception
             return true;
         } catch (EOFException ex) {
             return true;
         } catch (IOException ex) {
+            ex.printStackTrace();
             return false;
         } catch (ClassNotFoundException ex) {
             return true;
@@ -106,6 +111,11 @@ public class CineplexManager extends DataManager {
         else holidayList = (HashMap<String, Holiday>) readSerializedObject(FILENAME_HOLIDAY);
     }
 
+    private static void readSystem() throws IOException, ClassNotFoundException {
+        if (readSerializedObject(FILENAME_SYSTEM) == null) system = null;
+        else system = (HashMap<String, Boolean>) readSerializedObject(FILENAME_SYSTEM);
+    }
+
     private static void writeMovieListing() throws IOException {
         writeSerializedObject(FILENAME_MOVIE, movieListing);
     }
@@ -128,19 +138,54 @@ public class CineplexManager extends DataManager {
 
     private static void writeHolidayList() throws IOException {
         writeSerializedObject(FILENAME_HOLIDAY, holidayList);
+    }
 
+    private static void writeSystem() throws IOException {
+        writeSerializedObject(FILENAME_SYSTEM, system);
     }
 
     public static ArrayList<Movie> getMovieListing() {
         return movieListing;
     }
 
+    /**
+     * orderBy is true: top 5 ranking by overall rating
+     * orderBy is false: top 5 ranking by ticket sales
+     * @return
+     */
+    public static ArrayList<Movie> getTop5MovieListing() {
+        boolean orderBy = system.get("movieOrder");
+        ArrayList<Movie> top5 = movieListing;
+        if (orderBy) {  // order by overall ratings
+            Collections.sort(top5, new Comparator<Movie>() {
+                @Override
+                public int compare(Movie o1, Movie o2) {
+                    return Double.compare(o2.getRating(), o1.getRating());
+                }
+            });
+        }
+        else {  // order by ticket sales
+            Collections.sort(top5, new Comparator<Movie>() {
+                @Override
+                public int compare(Movie o1, Movie o2) {
+                    return Double.compare(o2.getSales(), o1.getSales());
+                }
+            });
+        }
+
+        while (top5.size() > 5) {
+            top5.remove(5);
+        }
+
+        return top5;
+    }
+
     public static ArrayList<Showtime> getMovieShowtime(Movie movie) {
         return movieShowtime.get(movie);
     }
 
-    public static ArrayList<Cinema> getCinemaList(Cineplex cinplex) {
-        return cinemaList.get(cinplex);
+    public static ArrayList<Cinema> getCinemaList(Cineplex cineplex) {
+        return cinemaList.get(cineplex);
     }
 
     public static ArrayList<BookingHistory> getBookingHistory() {
@@ -152,6 +197,8 @@ public class CineplexManager extends DataManager {
     public static HashMap<String, Holiday> getHolidayList() {
         return holidayList;
     }
+
+    public static HashMap<String, Boolean> getSystem() { return system; }
 
     // TODO make it efficient
     public static Cinema getCinemaByCode(String code) {
@@ -204,6 +251,14 @@ public class CineplexManager extends DataManager {
 
     public static void overwriteHolidayList() throws IOException {
         writeHolidayList();
+    }
+
+    public static void overwriteSystem() throws IOException {
+        writeSystem();
+    }
+
+    public static void overwriteCinemaList() throws IOException {
+        writeCinemaList();
     }
 
     public static void overwriteShowtime() throws IOException {

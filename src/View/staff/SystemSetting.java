@@ -4,6 +4,7 @@ import static Controller.IOController.*;
 import static Controller.CineplexManager.*;
 
 import Controller.CineplexManager;
+import Model.Cinema;
 import Model.Holiday;
 import View.View;
 
@@ -19,22 +20,79 @@ public class SystemSetting extends View{
 
     private void displayMenu() {
         printHeader("System setting");
-        printMenu("1. Configure ticket prices.",
-                "2. Configure holidays.",
-                "3. Go back",
+        printMenu("1. Configure ticket prices for cinema",
+                "2. Configure holidays",
+                "3. Configure top 5 ranking schema",
+                "4. Go back",
                 "");
 
-        int choice = readChoice(1, 3);
+        int choice = readChoice(1, 4);
         switch (choice) {
             case 1:
+                configureTicket();
                 break;
             case 2:
                 configureHolidays();
                 break;
             case 3:
+                configureTop5Ranking();
+            case 4:
                 destroy();
                 break;
         }
+    }
+
+    private void configureTop5Ranking() {
+        printHeader("Configure top 5 ranking schema");
+        boolean movieOrder = getSystem().get("movieOrder");
+
+        if (askConfirm("Current top 5 ranking is ordered by " + (movieOrder ? "overall rating" : "ticket sales") + ",",
+                "Change to order by " + (!movieOrder ? "overall rating" : "ticket sales") + "?",
+                "Enter Y to confirm, N to cancel:")) {
+            try {
+                getSystem().put("movieOrder", !movieOrder);
+                System.out.println("Successfully changed the setting.");
+                System.out.println();
+                overwriteSystem();
+            } catch (IOException ex) {
+                System.out.println("Failed to change the setting.");
+                System.out.println();
+            }
+        }
+
+        displayMenu();
+    }
+
+    private void configureTicket() {
+        printHeader("Configure ticket prices for cinema");
+        Cinema cinema;
+
+        // get cinema
+        String input = readString("Enter cinema code (enter \"help\" to look up cinema code)");
+        if (input.equals("help")) {
+            intent(this, new CinemaList());
+            displayMenu();
+            return;
+        }
+        else cinema = getCinemaByCode(input);  // TODO may get null
+        System.out.println();
+
+        printHeader(cinema.isPlatinum() ? cinema.getCode() + " (Platinum)" : cinema.getCode());
+        if (askConfirm("The ticket price for the cinema is " + cinema.getBasePrice() + ".",
+                "Proceed to change?",
+                "Enter Y to confirm, N to cancel:")) {
+            double newPrice = readDouble("Enter the new ticket price:");
+
+            cinema.setBasePrice(newPrice);
+            try {
+                overwriteCinemaList();
+                System.out.println("Ticket price successfully changed.");
+            } catch (IOException ex) {
+                System.out.println("Failed to change ticket price.");
+            }
+        }
+
+        displayMenu();
     }
 
     private void configureHolidays() {

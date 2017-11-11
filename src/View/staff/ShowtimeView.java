@@ -96,6 +96,7 @@ public class ShowtimeView extends View {
         String input = readString("Enter cinema code (enter \"help\" to look up cinema code)");
         if (input.equals("help")) {
             intent(this, new CinemaList());
+            displayMenu();
             return;
         }
         else cinema = getCinemaByCode(input);  // TODO may get null
