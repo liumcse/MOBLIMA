@@ -16,7 +16,7 @@ public class Booking extends View{
     protected void start() {
         printHeader("Booking detail");
         printBookingDetail(seat);
-        printMenu("1. Proceed",
+        printMenu("", "1. Proceed",
                 "2. Go back", "");
         int choice = readChoice(1, 2);
         switch (choice) {

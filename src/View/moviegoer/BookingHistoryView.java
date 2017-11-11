@@ -15,12 +15,17 @@ public class BookingHistoryView extends View {
         printHeader("Booking history");
         ArrayList<BookingHistory> bookingHistory = getBookingHistory();
 
-        if (bookingHistory.isEmpty()) {
-            System.out.println("No history to show.\n");
+        if (bookingHistory == null || bookingHistory.isEmpty()) {
+            readString("No history to show.",
+                    "Press ENTER to go back.", "");
         }
-        for (BookingHistory record : bookingHistory) {
-            System.out.println(record);
+        else {
+            for (BookingHistory record : bookingHistory) {
+                System.out.println(record);
+            }
+            readString("Press ENTER to go back.", "");
         }
+
         destroy();
     }
 }

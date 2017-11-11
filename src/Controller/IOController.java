@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.*;
 import Model.Constant.*;
 
 import java.math.BigDecimal;
@@ -11,6 +10,9 @@ import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * IOController class to handle all the input from users and some output
+ */
 public class IOController {
     public static int readChoice(int i, int j) {
         Scanner sc = new Scanner(System.in);
@@ -70,6 +72,7 @@ public class IOController {
         }
     }
 
+    // TODO month is not correctly displayed
     public static Date readTime(String... message) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-DD kk:mm");
         try {
@@ -96,7 +99,7 @@ public class IOController {
     }
 
     public static void printHeader(String header) {
-        int length = 35;
+        int length = 50;
         for (int i = 0; i < length; i++) System.out.print("-");
         System.out.println();
 
@@ -115,6 +118,12 @@ public class IOController {
         return new SimpleDateFormat("MM-DD kk:mm").format(time).toString();
     }
 
+    /**
+     * This method is used to round a double value to a specified decimal place
+     * @param value
+     * @param places
+     * @return
+     */
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 

@@ -23,7 +23,7 @@ public class ReviewView extends View{
         printHeader("Review");
         printMenu("1. Write a review",
                 "2. View all reviews",
-                "3. Go back");
+                "3. Go back", "");
         int choice = readChoice(1, 3);
         switch (choice) {
             case 1:
@@ -41,10 +41,9 @@ public class ReviewView extends View{
     private void addReview(){
         printHeader("Write Review:");
         String name = readString("Please enter your name:");
-        printMenu("Please enter your rating:");
-        Scanner sc = new Scanner(System.in);
-        double rating = sc.nextDouble();
-        String content = readString("Please enter your Comments:");
+        printMenu("Please enter your rating: (integer between 1 ~ 5)");
+        int rating = readChoice(1, 5);
+        String content = readString("Please enter your comments:");
         Review review = new Review(this.movie, rating, content, name);
 
         try {
@@ -68,14 +67,14 @@ public class ReviewView extends View{
             for (Review r : reviewList) {
                 System.out.println(++index + " Reviewer's name: " + r.getName());
                 System.out.println("  Reviewer's rating: " + r.getRating());
-                System.out.println("  " + r.getContent());
+                System.out.println("  Comments: " + r.getContent());
                 System.out.println();
             }
         }
         else{
             System.out.println("Currently no review.");
         }
-        String goback = readString("Press ENTER to go back.");
+        readString("Press ENTER to go back.", "");
         start();
     }
 }

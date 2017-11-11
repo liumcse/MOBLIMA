@@ -68,10 +68,6 @@ public class Movie implements Serializable {
         return sales;
     }
 
-    //    public ArrayList<ShowtimeView> getShowtime() {
-//        return CineplexManager.getMovieShowtime(this);
-//    }
-
     public ArrayList<Review> getReviews() {
         // TODO complete method: getReviews()
         return null;

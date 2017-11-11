@@ -32,6 +32,7 @@ public class MovieListing extends View {
         int choice = readChoice(1, 5);
         switch (choice) {
             case 1:
+                searchMovie();
                 break;
             case 2:
                 displayMovieListing(0);
@@ -48,6 +49,30 @@ public class MovieListing extends View {
         }
     }
 
+    private void searchMovie() {
+        String input = readString("Enter the movie title:");
+        ArrayList<Movie> searchResult = getMovieByTitle(input);
+        if (searchResult == null || searchResult.isEmpty()) {
+            printMenu("0 result has been found.",
+                    "Press ENTER to go back", "");
+            readString();
+            start();
+        }
+        else {
+            printMenu(searchResult.size() + " results have been found:");
+            int index = 0;
+            for (Movie movie : searchResult) {
+                System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ")");
+            }
+            System.out.println(index + 1 + ". Go back");
+            System.out.println();
+
+            int choice = readChoice(1, index + 1);
+            if (choice == index + 1) start();
+            else displayMovieDetailMenu(searchResult.get(choice - 1));
+        }
+    }
+
     private void displayMovieListing(int option) {
         ArrayList<Movie> movieListing;
         if (option == 0) {  // list all movies
@@ -56,7 +81,7 @@ public class MovieListing extends View {
             printHeader("Movies");
             if (movieListing == null) {
                 System.out.println("Movie listing is not available");
-                return;
+                start();
             }
 
             int index = 0;
@@ -69,7 +94,7 @@ public class MovieListing extends View {
 
             int choice = readChoice(1, index + 1);
 
-            if (choice == index + 1) return;
+            if (choice == index + 1) start();
             else displayMovieDetailMenu(movieListing.get(choice - 1));
         }
     }
@@ -113,7 +138,7 @@ public class MovieListing extends View {
         System.out.println("Please choose a showtime (enter 0 to go back):");
 
         System.out.println();
-        int choice = readChoice(1, showtimeList.size());
+        int choice = readChoice(0, showtimeList.size());
         if (choice == 0) return;
 
         Showtime showtime = showtimeList.get(choice - 1);

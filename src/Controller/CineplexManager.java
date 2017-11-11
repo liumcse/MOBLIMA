@@ -46,14 +46,13 @@ public class CineplexManager extends DataManager {
         bookingHistory = new ArrayList<>();
         reviewList = new HashMap<>();
 
-
         try {
             readMovieListing();
             readMovieShowtime();
             readStaffAccount();
             readCinemaList();
             readBookingHistory();
-            readReview();
+            readReviewList();
             return true;
         } catch (EOFException ex) {
             return true;
@@ -97,7 +96,7 @@ public class CineplexManager extends DataManager {
         else bookingHistory = (ArrayList<BookingHistory>) readSerializedObject(FILENAME_BOOKINGHISTORY);
     }
 
-    private static void readReview() throws IOException, ClassNotFoundException {
+    private static void readReviewList() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_REVIEWLIST) == null) reviewList = null;
         else reviewList = (HashMap<Movie, ArrayList<Review>>) readSerializedObject(FILENAME_REVIEWLIST);
     }
@@ -149,6 +148,16 @@ public class CineplexManager extends DataManager {
             }
         }
         return null;  // not found
+    }
+
+    // TODO make it efficient, and return multiple possible results
+    public static ArrayList<Movie> getMovieByTitle(String title) {
+        if (movieListing == null) return null;
+        ArrayList<Movie> searchResult = new ArrayList<>();
+        for (Movie movie: movieListing) {
+            if (movie.getTitle().toUpperCase().contains(title.toUpperCase())) searchResult.add(movie);
+        }
+        return searchResult;
     }
 
     public static void addNewListing(Movie movie) throws IOException{

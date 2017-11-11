@@ -5,15 +5,15 @@ import java.util.Date;
 
 public class Review implements Serializable {
     private Date date;
-    private double rating;
+    private int rating;
     private String content;
     private Movie movie;
     private String name;
 
-    private static final double maxRating = 5;
-    private static final double minRating = 0;
+    private static final int maxRating = 5;
+    private static final int minRating = 1;
 
-    public Review(Movie movie, double rating, String content, String name) {
+    public Review(Movie movie, int rating, String content, String name) {
         if(rating > maxRating)
             this.rating = maxRating;
         else if (rating < minRating)

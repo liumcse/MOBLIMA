@@ -1,4 +1,5 @@
 import Controller.CineplexManager;
+import Controller.DataManager;
 import Model.Constant;
 import Model.Movie;
 
@@ -14,6 +15,7 @@ import java.util.Scanner;
 
 public class TestWriteMovie {
     public static void main(String[] args) {
+        ArrayList<Movie> movieList = new ArrayList<>();
         CineplexManager.initialize();
 
         Scanner sc = null;
@@ -100,10 +102,10 @@ public class TestWriteMovie {
             movie.setSynopsis(synopsis);
             movie.setCast(cast);
             movie.setMovieStatus(movieStatus);
-
+            movieList.add(movie);
             // write to file
             try {
-                CineplexManager.addNewListing(movie);
+                DataManager.writeSerializedObject("res/data/movieListing.dat", movieList);
                 System.out.println("Success");
             } catch (IOException ex) {
                 System.out.println("Failed to list new movie. Please check the file integrity.");
