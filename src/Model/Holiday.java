@@ -1,9 +1,11 @@
 package Model;
 
 import static Controller.IOController.*;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class Holiday {
+public class Holiday implements Serializable {
     private String name;
     private Date date;
     private double discount;
@@ -28,6 +30,6 @@ public class Holiday {
 
     @Override
     public String toString() {
-        return formatTimeMMdd(date) + ": " + name;
+        return name + " (" + formatTimeMMdd(date) + ")";
     }
 }

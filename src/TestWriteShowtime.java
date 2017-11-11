@@ -1,15 +1,15 @@
 import Controller.CineplexManager;
-import Controller.DataManager;
-import Model.Cinema;
-import Model.Movie;
-import Model.Showtime;
-import static Controller.CineplexManager.*;
-import static Model.Constant.*;
+        import Controller.DataManager;
+        import Model.Cinema;
+        import Model.Movie;
+        import Model.Showtime;
+        import static Controller.CineplexManager.*;
+        import static Model.Constant.*;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
+        import java.text.SimpleDateFormat;
+        import java.util.ArrayList;
+        import java.util.Date;
+        import java.util.HashMap;
 
 public class TestWriteShowtime {
     public static void main(String[] args) {

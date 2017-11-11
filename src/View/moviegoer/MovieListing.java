@@ -26,8 +26,8 @@ public class MovieListing extends View {
         printHeader("Search or list movies");
         printMenu("1. Search movies",
                 "2. List all movies",
-                "3. List the top 5 movies by ticket sales",
-                "4. List the top 5 movies by overall ratings",
+                "3. List the top 5 movies",
+                "4. List the top 5 movies",
                 "5. Go back","");
         int choice = readChoice(1, 5);
         switch (choice) {
@@ -53,13 +53,13 @@ public class MovieListing extends View {
         String input = readString("Enter the movie title:");
         ArrayList<Movie> searchResult = getMovieByTitle(input);
         if (searchResult == null || searchResult.isEmpty()) {
-            printMenu("0 result has been found.",
+            printMenu("-> 0 result has been found.",
                     "Press ENTER to go back", "");
             readString();
             start();
         }
         else {
-            printMenu(searchResult.size() + " results have been found:");
+            printMenu("-> " + searchResult.size() + " results have been found:");
             int index = 0;
             for (Movie movie : searchResult) {
                 System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ")");
@@ -113,8 +113,8 @@ public class MovieListing extends View {
                 displayShowtimeMenu(movie);
                 break;
             case 2:
-                intent(this, new ReviewView(movie));
                 // TODO movie.getReview()
+                intent(this, new ReviewView(movie));
                 break;
             case 3:
                 destroy();
@@ -123,7 +123,29 @@ public class MovieListing extends View {
     }
 
     private void displayShowtimeMenu(Movie movie) {
-        printHeader("Showtime");
+        Date today = new Date();
+        Date tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+        Date afterTomorrow = new Date(new Date().getTime() + 2* 24 * 60 * 60 * 1000);
+        Date dateChosen;
+
+        printMenu("1. " + formatTimeMMdd(today) + " (today)",
+                "2. " + formatTimeMMdd(tomorrow),
+                "3. " + formatTimeMMdd(afterTomorrow),
+                "Please choose a date:");
+        switch (readChoice(1, 3)) {
+            case 1:
+                dateChosen = today;
+                break;
+            case 2:
+                dateChosen = tomorrow;
+                break;
+            default:
+                dateChosen = afterTomorrow;
+                break;
+        }
+
+        printHeader("Showtime on " + formatTimeMMdd(dateChosen));
+
         ArrayList<Showtime> showtimeList = CineplexManager.getMovieShowtime(movie);
         Collections.sort(showtimeList, new Comparator<Showtime>() {
             @Override
@@ -133,7 +155,7 @@ public class MovieListing extends View {
         });
 
         int index = 0;
-        for (Showtime s : showtimeList) System.out.println(++index + ": " + s);
+        for (Showtime s : showtimeList) if (s.getTime().equals(dateChosen))System.out.println(++index + ": " + s);
 
         System.out.println("Please choose a showtime (enter 0 to go back):");
 

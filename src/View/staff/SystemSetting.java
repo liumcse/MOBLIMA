@@ -62,8 +62,8 @@ public class SystemSetting extends View{
         printHeader("Holiday list");
         HashMap<Date, Holiday> holidayList = getHolidayList();
         if (holidayList.isEmpty()) {
-            printMenu("No holiday exists.");
-            readString("Press ENTER to go back.");
+            printMenu("No holiday exists");
+            readString("Press ENTER to go back");
             configureHolidays();
         }
         else {
@@ -88,7 +88,7 @@ public class SystemSetting extends View{
         Date date;
         double discount;
 
-        name = readString("Enter the name of the holiday:");
+        name = readString("Enter the name of the holiday:").toLowerCase();
         date = readTimeMMdd("Enter the date of the holiday",
                 "Format: MM-DD (e.g. 12-25)");
         discount = readDouble("Enter the discount on that day:",
