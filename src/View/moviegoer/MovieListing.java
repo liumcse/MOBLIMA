@@ -28,7 +28,7 @@ public class MovieListing extends View {
                 "2. List all movies",
                 "3. List the top 5 movies by ticket sales",
                 "4. List the top 5 movies by overall ratings",
-                "5. Go back");
+                "5. Go back","");
         int choice = readChoice(1, 5);
         switch (choice) {
             case 1:
@@ -65,9 +65,9 @@ public class MovieListing extends View {
                 System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ")");
             }
             System.out.println(index + 1 + ". Go back");
+            System.out.println();
 
-            Scanner sc = new Scanner(System.in);
-            int choice = sc.nextInt();
+            int choice = readChoice(1, index + 1);
 
             if (choice == index + 1) return;
             else displayMovieDetailMenu(movieListing.get(choice - 1));
@@ -79,7 +79,7 @@ public class MovieListing extends View {
         printMenu(movie.toString(),
                 "1. Display showtime",
                 "2. Display/write reviews",
-                "3. Go back");
+                "3. Go back", "");
 
         int choice = readChoice(1, 3);
         switch (choice) {
@@ -111,6 +111,8 @@ public class MovieListing extends View {
         for (Showtime s : showtimeList) System.out.println(++index + ": " + s);
 
         System.out.println("Please choose a showtime (enter 0 to go back):");
+
+        System.out.println();
         int choice = readChoice(1, showtimeList.size());
         if (choice == 0) return;
 
@@ -123,7 +125,7 @@ public class MovieListing extends View {
         printHeader(showtime.toString());
         printMenu("1. Check seat availability",
                 "2. Book seat",
-                "3. Go back");
+                "3. Go back", "");
         int choice = IOController.readChoice(1, 3);
         switch (choice) {
             case 1:
@@ -153,6 +155,7 @@ public class MovieListing extends View {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     private void displayBookSeatMenu(Showtime showtime) {

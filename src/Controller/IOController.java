@@ -110,6 +110,7 @@ public class IOController {
         System.out.println();
     }
 
+    // TODO month is not correctly formatted
     public static String formatTime(Date time) {
         return new SimpleDateFormat("MM-DD kk:mm").format(time).toString();
     }

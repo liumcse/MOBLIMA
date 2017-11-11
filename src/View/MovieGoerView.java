@@ -19,7 +19,7 @@ public class MovieGoerView extends View {
         printMenu("Welcome, please make a selection:",
                 "1. Search or list movies",
                 "2. View booking history",
-                "3. Go back");
+                "3. Go back","");
 
         int choice = readChoice(1, 3);
 

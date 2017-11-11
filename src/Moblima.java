@@ -25,7 +25,7 @@ public class Moblima extends View {
         printMenu("Welcome to MOBLIMA, please make a selection:",
                 "1. I'm a moviegoer",
                 "2. I'm a staff",
-                "3. Exit application");
+                "3. Exit application","");
 
         int choice = readChoice(1, 3);
 

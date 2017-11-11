@@ -17,11 +17,10 @@ public class Booking extends View{
         printHeader("Booking detail");
         printBookingDetail(seat);
         printMenu("1. Proceed",
-                "2. Go back");
+                "2. Go back", "");
         int choice = readChoice(1, 2);
         switch (choice) {
             case 1:
-                // TODO proceed booking
                 promptCustomerInformation();
                 break;
             case 2:
@@ -44,7 +43,6 @@ public class Booking extends View{
         }
         System.out.println("Showing on " + formatTime(showtime.getTime()));
         System.out.println("Ticket cost: " + round(cinema.getBasePrice(), 2) + " SGD (Excl. GST)");
-        System.out.println();
     }
 
     private void promptCustomerInformation() {
