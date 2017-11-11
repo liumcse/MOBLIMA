@@ -8,12 +8,12 @@ import java.util.Date;
 public class Holiday implements Serializable {
     private String name;
     private Date date;
-    private double discount;
+    private double rate;
 
-    public Holiday(String name, Date date, double discount) {
+    public Holiday(String name, Date date, double rate) {
         this.name = name;
         this.date = date;
-        this.discount = discount;
+        this.rate = rate;
     }
 
     public String getName() {
@@ -24,8 +24,8 @@ public class Holiday implements Serializable {
         return date;
     }
 
-    public double getDiscount() {
-        return discount;
+    public double getRate() {
+        return rate;
     }
 
     @Override

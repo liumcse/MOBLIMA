@@ -5,17 +5,21 @@ import View.View;
 
 import static Controller.IOController.*;
 
-public class Booking extends View{
+public class Booking extends View {
     private Seat seat;
+    private String ticketType;
+    private double basePrice;
 
     public Booking(Seat seat) {
         this.seat = seat;
+        basePrice = seat.getShowtime().getCinema().getBasePrice();
+        computeBasePrice();
     }
 
     @Override
     protected void start() {
         printHeader("Booking detail");
-        printBookingDetail(seat);
+        printBookingDetail();
         printMenu("", "1. Proceed",
                 "2. Go back", "");
         int choice = readChoice(1, 2);
@@ -29,20 +33,38 @@ public class Booking extends View{
         }
     }
 
+    private void computeBasePrice() {
+        Holiday holiday = getHoliday(seat.getShowtime().getTime());
+        if (holiday != null) {
+            double rate = holiday.getRate();
+            basePrice = rate * basePrice;
+            ticketType = holiday.getName();
+        }
+        else {
+            if (isWeekend(seat.getShowtime().getTime())) {
+                basePrice = basePrice * 1.2;
+                ticketType = "Weekend";
+            }
+            else {
+                ticketType = "Weekday";
+            }
+        }
+    }
 
 
-    private void printBookingDetail(Seat seat) {
+    private void printBookingDetail() {
         Showtime showtime = seat.getShowtime();
         Movie movie = showtime.getMovie();
         Cinema cinema = showtime.getCinema();
 
         System.out.println(movie.getTitle() + " (" + cinema.getMovieType() + ")");
         System.out.println(movie.getAgeRestriction());
-        if (cinema.isPlatinum()) {
-            System.out.println("Cinema: " + cinema + " (" + cinema.getCineplex() + ")");
-        }
+        System.out.println("Cinema: " + cinema + " (" + cinema.getCineplex() + ")");
         System.out.println("Showing on " + formatTimeMMddkkmm(showtime.getTime()));
-        System.out.println("Ticket cost: " + round(cinema.getBasePrice(), 2) + " SGD (Excl. GST)");
+        System.out.println("Seat: Row " + (seat.getRow()+1) + " Col " + ((seat.getCol() > 8) ? seat.getCol() : (seat.getCol()+1)));
+        System.out.println();
+        System.out.println("Ticket type: " + ticketType);
+        System.out.println("Ticket price: " + round(basePrice, 2) + " SGD (Excl. GST)");
     }
 
     private void promptCustomerInformation() {
@@ -56,6 +78,6 @@ public class Booking extends View{
         Customer customer = new Customer(name, mobile, email, isSeniorCitizen);
 
         // proceed to payment
-        intent(this, new Payment(customer, seat));
+        intent(this, new Payment(customer, seat, basePrice));
     }
 }

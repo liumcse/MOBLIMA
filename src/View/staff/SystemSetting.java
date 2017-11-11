@@ -60,7 +60,7 @@ public class SystemSetting extends View{
 
     private void displayHolidayList() {
         printHeader("Holiday list");
-        HashMap<Date, Holiday> holidayList = getHolidayList();
+        HashMap<String, Holiday> holidayList = getHolidayList();
         if (holidayList.isEmpty()) {
             printMenu("No holiday exists");
             readString("Press ENTER to go back");
@@ -68,7 +68,7 @@ public class SystemSetting extends View{
         }
         else {
             int index  = 0;
-            for (Date date : holidayList.keySet()) {
+            for (String date : holidayList.keySet()) {
                 System.out.println(++index + ". " + holidayList.get(date));
             }
             System.out.println(++index + ". Go back");
@@ -91,13 +91,13 @@ public class SystemSetting extends View{
         name = readString("Enter the name of the holiday:").toLowerCase();
         date = readTimeMMdd("Enter the date of the holiday",
                 "Format: MM-DD (e.g. 12-25)");
-        discount = readDouble("Enter the discount on that day:",
-                "e.g. 30 stands for 30% off");
+        discount = readDouble("Enter the price rate on that day:",
+                "e.g. 0.7 stands for ticket price * 0.7");
 
         Holiday holiday = new Holiday(name, date, discount);
 
         try {
-            CineplexManager.addHoliday(holiday);
+            CineplexManager.addHoliday(formatTimeMMdd(date), holiday);
             System.out.println("Successfully added the holiday.");
         } catch (IOException ex) {
             System.out.println("Failed to add the holiday.");

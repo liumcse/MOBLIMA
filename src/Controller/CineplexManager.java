@@ -23,7 +23,7 @@ public class CineplexManager extends DataManager {
     private static HashMap<String, String> staffAccount;
     private static ArrayList<BookingHistory> bookingHistory;
     private static HashMap<Movie, ArrayList<Review>> reviewList;
-    private static HashMap<Date, Holiday> holidayList;
+    private static HashMap<String, Holiday> holidayList;
 
 
     public CineplexManager() {
@@ -103,7 +103,7 @@ public class CineplexManager extends DataManager {
 
     private static void readHolidayList() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_HOLIDAY) == null) holidayList = null;
-        else holidayList = (HashMap<Date, Holiday>) readSerializedObject(FILENAME_HOLIDAY);
+        else holidayList = (HashMap<String, Holiday>) readSerializedObject(FILENAME_HOLIDAY);
     }
 
     private static void writeMovieListing() throws IOException {
@@ -149,7 +149,7 @@ public class CineplexManager extends DataManager {
 
     public static ArrayList<Review> getReviewList(Movie movie) { return reviewList.get(movie); }
 
-    public static HashMap<Date, Holiday> getHolidayList() {
+    public static HashMap<String, Holiday> getHolidayList() {
         return holidayList;
     }
 
@@ -197,8 +197,8 @@ public class CineplexManager extends DataManager {
         writeReviewList();
     }
 
-    public static void addHoliday(Holiday holiday) throws IOException {
-        holidayList.put(holiday.getDate(), holiday);
+    public static void addHoliday(String date, Holiday holiday) throws IOException {
+        holidayList.put(date, holiday);
         writeHolidayList();
     }
 

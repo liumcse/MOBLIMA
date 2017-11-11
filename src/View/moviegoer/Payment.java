@@ -26,10 +26,10 @@ public class Payment extends View {
         displayMenu();
     }
 
-    public Payment(Customer customer, Seat seat) {
+    public Payment(Customer customer, Seat seat, double basePrice) {
         this.customer = customer;
         this.seat = seat;
-        this.basePrice = round(seat.getShowtime().getCinema().getBasePrice(), 2);
+        this.basePrice = basePrice;
         generateTID();
         computeTotalPrice();
     }
@@ -54,12 +54,14 @@ public class Payment extends View {
                 "Booking fee: 2.0",
                 "GST: " + GST,
                 "Grand total: " + totalPrice,
-                "",
-                "1. Confirm payment",
-                "2. Cancel");
+                "");
         if (customer.isSeniorCitizen()) {
-            printMenu("(50% off for senior citizen)");
+            printMenu("(50% off for senior citizen)", "");
         }
+
+        printMenu("1. Confirm payment",
+                "2. Cancel",
+                "");
 
         int choice = readChoice(1, 2);
         switch (choice) {

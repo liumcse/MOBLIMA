@@ -1,14 +1,18 @@
 package Controller;
 
 import Model.Constant.*;
+import Model.Holiday;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import static Controller.CineplexManager.*;
 
 /**
  * IOController class to handle all the input from users and some output
@@ -88,9 +92,10 @@ public class IOController {
     }
 
     public static Date readTimeMMddkkmm(String... message) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd kk:mm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm");
         try {
             String input = readString(message);
+            input = new SimpleDateFormat("yyyy").format(new Date()) + "-" + input;  // set year as current year
             Date date = simpleDateFormat.parse(input);
             return date;
         } catch (ParseException ex) {
@@ -100,9 +105,10 @@ public class IOController {
     }
 
     public static Date readTimeMMdd(String... message) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
             String input = readString(message);
+            input = new SimpleDateFormat("yyyy").format(new Date()) + "-" + input;  // set year as current year
             Date date = simpleDateFormat.parse(input);
             return date;
         } catch (ParseException ex) {
@@ -139,13 +145,27 @@ public class IOController {
         System.out.println();
     }
 
-    // TODO month is not correctly formatted
     public static String formatTimeMMddkkmm(Date time) {
-        return new SimpleDateFormat("MM-dd kk:mm").format(time);
+        return new SimpleDateFormat("MMMM dd, kk:mm").format(time);
     }
 
     public static String formatTimeMMdd(Date time) {
-        return new SimpleDateFormat("MM-dd").format(time);
+        return new SimpleDateFormat("MMMM, dd").format(time);
+    }
+
+    public static boolean isWeekend(Date time) {
+        String whatDay = new SimpleDateFormat("EEEE").format(time);
+        if (whatDay.equals("Saturday") || whatDay.equals("Sunday")) return true;
+        else return false;
+    }
+
+    public static Holiday getHoliday(Date time) {
+        HashMap<String, Holiday> holidayList = getHolidayList();
+        return holidayList.get(formatTimeMMdd(time));
+    }
+
+    public static boolean dateEquals(Date d1, Date d2) {
+        return formatTimeMMdd(d1).equals(formatTimeMMdd(d2));
     }
 
 

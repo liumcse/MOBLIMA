@@ -117,10 +117,11 @@ public class MovieListing extends View {
                 intent(this, new ReviewView(movie));
                 break;
             case 3:
-                destroy();
                 break;
         }
+        displayMovieListing(0);
     }
+
 
     private void displayShowtimeMenu(Movie movie) {
         Date today = new Date();
@@ -131,7 +132,7 @@ public class MovieListing extends View {
         printMenu("1. " + formatTimeMMdd(today) + " (today)",
                 "2. " + formatTimeMMdd(tomorrow),
                 "3. " + formatTimeMMdd(afterTomorrow),
-                "Please choose a date:");
+                "Please choose a date:", "");
         switch (readChoice(1, 3)) {
             case 1:
                 dateChosen = today;
@@ -146,7 +147,7 @@ public class MovieListing extends View {
 
         printHeader("Showtime on " + formatTimeMMdd(dateChosen));
 
-        ArrayList<Showtime> showtimeList = CineplexManager.getMovieShowtime(movie);
+        ArrayList<Showtime> showtimeList = new ArrayList<>();
         Collections.sort(showtimeList, new Comparator<Showtime>() {
             @Override
             public int compare(Showtime o1, Showtime o2) {
@@ -154,14 +155,27 @@ public class MovieListing extends View {
             }
         });
 
+        for (Showtime s : getMovieShowtime(movie)) {
+            if (dateEquals(s.getTime(), dateChosen)) showtimeList.add(s);
+        }
+
+        if (showtimeList.isEmpty()) {
+            printMenu("No showtime on that day.",
+                    "Press ENTER to go back");
+            readString();
+            displayMovieDetailMenu(movie);
+        }
+
         int index = 0;
-        for (Showtime s : showtimeList) if (s.getTime().equals(dateChosen))System.out.println(++index + ": " + s);
+        for (Showtime s : showtimeList) {
+            System.out.println(++index + ": " + s);
+        }
 
         System.out.println("Please choose a showtime (enter 0 to go back):");
 
         System.out.println();
         int choice = readChoice(0, showtimeList.size());
-        if (choice == 0) return;
+        if (choice == 0) displayMovieDetailMenu(movie);
 
         Showtime showtime = showtimeList.get(choice - 1);
         displayShowtimeDetailMenu(showtime);
@@ -172,8 +186,10 @@ public class MovieListing extends View {
         printHeader(showtime.toString());
         printMenu("1. Check seat availability",
                 "2. Book seat",
-                "3. Go back", "");
-        int choice = IOController.readChoice(1, 3);
+                "3. Check price",
+                "4. Go back", "");
+
+        int choice = IOController.readChoice(1, 4);
         switch (choice) {
             case 1:
                 displaySeat(showtime.getSeats());
@@ -184,11 +200,29 @@ public class MovieListing extends View {
                 displayBookSeatMenu(showtime);
                 break;
             case 3:
+                displayPrice(showtime);
+                break;
+            case 4:
                 displayShowtimeMenu(showtime.getMovie());
                 break;
         }
+
+
     }
 
+    private void displayPrice(Showtime showtime) {
+        double basePrice = showtime.getCinema().getBasePrice();
+        Movie movie = showtime.getMovie();
+        printHeader("Ticket price for " + movie.getTitle() + " (" + showtime.getCinema().getMovieType() + ")");
+        System.out.printf("\t\t\t\t\tWeekdays\t\tWeekends\n" +
+                "Regular Citizens\t%.2f\t\t\t%.2f\n" +
+                "Senior Citizens\t\t%.2f\t\t\t%.2f\n\n", basePrice, basePrice * 1.2, basePrice * 0.5, basePrice * 0.5 * 1.2);
+        System.out.println("Note that price may change on holidays.");
+        System.out.println("Please refer to the price when making payment.");
+        System.out.println();
+        readString("Press ENTER to go back");
+        displayShowtimeDetailMenu(showtime);
+    }
 
     private void displaySeat(Seat[][] seats) {
         System.out.println("                    -------Screen------");
