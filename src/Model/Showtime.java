@@ -99,6 +99,6 @@ public class Showtime implements Serializable {
 
     @Override
     public String toString() {
-        return cinema.getCineplex().toString() + ": " + formatTime(time);
+        return cinema.getCineplex().toString() + ": " + formatTimeMMddkkmm(time);
     }
 }

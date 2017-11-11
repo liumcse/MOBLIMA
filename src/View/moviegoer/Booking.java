@@ -41,7 +41,7 @@ public class Booking extends View{
         if (cinema.isPlatinum()) {
             System.out.println("Cinema: " + cinema + " (" + cinema.getCineplex() + ")");
         }
-        System.out.println("Showing on " + formatTime(showtime.getTime()));
+        System.out.println("Showing on " + formatTimeMMddkkmm(showtime.getTime()));
         System.out.println("Ticket cost: " + round(cinema.getBasePrice(), 2) + " SGD (Excl. GST)");
     }
 

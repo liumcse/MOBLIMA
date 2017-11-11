@@ -37,7 +37,7 @@ public class Payment extends View {
     private void generateTID() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(seat.getShowtime().getCinema().getCode());
-        stringBuffer.append(new SimpleDateFormat("YYYYMMDDhhmm").format(new Date().getTime()));  // TODO month is not correctly displayed
+        stringBuffer.append(new SimpleDateFormat("YYYYMMddhhmm").format(new Date().getTime()));  // TODO month is not correctly displayed
         TID = stringBuffer.toString();
     }
 

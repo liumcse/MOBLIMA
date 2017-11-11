@@ -4,13 +4,9 @@ import Model.*;
 
 import static Model.Constant.*;
 
-
 import java.io.EOFException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.util.*;
 
 public class CineplexManager extends DataManager {
     private static final String FILENAME_MOVIE = "res/data/movieListing.dat";  // location of movie.dat
@@ -19,6 +15,7 @@ public class CineplexManager extends DataManager {
     private static final String FILENAME_CINEMALIST = "res/data/cinemaList.dat";  // location of cinemaList.dat
     private static final String FILENAME_REVIEWLIST = "res/data/reviewList.dat"; //location of reviewList.dat
     private static final String FILENAME_BOOKINGHISTORY = "res/data/bookingHistory.dat";  // location of cinema.dat
+    private static final String FILENAME_HOLIDAY = "res/data/holidayList.dat";  // location of holiday.dat
 
     private static ArrayList<Movie> movieListing;
     private static HashMap<Movie, ArrayList<Showtime>> movieShowtime;
@@ -26,6 +23,7 @@ public class CineplexManager extends DataManager {
     private static HashMap<String, String> staffAccount;
     private static ArrayList<BookingHistory> bookingHistory;
     private static HashMap<Movie, ArrayList<Review>> reviewList;
+    private static HashMap<Date, Holiday> holidayList;
 
 
     public CineplexManager() {
@@ -45,6 +43,7 @@ public class CineplexManager extends DataManager {
         cinemaList = new HashMap<>();
         bookingHistory = new ArrayList<>();
         reviewList = new HashMap<>();
+        holidayList = new HashMap<>();
 
         try {
             readMovieListing();
@@ -53,6 +52,7 @@ public class CineplexManager extends DataManager {
             readCinemaList();
             readBookingHistory();
             readReviewList();
+            readHolidayList();
             return true;
         } catch (EOFException ex) {
             return true;
@@ -101,6 +101,11 @@ public class CineplexManager extends DataManager {
         else reviewList = (HashMap<Movie, ArrayList<Review>>) readSerializedObject(FILENAME_REVIEWLIST);
     }
 
+    private static void readHolidayList() throws IOException, ClassNotFoundException {
+        if (readSerializedObject(FILENAME_HOLIDAY) == null) holidayList = null;
+        else holidayList = (HashMap<Date, Holiday>) readSerializedObject(FILENAME_HOLIDAY);
+    }
+
     private static void writeMovieListing() throws IOException {
         writeSerializedObject(FILENAME_MOVIE, movieListing);
     }
@@ -121,6 +126,11 @@ public class CineplexManager extends DataManager {
         writeSerializedObject(FILENAME_REVIEWLIST, reviewList);
     }
 
+    private static void writeHolidayList() throws IOException {
+        writeSerializedObject(FILENAME_HOLIDAY, holidayList);
+
+    }
+
     public static ArrayList<Movie> getMovieListing() {
         return movieListing;
     }
@@ -138,6 +148,10 @@ public class CineplexManager extends DataManager {
     }
 
     public static ArrayList<Review> getReviewList(Movie movie) { return reviewList.get(movie); }
+
+    public static HashMap<Date, Holiday> getHolidayList() {
+        return holidayList;
+    }
 
     // TODO make it efficient
     public static Cinema getCinemaByCode(String code) {
@@ -176,21 +190,25 @@ public class CineplexManager extends DataManager {
         writeBookingHistory();
     }
 
+
+    public static void addNewReview(Movie movie, Review review) throws IOException {
+        if(reviewList.get(movie) == null) reviewList.put(movie, new ArrayList<>());
+        reviewList.get(movie).add(review);
+        writeReviewList();
+    }
+
+    public static void addHoliday(Holiday holiday) throws IOException {
+        holidayList.put(holiday.getDate(), holiday);
+        writeHolidayList();
+    }
+
+    public static void overwriteHolidayList() throws IOException {
+        writeHolidayList();
+    }
+
     public static void overwriteShowtime() throws IOException {
         writeShowtime();
     }
-
-    public static void addNewReview(Movie movie, Review review) throws IOException{
-        try {
-            if(reviewList.get(movie) == null) reviewList.put(movie, new ArrayList<>());
-            reviewList.get(movie).add(review);
-            writeReviewList();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     // TODO redundant?
     public static void overwriteListing() throws IOException {
         writeMovieListing();

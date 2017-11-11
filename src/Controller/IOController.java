@@ -40,6 +40,21 @@ public class IOController {
         return sc.nextLine();
     }
 
+    public static double readDouble(String... message) {
+        for (String m : message) System.out.println(m);
+        Scanner sc = new Scanner(System.in);
+        double output;
+
+        try {
+            output = sc.nextDouble();
+            return output;
+        } catch (InputMismatchException ex) {
+            System.out.println("Invalid input, try again.");
+            sc.nextLine();  // flush scanner
+            return readDouble(message);
+        }
+    }
+
     public static AgeRestriction readAgeRestriction(String input) {
         switch (input.toUpperCase()) {
             case "G":
@@ -72,16 +87,27 @@ public class IOController {
         }
     }
 
-    // TODO month is not correctly displayed
-    public static Date readTime(String... message) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-DD kk:mm");
+    public static Date readTimeMMddkkmm(String... message) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd kk:mm");
         try {
             String input = readString(message);
             Date date = simpleDateFormat.parse(input);
             return date;
         } catch (ParseException ex) {
             System.out.println("Wrong format. Try again.");
-            return readTime(message);
+            return readTimeMMddkkmm(message);
+        }
+    }
+
+    public static Date readTimeMMdd(String... message) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd");
+        try {
+            String input = readString(message);
+            Date date = simpleDateFormat.parse(input);
+            return date;
+        } catch (ParseException ex) {
+            System.out.println("Wrong format. Try again.");
+            return readTimeMMdd(message);
         }
     }
 
@@ -114,9 +140,14 @@ public class IOController {
     }
 
     // TODO month is not correctly formatted
-    public static String formatTime(Date time) {
-        return new SimpleDateFormat("MM-DD kk:mm").format(time).toString();
+    public static String formatTimeMMddkkmm(Date time) {
+        return new SimpleDateFormat("MM-dd kk:mm").format(time);
     }
+
+    public static String formatTimeMMdd(Date time) {
+        return new SimpleDateFormat("MM-dd").format(time);
+    }
+
 
     /**
      * This method is used to round a double value to a specified decimal place

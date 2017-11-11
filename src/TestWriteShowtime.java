@@ -40,8 +40,8 @@ public class TestWriteShowtime {
 
                 tempShowtime1.setTime(time);
                 tempShowtime2.setTime(time);
-                tempShowtime1.setMovie(getMovieListing().get(0));
-                tempShowtime2.setMovie(getMovieListing().get(1));
+                tempShowtime1.setMovie(movie);
+                tempShowtime2.setMovie(movie);
 
                 tempArrayList.add(tempShowtime1);
                 tempArrayList.add(tempShowtime2);

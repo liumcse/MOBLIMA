@@ -87,6 +87,7 @@ public class TestWriteMovie {
                         break;
                     case "end of showing":
                         movieStatus = Constant.MovieStatus.END_OF_SHOWING;
+                        break;
                     default:
                         System.out.println("Invalid input. Try again.");
                         continue;

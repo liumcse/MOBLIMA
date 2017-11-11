@@ -101,7 +101,7 @@ public class ShowtimeView extends View {
         else cinema = getCinemaByCode(input);  // TODO may get null
 
         // get time
-        Date time = readTime("Enter the time for the show",
+        Date time = readTimeMMddkkmm("Enter the time for the show",
                 "Format: MM-DD HH:MM (e.g. 12-25 09:30)");
 
         // create showtime object
