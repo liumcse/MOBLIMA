@@ -9,10 +9,12 @@ import java.io.Serializable;
 public class BookingHistory implements Serializable {
     private String TID;
     private Customer customer;
+    private Seat seat;
 
-    public BookingHistory(String TID, Customer customer) {
+    public BookingHistory(String TID, Customer customer, Seat seat) {
         this.TID = TID;
         this.customer = customer;
+        this.seat = seat;
     }
 
     @Override
@@ -20,6 +22,9 @@ public class BookingHistory implements Serializable {
         return TID + "\n" +
                 "Name: " + customer.getName() + "\n" +
                 "Mobile: " + customer.getMobile() + "\n" +
-                "Email " + customer.getEmail() + "\n";
+                "Email: " + customer.getEmail() + "\n" +
+                "Movie: " + seat.getShowtime().getMovie().getTitle() + "\n" +
+                seat.getShowtime().getDetails() +
+                "Seat: Row " + (seat.getRow()+1) + " Col " + ((seat.getCol() > 8) ? seat.getCol() : (seat.getCol()+1)) + "\n";
     }
 }
