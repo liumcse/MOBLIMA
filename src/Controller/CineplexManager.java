@@ -160,7 +160,7 @@ public class CineplexManager extends DataManager {
             Collections.sort(top5, new Comparator<Movie>() {
                 @Override
                 public int compare(Movie o1, Movie o2) {
-                    return Double.compare(o2.getRating(), o1.getRating());
+                    return Double.compare(getMovieRating(o2), getMovieRating(o1));
                 }
             });
         }
@@ -219,6 +219,16 @@ public class CineplexManager extends DataManager {
             if (movie.getTitle().toUpperCase().contains(title.toUpperCase())) searchResult.add(movie);
         }
         return searchResult;
+    }
+
+    public static double getMovieRating(Movie movie) {
+        ArrayList<Review> reviewList = getReviewList(movie);
+        if (reviewList == null || reviewList.isEmpty()) return 0;
+        else {
+            double sum = 0;
+            for (Review review : reviewList) sum += review.getRating();
+            return sum / reviewList.size();
+        }
     }
 
     public static void addNewListing(Movie movie) throws IOException{

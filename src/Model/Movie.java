@@ -83,8 +83,6 @@ public class Movie implements Serializable {
         for (String s : cast) stringBuilder.append(s + ", ");
         stringBuilder.append("\n");
 
-        stringBuilder.append("Rating: " + getRating() + "\n");
-
         stringBuilder.append("MovieStatus: " + movieStatus.toString() + "\n");
 
         return stringBuilder.toString();
@@ -106,11 +104,5 @@ public class Movie implements Serializable {
         int result = title != null ? title.hashCode() : 0;
         result = 31 * result + (director != null ? director.hashCode() : 0);
         return result;
-    }
-
-    public double getRating() {
-        // TODO Access control?
-        // TODO complete this method
-        return 5.0;
     }
 }

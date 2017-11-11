@@ -89,7 +89,7 @@ public class MovieListing extends View {
         int index = 0;
 
         for (Movie movie : movieListing) {
-            System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ") " + movie.getSales());
+            System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ") " +getMovieRating(movie));
         }
         System.out.println(index + 1 + ". Go back");
         System.out.println();
