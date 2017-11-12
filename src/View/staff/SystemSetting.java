@@ -1,8 +1,5 @@
 package View.staff;
 
-import static Controller.IOController.*;
-import static Controller.CineplexManager.*;
-
 import Controller.CineplexManager;
 import Model.Cinema;
 import Model.Holiday;
@@ -11,6 +8,9 @@ import View.View;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
+
+import static Controller.IOController.*;
+import static Controller.CineplexManager.*;
 
 public class SystemSetting extends View{
     @Override

@@ -14,18 +14,14 @@ public class Review implements Serializable {
     private static final int minRating = 1;
 
     public Review(Movie movie, int rating, String content, String name) {
-        if(rating > maxRating)
-            this.rating = maxRating;
-        else if (rating < minRating)
-            this.rating = minRating;
-        else
-            this.rating = rating;
+        if(rating > maxRating) this.rating = maxRating;
+        else if (rating < minRating) this.rating = minRating;
+        else this.rating = rating;
 
         this.date = new Date();
         this.content = content;
         this.movie = movie;
         this.name = name;
-
     }
 
     public Movie getMovie() {

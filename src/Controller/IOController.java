@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static Controller.CineplexManager.*;
 
@@ -56,6 +58,24 @@ public class IOController {
             System.out.println("Invalid input, try again.");
             sc.nextLine();  // flush scanner
             return readDouble(message);
+        }
+    }
+
+    public static String readEmail(String... message) {
+        for (String m : message) System.out.println(m);
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+
+        Pattern EMAIL_PATTERN = Pattern.compile(
+                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
+                        "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher matcher = EMAIL_PATTERN.matcher(input);
+        if (matcher.matches()) {
+            return input;
+        }
+        else {
+            System.out.println("Invalid Email address, try again.");
+            return readEmail(message);
         }
     }
 

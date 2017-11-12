@@ -9,15 +9,22 @@ public class Booking extends View {
     private Seat seat;
     private String ticketType;
     private double basePrice;
+    private boolean bookingFinished;
 
     public Booking(Seat seat) {
         this.seat = seat;
         basePrice = seat.getShowtime().getCinema().getBasePrice();
+        bookingFinished = false;
         computeBasePrice();
     }
 
     @Override
     protected void start() {
+        if (bookingFinished) destroy();
+        else displayMenu();
+    }
+
+    private void displayMenu() {
         printHeader("Booking detail");
         printBookingDetail();
         printMenu("", "1. Proceed",
@@ -69,7 +76,7 @@ public class Booking extends View {
     private void promptCustomerInformation() {
         String name = readString("Please enter your name:");
         String mobile = readString("Please enter your mobile number:");
-        String email = readString("Please enter your Email address:");
+        String email = readEmail("Please enter your Email address:");
         boolean isSeniorCitizen = askConfirm("Are you a senior citizen?",
                                     "Enter Y if yes (validation will be done upon entering):");
 
@@ -77,6 +84,12 @@ public class Booking extends View {
         Customer customer = new Customer(name, mobile, email, isSeniorCitizen);
 
         // proceed to payment
+        bookingFinished = true;
         intent(this, new Payment(customer, seat, basePrice));
+    }
+
+    @Override
+    protected void destroy() {
+        ((MovieListing)(getPrevView())).start(seat.getShowtime().getMovie());
     }
 }

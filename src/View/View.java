@@ -1,7 +1,7 @@
 package View;
 
 public abstract class View {
-    protected View prevView;  // NULL by default
+    private View prevView;  // NULL by default
 
     protected abstract void start();
 
@@ -13,5 +13,9 @@ public abstract class View {
     protected void intent(View v, View u) {
         u.prevView = v;
         u.start();
+    }
+
+    protected View getPrevView() {
+        return prevView;
     }
 }

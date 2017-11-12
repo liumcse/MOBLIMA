@@ -7,7 +7,6 @@ import Model.Customer;
 import Model.Movie;
 import Model.Seat;
 import View.View;
-import View.MovieGoerView;
 
 import static Controller.IOController.*;
 
@@ -93,6 +92,6 @@ public class Payment extends View {
             System.out.println("Payment failed.");
         }
 
-        new MovieListing().start();
+        destroy();
     }
 }

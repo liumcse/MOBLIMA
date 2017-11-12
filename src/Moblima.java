@@ -1,9 +1,7 @@
 import Controller.CineplexManager;
-import static Controller.IOController.*;
 import View.*;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import static Controller.IOController.*;
 
 /**
  * Main function is here.

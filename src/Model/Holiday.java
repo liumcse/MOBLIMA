@@ -1,9 +1,9 @@
 package Model;
 
-import static Controller.IOController.*;
-
 import java.io.Serializable;
 import java.util.Date;
+
+import static Controller.IOController.*;
 
 public class Holiday implements Serializable {
     private String name;

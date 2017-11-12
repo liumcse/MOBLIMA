@@ -3,7 +3,6 @@ package View.staff;
 import Model.Constant.*;
 import Model.Movie;
 import View.View;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -15,6 +14,10 @@ import static Model.Constant.MovieStatus.*;
 public class MovieListing extends View {
     @Override
     protected void start() {
+        displayMenu();
+    }
+
+    private void displayMenu() {
         ArrayList<Movie> movieListing;
         movieListing = getMovieListing();
 
@@ -31,7 +34,7 @@ public class MovieListing extends View {
         System.out.println(index + 1 + ". Go back");
 
         printMenu("Please choose a movie to modify.",
-                "To list a new movie, enter 0:");
+                "To list a new movie, enter 0:", "");
 
         int choice = readChoice(0, index + 1);
 
@@ -91,7 +94,7 @@ public class MovieListing extends View {
             System.out.println("Failed to list the movie.");
         }
         finally {
-            start();
+            displayMenu();
         }
     }
 
@@ -115,7 +118,7 @@ public class MovieListing extends View {
                intent(this, new ShowtimeView(movie));
                 break;
             case 4:
-                start();
+                displayMenu();
         }
     }
 
@@ -223,7 +226,7 @@ public class MovieListing extends View {
             }
         }
 
-        start();
+        displayMenu();
     }
 
 }

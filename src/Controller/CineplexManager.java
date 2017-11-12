@@ -2,11 +2,10 @@ package Controller;
 
 import Model.*;
 
-import static Model.Constant.*;
-
-import java.io.EOFException;
 import java.io.IOException;
 import java.util.*;
+
+import static Model.Constant.*;
 
 public class CineplexManager extends DataManager {
     private static final String FILENAME_MOVIE = "res/data/movieListing.dat";  // location of movie.dat
@@ -39,15 +38,6 @@ public class CineplexManager extends DataManager {
      * @return
      */
     public static boolean initialize() {
-        movieListing = new ArrayList<>();
-        movieShowtime = new HashMap<>();
-        staffAccount = new HashMap<>();
-        cinemaList = new HashMap<>();
-        bookingHistory = new ArrayList<>();
-        reviewList = new HashMap<>();
-        holidayList = new HashMap<>();
-        system = new HashMap<>();
-
         try {
             readSystem();  // must not have class not found exception
             readStaffAccount();  // must not have class not found exception
@@ -81,36 +71,36 @@ public class CineplexManager extends DataManager {
     }
 
     private static void readMovieShowtime() throws IOException, ClassNotFoundException {
-        if (readSerializedObject(FILENAME_SHOWTIME) == null) movieShowtime = null;
+        if (readSerializedObject(FILENAME_SHOWTIME) == null) movieShowtime = new HashMap<>();
         else movieShowtime = (HashMap<Movie, ArrayList<Showtime>>) readSerializedObject(FILENAME_SHOWTIME);
     }
     private static void readStaffAccount() throws IOException, ClassNotFoundException {
-        if (readSerializedObject(FILENAME_STAFFACCOUNT) == null) staffAccount = null;
+        if (readSerializedObject(FILENAME_STAFFACCOUNT) == null) staffAccount = new HashMap<>();
         else staffAccount = (HashMap<String, String>) readSerializedObject(FILENAME_STAFFACCOUNT);
     }
 
     private static void readCinemaList() throws IOException, ClassNotFoundException {
-        if (readSerializedObject(FILENAME_CINEMALIST) == null) cinemaList = null;
+        if (readSerializedObject(FILENAME_CINEMALIST) == null) cinemaList = new HashMap<>();
         else cinemaList = (HashMap<Cineplex, ArrayList<Cinema>>) readSerializedObject(FILENAME_CINEMALIST);
     }
 
     private static void readBookingHistory() throws IOException, ClassNotFoundException {
-        if (readSerializedObject(FILENAME_BOOKINGHISTORY) == null) bookingHistory = null;
+        if (readSerializedObject(FILENAME_BOOKINGHISTORY) == null) bookingHistory = new ArrayList<>();
         else bookingHistory = (ArrayList<BookingHistory>) readSerializedObject(FILENAME_BOOKINGHISTORY);
     }
 
     private static void readReviewList() throws IOException, ClassNotFoundException {
-        if (readSerializedObject(FILENAME_REVIEWLIST) == null) reviewList = null;
+        if (readSerializedObject(FILENAME_REVIEWLIST) == null) reviewList = new HashMap<>();
         else reviewList = (HashMap<Movie, ArrayList<Review>>) readSerializedObject(FILENAME_REVIEWLIST);
     }
 
     private static void readHolidayList() throws IOException, ClassNotFoundException {
-        if (readSerializedObject(FILENAME_HOLIDAY) == null) holidayList = null;
+        if (readSerializedObject(FILENAME_HOLIDAY) == null) holidayList = new HashMap<>();
         else holidayList = (HashMap<String, Holiday>) readSerializedObject(FILENAME_HOLIDAY);
     }
 
     private static void readSystem() throws IOException, ClassNotFoundException {
-        if (readSerializedObject(FILENAME_SYSTEM) == null) system = null;
+        if (readSerializedObject(FILENAME_SYSTEM) == null) system = new HashMap<>();
         else system = (HashMap<String, Boolean>) readSerializedObject(FILENAME_SYSTEM);
     }
 
@@ -190,7 +180,9 @@ public class CineplexManager extends DataManager {
         return bookingHistory;
     }
 
-    public static ArrayList<Review> getReviewList(Movie movie) { return reviewList.get(movie); }
+    public static ArrayList<Review> getReviewList(Movie movie) {
+        return reviewList.get(movie);
+    }
 
     public static HashMap<String, Holiday> getHolidayList() {
         return holidayList;
@@ -198,7 +190,6 @@ public class CineplexManager extends DataManager {
 
     public static HashMap<String, Boolean> getSystem() { return system; }
 
-    // TODO make it efficient
     public static Cinema getCinemaByCode(String code) {
         for (Cineplex cineplex : Cineplex.values()) {
             if (getCinemaList(cineplex) == null) continue;
@@ -209,7 +200,6 @@ public class CineplexManager extends DataManager {
         return null;  // not found
     }
 
-    // TODO make it efficient, and return multiple possible results
     public static ArrayList<Movie> getMovieByTitle(String title) {
         if (movieListing == null) return null;
         ArrayList<Movie> searchResult = new ArrayList<>();

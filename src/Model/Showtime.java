@@ -1,24 +1,19 @@
 package Model;
 
-import static Controller.IOController.*;
-
 import java.io.Serializable;
 import java.util.Date;
 
+import static Controller.IOController.*;
 
 public class Showtime implements Serializable {
-    // TODO date
-    // TODO time
     private Movie movie;
     private Cinema cinema;
     private Date time;
-//    private double price;     // price should be in somewhere else
     private Seat[][] seats;
 
     private final static int COLS = 17;
     private final static int ROWS = 9;
 
-    // TODO modify this
     public Showtime() {
         seats = new Seat[ROWS][COLS];
         initializeSeat(seats);

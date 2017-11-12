@@ -35,7 +35,7 @@ public class ShowtimeView extends View {
             printMenu("No showtime on that day.",
                     "",
                     "1. Add a show time",
-                    "2. Go back");
+                    "2. Go back", "");
             int choice = readChoice(1, 2);
             if (choice == 1) {
                 addShowtime();
@@ -57,7 +57,7 @@ public class ShowtimeView extends View {
 
             printMenu((index + 1) + ". Go back",
                     "Please choose a showtime.",
-                    "To add a showtime, enter 0:");
+                    "To add a showtime, enter 0:", "");
 
             int choice = readChoice(0, index + 1);
             if (choice == 0) addShowtime();
@@ -75,7 +75,7 @@ public class ShowtimeView extends View {
                 "1. Modify cineplex/cinema",
                 "2. Modify time",
                 "3. Remove the showtime",
-                "4. Go back");
+                "4. Go back", "");
 
         int choice = readChoice(1, 4);
         switch (choice) {
@@ -100,6 +100,7 @@ public class ShowtimeView extends View {
         }
     }
 
+    // TODO modify here
     protected void addShowtime() {
         Cinema cinema;
 

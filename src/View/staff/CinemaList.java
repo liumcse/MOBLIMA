@@ -1,11 +1,11 @@
 package View.staff;
 
+import Model.Cinema;
+import View.View;
+
 import static Controller.IOController.*;
 import static Controller.CineplexManager.*;
 import static Model.Constant.*;
-
-import Model.Cinema;
-import View.View;
 
 public class CinemaList extends View {
     @Override
@@ -37,6 +37,6 @@ public class CinemaList extends View {
     @Override
     protected void destroy() {
         // TODO bug here
-        if (prevView.getClass() == ShowtimeView.class) ((ShowtimeView)prevView).addShowtime();
+        if (getPrevView().getClass() == ShowtimeView.class) ((ShowtimeView)getPrevView()).addShowtime();
     }
 }

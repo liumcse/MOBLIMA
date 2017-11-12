@@ -1,16 +1,15 @@
 package View.moviegoer;
 
-import Controller.CineplexManager;
 import Controller.IOController;
 import Model.Constant;
 import Model.Movie;
 import Model.Seat;
 import Model.Showtime;
 import View.View;
+import java.util.*;
 
 import static Controller.CineplexManager.*;
 import static Controller.IOController.*;
-import java.util.*;
 
 /**
  * Created by LiuMingyu on 6/11/17.
@@ -24,6 +23,19 @@ public class MovieListing extends View {
 
     @Override
     protected void start() {
+        displayMenu();
+    }
+
+    /**
+     * Directly go to movie detail menu
+     * @param movie
+     */
+
+    protected void start(Movie movie) {
+        displayMovieDetailMenu(movie);
+    }
+
+    private void displayMenu() {
         printHeader("Search or list movies");
         printMenu("1. Search movies",
                 "2. List all movies",
@@ -41,9 +53,10 @@ public class MovieListing extends View {
                 displayMovieListing(true);
                 break;
             case 4:
-                destroy();
                 break;
         }
+
+        destroy();
     }
 
     private void searchMovie() {
@@ -53,7 +66,7 @@ public class MovieListing extends View {
             printMenu("-> 0 result has been found.",
                     "Press ENTER to go back", "");
             readString();
-            start();
+            displayMenu();
         }
         else {
             printMenu("-> " + searchResult.size() + " results have been found:");
@@ -79,7 +92,7 @@ public class MovieListing extends View {
         printHeader("Movies");
         if (movieListing == null) {
             System.out.println("Movie listing is not available");
-            start();
+            displayMenu();
         }
 
         int index = 0;

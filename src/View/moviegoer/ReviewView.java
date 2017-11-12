@@ -7,7 +7,6 @@ import View.View;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import static Controller.CineplexManager.*;
 import static Controller.IOController.*;
@@ -21,6 +20,10 @@ public class ReviewView extends View{
     }
 
     protected void start(){
+        displayMenu();
+    }
+
+    private void displayMenu() {
         printHeader("Review");
         if (movie.getMovieStatus() == COMING_SOON) {
             readString("Not allowed to comment on coming soon movies.",

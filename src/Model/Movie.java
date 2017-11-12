@@ -1,8 +1,9 @@
 package Model;
 
+import Model.Constant.*;
+
 import java.io.Serializable;
 import java.util.ArrayList;
-import Model.Constant.*;
 
 /**
  * Represent a movie with details.
@@ -18,7 +19,6 @@ public class Movie implements Serializable {
     private int sales;
 
     public Movie() {
-        // empty constructor
         this.sales = 0;
     }
 

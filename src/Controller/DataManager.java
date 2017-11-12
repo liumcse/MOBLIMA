@@ -1,8 +1,6 @@
 package Controller;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * DataManager
@@ -14,12 +12,6 @@ public class DataManager {
      * @param filename
      * @return List object
      */
-
-
-
-
-
-    // TODO change to protected later
     public static Object readSerializedObject(String filename) throws IOException, ClassNotFoundException {
         Object data;
         FileInputStream fileInputStream;
