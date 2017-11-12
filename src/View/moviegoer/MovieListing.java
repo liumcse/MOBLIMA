@@ -34,10 +34,10 @@ public class MovieListing extends View {
                 searchMovie();
                 break;
             case 2:
-                displayMovieListing(0);
+                displayMovieListing(false);
                 break;
             case 3:
-                displayMovieListing(1);
+                displayMovieListing(true);
                 break;
             case 4:
                 destroy();
@@ -69,16 +69,11 @@ public class MovieListing extends View {
         }
     }
 
-    private void displayMovieListing(int option) {
+    private void displayMovieListing(boolean topFive) {
         ArrayList<Movie> movieListing;
 
-        switch (option) {
-            case 0:
-                movieListing = getMovieListing();
-                break;
-            default:
-                movieListing = getTop5MovieListing();
-        }
+        if (topFive) movieListing = getTop5MovieListing();
+        else movieListing = getMovieListing();
 
         printHeader("Movies");
         if (movieListing == null) {
@@ -121,7 +116,7 @@ public class MovieListing extends View {
             case 3:
                 break;
         }
-        displayMovieListing(0);
+        displayMovieListing(false);  // TODO where does it go back to?
     }
 
 

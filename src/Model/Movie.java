@@ -16,7 +16,6 @@ public class Movie implements Serializable {
     private ArrayList<String> cast;
     private MovieStatus movieStatus;
     private int sales;
-//    private ArrayList<ShowtimeView> showtime;
 
     public Movie() {
         // empty constructor

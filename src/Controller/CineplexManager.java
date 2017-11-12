@@ -116,31 +116,31 @@ public class CineplexManager extends DataManager {
         else system = (HashMap<String, Boolean>) readSerializedObject(FILENAME_SYSTEM);
     }
 
-    private static void writeMovieListing() throws IOException {
+    public static void updateMovieListing() throws IOException {
         writeSerializedObject(FILENAME_MOVIE, movieListing);
     }
 
-    private static void writeShowtime() throws IOException {
+    public static void updateShowtime() throws IOException {
         writeSerializedObject(FILENAME_SHOWTIME, movieShowtime);
     }
 
-    private static void writeCinemaList() throws IOException {
+    public static void updateCinemaList() throws IOException {
         writeSerializedObject(FILENAME_CINEMALIST, cinemaList);
     }
 
-    private static void writeBookingHistory() throws IOException {
+    public static void updateBookingHistory() throws IOException {
         writeSerializedObject(FILENAME_BOOKINGHISTORY, bookingHistory);
     }
 
-    private static void writeReviewList() throws IOException {
+    public static void updateReviewList() throws IOException {
         writeSerializedObject(FILENAME_REVIEWLIST, reviewList);
     }
 
-    private static void writeHolidayList() throws IOException {
+    public static void updateHolidayList() throws IOException {
         writeSerializedObject(FILENAME_HOLIDAY, holidayList);
     }
 
-    private static void writeSystem() throws IOException {
+    public static void updateSystem() throws IOException {
         writeSerializedObject(FILENAME_SYSTEM, system);
     }
 
@@ -168,7 +168,7 @@ public class CineplexManager extends DataManager {
             Collections.sort(top5, new Comparator<Movie>() {
                 @Override
                 public int compare(Movie o1, Movie o2) {
-                    return Double.compare(o2.getSales(), o1.getSales());
+                    return Integer.compare(o1.getSales(), o2.getSales());
                 }
             });
         }
@@ -233,60 +233,40 @@ public class CineplexManager extends DataManager {
 
     public static void addNewListing(Movie movie) throws IOException{
         movieListing.add(movie);
-        writeMovieListing();
+        updateMovieListing();
     }
 
-    public static void addShowtime(Movie movie, Showtime showtime) throws IOException {
+    public static void addShowtime(Showtime showtime) throws IOException {
+        Movie movie = showtime.getMovie();
         if (movieShowtime.get(movie) == null) movieShowtime.put(movie, new ArrayList<>());
         movieShowtime.get(movie).add(showtime);
-        writeShowtime();
+        updateShowtime();
     }
 
     public static void logBooking(BookingHistory record) throws IOException {
         bookingHistory.add(record);
-        writeBookingHistory();
+        updateBookingHistory();
     }
-
 
     public static void addNewReview(Movie movie, Review review) throws IOException {
         if(reviewList.get(movie) == null) reviewList.put(movie, new ArrayList<>());
         reviewList.get(movie).add(review);
-        writeReviewList();
+        updateReviewList();
     }
 
     public static void addHoliday(String date, Holiday holiday) throws IOException {
         holidayList.put(date, holiday);
-        writeHolidayList();
-    }
-
-    public static void overwriteHolidayList() throws IOException {
-        writeHolidayList();
-    }
-
-    public static void overwriteSystem() throws IOException {
-        writeSystem();
-    }
-
-    public static void overwriteCinemaList() throws IOException {
-        writeCinemaList();
-    }
-
-    public static void overwriteShowtime() throws IOException {
-        writeShowtime();
-    }
-    // TODO redundant?
-    public static void overwriteListing() throws IOException {
-        writeMovieListing();
+        updateHolidayList();
     }
 
     public static void removeListing(Movie movie) throws IOException {
         movie.setMovieStatus(MovieStatus.END_OF_SHOWING);
-        writeMovieListing();
+        updateMovieListing();
     }
-
+//
     public static void removeShowtime(Showtime showtime) throws IOException {
         movieShowtime.get(showtime.getMovie()).remove(showtime);
-        writeShowtime();
+        updateShowtime();
     }
 
     public static boolean authentication (String username, String password) {

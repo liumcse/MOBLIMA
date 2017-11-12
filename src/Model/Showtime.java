@@ -36,9 +36,6 @@ public class Showtime implements Serializable {
         this.movie = movie;
     }
 
-//    public void setPrice(double price) {
-//        this.price = price;
-//    }
 
     public Movie getMovie() {
         return movie;
@@ -100,5 +97,25 @@ public class Showtime implements Serializable {
     @Override
     public String toString() {
         return cinema.getCineplex().toString() + ": " + formatTimeMMddkkmm(time);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Showtime showtime = (Showtime) o;
+
+        if (!movie.equals(showtime.movie)) return false;
+        if (!cinema.equals(showtime.cinema)) return false;
+        return formatTimeMMddkkmm(time).equals(formatTimeMMddkkmm(showtime.time));
+    }
+
+    @Override
+    public int hashCode() {
+        int result = movie.hashCode();
+        result = 31 * result + cinema.hashCode();
+        result = 31 * result + formatTimeMMddkkmm(time).hashCode();
+        return result;
     }
 }

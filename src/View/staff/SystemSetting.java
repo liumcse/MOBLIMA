@@ -53,7 +53,7 @@ public class SystemSetting extends View{
                 getSystem().put("movieOrder", !movieOrder);
                 System.out.println("Successfully changed the setting.");
                 System.out.println();
-                overwriteSystem();
+                updateSystem();
             } catch (IOException ex) {
                 System.out.println("Failed to change the setting.");
                 System.out.println();
@@ -85,7 +85,7 @@ public class SystemSetting extends View{
 
             cinema.setBasePrice(newPrice);
             try {
-                overwriteCinemaList();
+                updateCinemaList();
                 System.out.println("Ticket price successfully changed.");
             } catch (IOException ex) {
                 System.out.println("Failed to change ticket price.");

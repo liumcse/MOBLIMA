@@ -10,9 +10,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 
-import static Controller.CineplexManager.getCinemaByCode;
-import static Controller.CineplexManager.getMovieShowtime;
-import static Controller.CineplexManager.removeShowtime;
+import static Controller.CineplexManager.*;
 import static Controller.IOController.*;
 import static Controller.IOController.printHeader;
 import static Controller.IOController.readString;
@@ -74,7 +72,7 @@ public class ShowtimeView extends View {
                 if (askConfirm("Are you sure to remove the showtime?",
                         "Enter Y to confirm, N to cancel:")) {
                     try {
-                        removeShowtime(showtime);
+                        CineplexManager.removeShowtime(showtime);  // TODO does it work?
                         System.out.println("The showtime has been removed.");
                     } catch (IOException ex) {
                         System.out.println("Failed to remove showtime");
@@ -112,7 +110,7 @@ public class ShowtimeView extends View {
         showtime.setTime(time);
 
         try {
-            CineplexManager.addShowtime(movie, showtime);
+            CineplexManager.addShowtime(showtime);
             System.out.println("Successfully added showtime.");
         } catch (IOException ex) {
             System.out.println("Failed to add showtime");

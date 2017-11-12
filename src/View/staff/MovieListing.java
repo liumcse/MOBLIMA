@@ -186,7 +186,7 @@ public class MovieListing extends View {
                     break;
                 case 7:
                     try {
-                        overwriteListing();
+                        updateMovieListing();
                         System.out.println("Changes have been applied. Go back or make another selection.");
                         changed = false;
                     } catch (IOException ex) {

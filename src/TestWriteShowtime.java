@@ -30,7 +30,7 @@ public class TestWriteShowtime {
                 Showtime tempShowtime1 = new Showtime();
                 Showtime tempShowtime2 = new Showtime();
 
-                Date time = ft.parse("2017-11-11 18:30");
+                Date time = ft.parse("2017-11-12 18:30");
 
                 tempShowtime1.setMovie(movie);
                 tempShowtime2.setMovie(movie);
