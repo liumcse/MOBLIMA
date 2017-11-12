@@ -80,12 +80,11 @@ public class Payment extends View {
             seat.bookSeat();
             // increment ticket sales
             Movie movie = seat.getShowtime().getMovie();
-            movie.incrementSales();  // TODO BUG here, it's not working
+            CineplexManager.getMovieListing().get(CineplexManager.getMovieListing().indexOf(movie)).incrementSales();
             BookingHistory record = new BookingHistory(TID, customer, seat);
             CineplexManager.logBooking(record);
             CineplexManager.updateShowtime();
             CineplexManager.updateMovieListing();
-            System.out.println("Ticket sales is now " + movie.getSales());
             System.out.println("Payment has been made. We wish you a great day!");
         }
         catch (IOException ex) {

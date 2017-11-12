@@ -212,9 +212,11 @@ public class MovieListing extends View {
 
     private void removeListingMenu(Movie movie) {
         if (askConfirm("Are you sure to remove the listing?",
+                "All its showtime will be removed as well.",
                 "Enter Y to confirm, N to cancel:")) {
             try {
                 removeListing(movie);
+                removeAllShowtime(movie);
                 System.out.println("The listing has been removed.");
             } catch (IOException ex) {
                 System.out.println("Failed to remove listing");

@@ -50,22 +50,31 @@ public class CineplexManager extends DataManager {
 
         try {
             readSystem();  // must not have class not found exception
+            readStaffAccount();  // must not have class not found exception
+            readCinemaList();  // may have class not found exception
             readMovieListing();  // may have class not found exception
             readMovieShowtime();  // may have class not found exception
-            readStaffAccount();  // may have class not found exception
-            readCinemaList();  // may have class not found exception
-            readBookingHistory();  // may have class not found exception
             readReviewList();  // may have class not found exception
-            readHolidayList();  // may have class not found exception
-            return true;
         } catch (EOFException ex) {
-            return true;
+
         } catch (IOException ex) {
             ex.printStackTrace();
             return false;
         } catch (ClassNotFoundException ex) {
-            return true;
+
         }
+
+        try {
+            readHolidayList();  // may have class not found exception
+            readBookingHistory();  // may have class not found exception
+        } catch (EOFException ex) {
+
+        } catch (IOException e) {
+            return false;
+        } catch (ClassNotFoundException e) {
+        }
+
+        return true;
     }
 
 
@@ -168,7 +177,7 @@ public class CineplexManager extends DataManager {
             Collections.sort(top5, new Comparator<Movie>() {
                 @Override
                 public int compare(Movie o1, Movie o2) {
-                    return Integer.compare(o1.getSales(), o2.getSales());
+                    return Integer.compare(o2.getSales(), o1.getSales());
                 }
             });
         }
@@ -263,9 +272,14 @@ public class CineplexManager extends DataManager {
         movie.setMovieStatus(MovieStatus.END_OF_SHOWING);
         updateMovieListing();
     }
-//
+
     public static void removeShowtime(Showtime showtime) throws IOException {
         movieShowtime.get(showtime.getMovie()).remove(showtime);
+        updateShowtime();
+    }
+
+    public static void removeAllShowtime(Movie movie) throws IOException {
+        movieShowtime.remove(movie);
         updateShowtime();
     }
 

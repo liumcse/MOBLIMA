@@ -2,6 +2,7 @@ package View.moviegoer;
 
 import Controller.CineplexManager;
 import Controller.IOController;
+import Model.Constant;
 import Model.Movie;
 import Model.Seat;
 import Model.Showtime;
@@ -83,18 +84,21 @@ public class MovieListing extends View {
 
         int index = 0;
 
-        if (getSystem().get("movieOrder")) {
+        if (!topFive || getSystem().get("movieOrder")) {  // show movie rating
             for (Movie movie : movieListing) {
+                if (movie.getMovieStatus().equals(Constant.MovieStatus.END_OF_SHOWING)) continue;
                 System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ") " +
                         "[" + (getMovieRating(movie) == 0.0 ? "No rating" : getMovieRating(movie)) + "]");
             }
         }
         else {
-            for (Movie movie : movieListing) {
+            for (Movie movie : movieListing) {  // show ticket sales
+                if (movie.getMovieStatus().equals(Constant.MovieStatus.END_OF_SHOWING)) continue;
                 System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ") " +
-                        "[" + movie.getSales() + "]");
+                        "[" + (movie.getSales() == 0 ? "No sale" : movie.getSales()) + "]");
             }
         }
+
         System.out.println(index + 1 + ". Go back");
         System.out.println();
 
@@ -161,8 +165,10 @@ public class MovieListing extends View {
             }
         });
 
-        for (Showtime s : getMovieShowtime(movie)) {
-            if (dateEquals(s.getTime(), dateChosen)) showtimeList.add(s);
+        if (getMovieShowtime(movie) != null) {
+            for (Showtime s : getMovieShowtime(movie)) {
+                if (dateEquals(s.getTime(), dateChosen)) showtimeList.add(s);
+            }
         }
 
         if (showtimeList.isEmpty()) {
@@ -264,6 +270,7 @@ public class MovieListing extends View {
         }
         else {
             // TODO BookingManager
+            System.out.println(showtime.getMovie().getSales());
             intent(this, new Booking(showtime.getSeatAt(row, col)));
         }
     }

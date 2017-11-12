@@ -47,7 +47,7 @@ public class ReviewView extends View{
         Review review = new Review(this.movie, rating, content, name);
 
         try {
-            addNewReview(this.movie, review);
+            addNewReview(movie, review);
             System.out.println("Successfully created review for " + movie.getTitle());
         }
         catch (IOException ex) {

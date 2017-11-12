@@ -31,26 +31,41 @@ public class ShowtimeView extends View {
         printHeader("Show time");
         // TODO bug here, what is there's no showtime?
         ArrayList<Model.Showtime> showtimeList = getMovieShowtime(movie);
-        Collections.sort(showtimeList, new Comparator<Model.Showtime>() {
-            @Override
-            public int compare(Model.Showtime o1, Model.Showtime o2) {
-                return o1.getCinema().getCineplex().toString().compareTo(o2.getCinema().getCineplex().toString());
+        if (showtimeList == null || showtimeList.isEmpty()) {
+            printMenu("No showtime on that day.",
+                    "",
+                    "1. Add a show time",
+                    "2. Go back");
+            int choice = readChoice(1, 2);
+            if (choice == 1) {
+                addShowtime();
             }
-        });
-
-        int index = 0;
-        for (Model.Showtime s : showtimeList) printMenu(++index + ": " + s);
-
-        printMenu((index + 1) + ". Go back",
-                "Please choose a showtime.",
-                "To add a showtime, enter 0:");
-
-        int choice = readChoice(0, index + 1);
-        if (choice == 0) addShowtime();
-        else if (choice == index + 1) destroy();
+            else {
+                destroy();
+            }
+        }
         else {
-            Showtime showtime = showtimeList.get(choice - 1);
-            displayShowtimeDetailMenu(showtime);
+            Collections.sort(showtimeList, new Comparator<Model.Showtime>() {
+                @Override
+                public int compare(Model.Showtime o1, Model.Showtime o2) {
+                    return o1.getCinema().getCineplex().toString().compareTo(o2.getCinema().getCineplex().toString());
+                }
+            });
+
+            int index = 0;
+            for (Model.Showtime s : showtimeList) printMenu(++index + ": " + s);
+
+            printMenu((index + 1) + ". Go back",
+                    "Please choose a showtime.",
+                    "To add a showtime, enter 0:");
+
+            int choice = readChoice(0, index + 1);
+            if (choice == 0) addShowtime();
+            else if (choice == index + 1) destroy();
+            else {
+                Showtime showtime = showtimeList.get(choice - 1);
+                displayShowtimeDetailMenu(showtime);
+            }
         }
     }
 
