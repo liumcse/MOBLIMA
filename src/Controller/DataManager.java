@@ -24,11 +24,14 @@ public class DataManager {
         Object data;
         FileInputStream fileInputStream;
         ObjectInputStream objectInputStream;
-
-        fileInputStream = new FileInputStream(filename);
-        objectInputStream = new ObjectInputStream(fileInputStream);
-        data = objectInputStream.readObject();
-        objectInputStream.close();
+        try {
+            fileInputStream = new FileInputStream(filename);
+            objectInputStream = new ObjectInputStream(fileInputStream);
+            data = objectInputStream.readObject();
+            objectInputStream.close();
+        } catch (EOFException e) {
+            return null;
+        }
 
         return data;
     }

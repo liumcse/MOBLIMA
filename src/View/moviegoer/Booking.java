@@ -51,7 +51,6 @@ public class Booking extends View {
         }
     }
 
-
     private void printBookingDetail() {
         Showtime showtime = seat.getShowtime();
         Movie movie = showtime.getMovie();

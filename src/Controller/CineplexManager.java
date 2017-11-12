@@ -55,23 +55,12 @@ public class CineplexManager extends DataManager {
             readMovieListing();  // may have class not found exception
             readMovieShowtime();  // may have class not found exception
             readReviewList();  // may have class not found exception
-        } catch (EOFException ex) {
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return false;
-        } catch (ClassNotFoundException ex) {
-
-        }
-
-        try {
             readHolidayList();  // may have class not found exception
             readBookingHistory();  // may have class not found exception
-        } catch (EOFException ex) {
-
-        } catch (IOException e) {
+        } catch (IOException ex) {
             return false;
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException ex) {
+            return true;
         }
 
         return true;
@@ -287,5 +276,4 @@ public class CineplexManager extends DataManager {
         if (staffAccount.get(username) == null) return false;  // username does not exist
         else return staffAccount.get(username).equals(password);  // password does not match
     }
-
 }
