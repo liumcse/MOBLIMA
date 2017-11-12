@@ -155,7 +155,7 @@ public class CineplexManager extends DataManager {
      */
     public static ArrayList<Movie> getTop5MovieListing() {
         boolean orderBy = system.get("movieOrder");
-        ArrayList<Movie> top5 = movieListing;
+        ArrayList<Movie> top5 = (ArrayList<Movie>) movieListing.clone();
         if (orderBy) {  // order by overall ratings
             Collections.sort(top5, new Comparator<Movie>() {
                 @Override

@@ -4,6 +4,7 @@ package View.moviegoer;
 import Controller.CineplexManager;
 import Model.BookingHistory;
 import Model.Customer;
+import Model.Movie;
 import Model.Seat;
 import View.View;
 
@@ -77,12 +78,14 @@ public class Payment extends View {
     private void logBooking() {
         try {
             seat.bookSeat();
-            seat.getShowtime().getMovie().incrementSales();  // TODO BUG here, it's not working
+            // increment ticket sales
+            Movie movie = seat.getShowtime().getMovie();
+            movie.incrementSales();  // TODO BUG here, it's not working
             BookingHistory record = new BookingHistory(TID, customer, seat);
             CineplexManager.logBooking(record);
             CineplexManager.updateShowtime();
             CineplexManager.updateMovieListing();
-            System.out.println("Ticket sales is now " + seat.getShowtime().getMovie().getSales());
+            System.out.println("Ticket sales is now " + movie.getSales());
             System.out.println("Payment has been made. We wish you a great day!");
         }
         catch (IOException ex) {

@@ -46,10 +46,6 @@ public class Movie implements Serializable {
         this.movieStatus = movieStatus;
     }
 
-    public void setSales(int sales) {
-        this.sales = sales;
-    }
-
     public void incrementSales() {
         this.sales += 1;
     }
