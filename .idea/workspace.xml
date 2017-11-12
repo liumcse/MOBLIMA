@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f89b421-fad6-4c16-ac6a-594ebe544363" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager$1.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager$2.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager$3.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/MovieListing$1.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/MovieListing$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/MovieListing.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/MovieListing.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/Payment.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/Payment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/ShowtimeView$1.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/ShowtimeView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/ShowtimeView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/ShowtimeView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/data/bookingHistory.dat" afterPath="$PROJECT_DIR$/res/data/bookingHistory.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/data/movieListing.dat" afterPath="$PROJECT_DIR$/res/data/movieListing.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/data/showtime.dat" afterPath="$PROJECT_DIR$/res/data/showtime.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/CineplexManager.java" afterPath="$PROJECT_DIR$/src/Controller/CineplexManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/moviegoer/MovieListing.java" afterPath="$PROJECT_DIR$/src/View/moviegoer/MovieListing.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/ReviewView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/ReviewView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/moviegoer/Payment.java" afterPath="$PROJECT_DIR$/src/View/moviegoer/Payment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/moviegoer/ReviewView.java" afterPath="$PROJECT_DIR$/src/View/moviegoer/ReviewView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/staff/MovieListing.java" afterPath="$PROJECT_DIR$/src/View/staff/MovieListing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/staff/ShowtimeView.java" afterPath="$PROJECT_DIR$/src/View/staff/ShowtimeView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +19,7 @@
       <file leaf-file-name="MovieListing.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/moviegoer/MovieListing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
+            <state relative-caret-position="1425">
               <caret line="95" column="97" lean-forward="false" selection-start-line="95" selection-start-column="97" selection-end-line="95" selection-end-column="97" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -48,8 +32,8 @@
       <file leaf-file-name="MovieListing.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/staff/MovieListing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="208" column="9" lean-forward="true" selection-start-line="208" selection-start-column="9" selection-end-line="208" selection-end-column="9" />
+            <state relative-caret-position="3120">
+              <caret line="208" column="9" lean-forward="false" selection-start-line="208" selection-start-column="9" selection-end-line="208" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,8 +44,8 @@
       <file leaf-file-name="Booking.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/moviegoer/Booking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="63" column="49" lean-forward="true" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
+            <state relative-caret-position="945">
+              <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -82,8 +66,8 @@
       <file leaf-file-name="CineplexManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/CineplexManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="282" column="25" lean-forward="true" selection-start-line="282" selection-start-column="25" selection-end-line="282" selection-end-column="25" />
+            <state relative-caret-position="3945">
+              <caret line="282" column="25" lean-forward="false" selection-start-line="282" selection-start-column="25" selection-end-line="282" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,7 +78,7 @@
       <file leaf-file-name="ShowtimeView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/staff/ShowtimeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
+            <state relative-caret-position="1185">
               <caret line="86" column="70" lean-forward="false" selection-start-line="86" selection-start-column="70" selection-end-line="86" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -107,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/src/Model/Holiday.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -116,8 +100,8 @@
       <file leaf-file-name="Showtime.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Showtime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1168">
-              <caret line="109" column="58" lean-forward="true" selection-start-line="109" selection-start-column="58" selection-end-line="109" selection-end-column="58" />
+            <state relative-caret-position="1395">
+              <caret line="109" column="58" lean-forward="false" selection-start-line="109" selection-start-column="58" selection-end-line="109" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,8 +112,8 @@
       <file leaf-file-name="ReviewView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/moviegoer/ReviewView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="45" column="67" lean-forward="true" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
+            <state relative-caret-position="517">
+              <caret line="61" column="9" lean-forward="true" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -138,8 +122,8 @@
       <file leaf-file-name="Payment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/moviegoer/Payment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="87" column="74" lean-forward="false" selection-start-line="87" selection-start-column="74" selection-end-line="87" selection-end-column="74" />
+            <state relative-caret-position="1095">
+              <caret line="87" column="49" lean-forward="false" selection-start-line="87" selection-start-column="49" selection-end-line="87" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -251,6 +235,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
@@ -312,8 +298,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -556,13 +540,12 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.428" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.284" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.284" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -579,6 +562,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Sequence" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -616,7 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="427" column="0" lean-forward="false" selection-start-line="427" selection-start-column="0" selection-end-line="427" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -695,7 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,7 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="64" lean-forward="false" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -782,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -883,7 +863,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -899,22 +878,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Holiday.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Showtime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1168">
-          <caret line="109" column="58" lean-forward="true" selection-start-line="109" selection-start-column="58" selection-end-line="109" selection-end-column="58" />
+        <state relative-caret-position="1395">
+          <caret line="109" column="58" lean-forward="false" selection-start-line="109" selection-start-column="58" selection-end-line="109" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -923,7 +901,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/moviegoer/MovieListing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
+        <state relative-caret-position="1425">
           <caret line="95" column="97" lean-forward="false" selection-start-line="95" selection-start-column="97" selection-end-line="95" selection-end-column="97" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -934,15 +912,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/moviegoer/Payment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="87" column="74" lean-forward="false" selection-start-line="87" selection-start-column="74" selection-end-line="87" selection-end-column="74" />
+        <state relative-caret-position="1095">
+          <caret line="87" column="49" lean-forward="false" selection-start-line="87" selection-start-column="49" selection-end-line="87" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/staff/ShowtimeView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
+        <state relative-caret-position="1185">
           <caret line="86" column="70" lean-forward="false" selection-start-line="86" selection-start-column="70" selection-end-line="86" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -960,8 +938,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/CineplexManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="282" column="25" lean-forward="true" selection-start-line="282" selection-start-column="25" selection-end-line="282" selection-end-column="25" />
+        <state relative-caret-position="3945">
+          <caret line="282" column="25" lean-forward="false" selection-start-line="282" selection-start-column="25" selection-end-line="282" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -970,8 +948,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/staff/MovieListing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="208" column="9" lean-forward="true" selection-start-line="208" selection-start-column="9" selection-end-line="208" selection-end-column="9" />
+        <state relative-caret-position="3120">
+          <caret line="208" column="9" lean-forward="false" selection-start-line="208" selection-start-column="9" selection-end-line="208" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -980,8 +958,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/moviegoer/Booking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="63" column="49" lean-forward="true" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
+        <state relative-caret-position="945">
+          <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -990,8 +968,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/moviegoer/ReviewView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="45" column="67" lean-forward="true" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
+        <state relative-caret-position="517">
+          <caret line="61" column="9" lean-forward="true" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
           <folding />
         </state>
       </provider>

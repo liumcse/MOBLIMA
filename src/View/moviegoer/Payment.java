@@ -7,6 +7,7 @@ import Model.Customer;
 import Model.Movie;
 import Model.Seat;
 import View.View;
+import View.MovieGoerView;
 
 import static Controller.IOController.*;
 
