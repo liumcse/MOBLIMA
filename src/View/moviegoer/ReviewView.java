@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 import static Controller.CineplexManager.*;
 import static Controller.IOController.*;
+import static Model.Constant.MovieStatus.*;
 
 public class ReviewView extends View{
     private Movie movie;
@@ -21,6 +22,12 @@ public class ReviewView extends View{
 
     protected void start(){
         printHeader("Review");
+        if (movie.getMovieStatus() == COMING_SOON) {
+            readString("Not allowed to comment on coming soon movies.",
+                    "Press ENTER to go back.",
+                    "\n");
+            destroy();
+        }
         printMenu("1. Write a review",
                 "2. View all reviews",
                 "3. Go back", "");

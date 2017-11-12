@@ -6,6 +6,7 @@ import Model.BookingHistory;
 import Model.Customer;
 import Model.Seat;
 import View.View;
+import View.MovieGoerView;
 
 import static Controller.IOController.*;
 
