@@ -36,16 +36,15 @@ public class Payment extends View {
     }
 
     private void generateTID() {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(seat.getShowtime().getCinema().getCode());
-        stringBuffer.append(new SimpleDateFormat("YYYYMMddhhmm").format(new Date().getTime()));  // TODO month is not correctly displayed
-        TID = stringBuffer.toString();
+        TID = seat.getShowtime().getCinema().getCode() +
+                new SimpleDateFormat("YYYYMMddhhmm").format(new Date().getTime())
+        ;
     }
 
     private void computeTotalPrice() {
         if (customer.isSeniorCitizen()) basePrice /= 2;
         GST = round((basePrice + 2) * 0.07, 2);
-        totalPrice = round(basePrice + 2 + GST, 2);  // TODO modify this
+        totalPrice = round(basePrice + 2 + GST, 2);
     }
 
     private void displayMenu() {
@@ -78,7 +77,6 @@ public class Payment extends View {
     private void logBooking() {
         try {
             seat.bookSeat();
-            // increment ticket sales
             Movie movie = seat.getShowtime().getMovie();
             CineplexManager.getMovieListing().get(CineplexManager.getMovieListing().indexOf(movie)).incrementSales();
             BookingHistory record = new BookingHistory(TID, customer, seat);

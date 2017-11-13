@@ -1,3 +1,5 @@
+package Controller;
+
 import Controller.CineplexManager;
 import Controller.DataManager;
 import Model.Constant;

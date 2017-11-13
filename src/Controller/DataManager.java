@@ -12,7 +12,7 @@ public class DataManager {
      * @param filename
      * @return List object
      */
-    public static Object readSerializedObject(String filename) throws IOException, ClassNotFoundException {
+    protected static Object readSerializedObject(String filename) throws IOException, ClassNotFoundException {
         Object data;
         FileInputStream fileInputStream;
         ObjectInputStream objectInputStream;
@@ -33,9 +33,7 @@ public class DataManager {
      * @param filename
      * @param data
      */
-
-    // TODO change to protected later
-    public static void writeSerializedObject(String filename, Object data) throws IOException {
+    protected static void writeSerializedObject(String filename, Object data) throws IOException {
         FileOutputStream fileOutputStream;
         ObjectOutputStream objectOutputStream;
 

@@ -56,49 +56,53 @@ public class CineplexManager extends DataManager {
         return true;
     }
 
-
+    @SuppressWarnings("unchecked")
     private static void readMovieListing() throws IOException, ClassNotFoundException {
-        if (readSerializedObject(FILENAME_MOVIE) == null) movieListing = null;
+        if (readSerializedObject(FILENAME_MOVIE) == null) movieListing = new ArrayList<>();
         else {
-            movieListing = (ArrayList) readSerializedObject(FILENAME_MOVIE);
-            Collections.sort(movieListing, new Comparator<Movie>() {  // sort listing by movie status
-                @Override
-                public int compare(Movie o1, Movie o2) {
-                    return o1.getMovieStatus().toString().compareTo(o2.getMovieStatus().toString());
-                }
-            });
+            movieListing = (ArrayList<Movie>) readSerializedObject(FILENAME_MOVIE);
+            // sort listing by movie status
+            Collections.sort(movieListing, Comparator.comparing(o -> o.getMovieStatus().toString()));
         }
     }
 
+    @SuppressWarnings("unchecked")
     private static void readMovieShowtime() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_SHOWTIME) == null) movieShowtime = new HashMap<>();
         else movieShowtime = (HashMap<Movie, ArrayList<Showtime>>) readSerializedObject(FILENAME_SHOWTIME);
     }
+
+    @SuppressWarnings("unchecked")
     private static void readStaffAccount() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_STAFFACCOUNT) == null) staffAccount = new HashMap<>();
         else staffAccount = (HashMap<String, String>) readSerializedObject(FILENAME_STAFFACCOUNT);
     }
 
+    @SuppressWarnings("unchecked")
     private static void readCinemaList() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_CINEMALIST) == null) cinemaList = new HashMap<>();
         else cinemaList = (HashMap<Cineplex, ArrayList<Cinema>>) readSerializedObject(FILENAME_CINEMALIST);
     }
 
+    @SuppressWarnings("unchecked")
     private static void readBookingHistory() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_BOOKINGHISTORY) == null) bookingHistory = new ArrayList<>();
         else bookingHistory = (ArrayList<BookingHistory>) readSerializedObject(FILENAME_BOOKINGHISTORY);
     }
 
+    @SuppressWarnings("unchecked")
     private static void readReviewList() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_REVIEWLIST) == null) reviewList = new HashMap<>();
         else reviewList = (HashMap<Movie, ArrayList<Review>>) readSerializedObject(FILENAME_REVIEWLIST);
     }
 
+    @SuppressWarnings("unchecked")
     private static void readHolidayList() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_HOLIDAY) == null) holidayList = new HashMap<>();
         else holidayList = (HashMap<String, Holiday>) readSerializedObject(FILENAME_HOLIDAY);
     }
 
+    @SuppressWarnings("unchecked")
     private static void readSystem() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_SYSTEM) == null) system = new HashMap<>();
         else system = (HashMap<String, Boolean>) readSerializedObject(FILENAME_SYSTEM);
@@ -141,24 +145,15 @@ public class CineplexManager extends DataManager {
      * orderBy is false: top 5 ranking by ticket sales
      * @return
      */
+    @SuppressWarnings("unchecked")
     public static ArrayList<Movie> getTop5MovieListing() {
         boolean orderBy = system.get("movieOrder");
         ArrayList<Movie> top5 = (ArrayList<Movie>) movieListing.clone();
         if (orderBy) {  // order by overall ratings
-            Collections.sort(top5, new Comparator<Movie>() {
-                @Override
-                public int compare(Movie o1, Movie o2) {
-                    return Double.compare(getMovieRating(o2), getMovieRating(o1));
-                }
-            });
+            Collections.sort(top5, (o1, o2) -> Double.compare(getMovieRating(o2), getMovieRating(o1)));
         }
         else {  // order by ticket sales
-            Collections.sort(top5, new Comparator<Movie>() {
-                @Override
-                public int compare(Movie o1, Movie o2) {
-                    return Integer.compare(o2.getSales(), o1.getSales());
-                }
-            });
+            Collections.sort(top5, (o1, o2) -> Integer.compare(o2.getSales(), o1.getSales()));
         }
 
         while (top5.size() > 5) {
@@ -201,7 +196,6 @@ public class CineplexManager extends DataManager {
     }
 
     public static ArrayList<Movie> getMovieByTitle(String title) {
-        if (movieListing == null) return null;
         ArrayList<Movie> searchResult = new ArrayList<>();
         for (Movie movie: movieListing) {
             if (movie.getTitle().toUpperCase().contains(title.toUpperCase())) searchResult.add(movie);

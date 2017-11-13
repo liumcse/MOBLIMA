@@ -21,13 +21,18 @@ public class MovieListing extends View {
         ArrayList<Movie> movieListing;
         movieListing = getMovieListing();
 
-        if (movieListing == null) {
-            System.out.println("No movie.");
+        int index = 0;
+        printHeader("Modify movie listing");
+        if (movieListing.isEmpty()) {
+            printMenu("No movie.",
+                    "1. List a new movie",
+                    "2. Go back", "");
+            int choice = readChoice(1, 2);
+            if (choice == 1) addMovieListing();
+            else destroy();
             return;
         }
 
-        int index = 0;
-        printHeader("Modify movie listing");
         for (Movie movie : movieListing) {
             System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ")");
         }

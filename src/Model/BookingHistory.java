@@ -7,9 +7,9 @@ import java.io.Serializable;
  */
 
 public class BookingHistory implements Serializable {
-    private String TID;
-    private Customer customer;
-    private Seat seat;
+    private final String TID;
+    private final Customer customer;
+    private final Seat seat;
 
     public BookingHistory(String TID, Customer customer, Seat seat) {
         this.TID = TID;

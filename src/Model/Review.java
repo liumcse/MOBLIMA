@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Review implements Serializable {
-    private Date date;
-    private int rating;
-    private String content;
-    private Movie movie;
-    private String name;
+    private final Date date;
+    private final int rating;
+    private final String content;
+    private final Movie movie;
+    private final String name;
 
     private static final int maxRating = 5;
     private static final int minRating = 1;

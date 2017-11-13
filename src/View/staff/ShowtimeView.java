@@ -37,20 +37,12 @@ public class ShowtimeView extends View {
                     "1. Add a show time",
                     "2. Go back", "");
             int choice = readChoice(1, 2);
-            if (choice == 1) {
-                addShowtime();
-            }
-            else {
-                destroy();
-            }
+            if (choice == 1) addShowtime();
+            else destroy();
+            return;
         }
         else {
-            Collections.sort(showtimeList, new Comparator<Model.Showtime>() {
-                @Override
-                public int compare(Model.Showtime o1, Model.Showtime o2) {
-                    return o1.getCinema().getCineplex().toString().compareTo(o2.getCinema().getCineplex().toString());
-                }
-            });
+            Collections.sort(showtimeList, Comparator.comparing(o -> o.getCinema().getCineplex().toString()));
 
             int index = 0;
             for (Model.Showtime s : showtimeList) printMenu(++index + ": " + s);

@@ -3,9 +3,9 @@ package Model;
 import java.io.Serializable;
 
 public class Seat implements Serializable{
-    private int row;
-    private int col;
-    private Showtime showtime;
+    private final int row;
+    private final int col;
+    private final Showtime showtime;
     private boolean booked;
 
     public Seat(int row, int col, Showtime showtime) {

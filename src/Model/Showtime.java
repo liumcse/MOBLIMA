@@ -44,10 +44,6 @@ public class Showtime implements Serializable {
         return seats;
     }
 
-//    public double getPrice() {
-//        return price;
-//    }
-
     public Seat getSeatAt(int row, int col) {
         if (row < 1 || row > 9 || col < 1 || col > 16) return null;
 

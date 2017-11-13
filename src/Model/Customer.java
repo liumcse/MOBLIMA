@@ -3,10 +3,10 @@ package Model;
 import java.io.Serializable;
 
 public class Customer implements Serializable {
-    private String name;
-    private String mobile;
-    private String email;
-    private boolean isSeniorCitizen;
+    private final String name;
+    private final String mobile;
+    private final String email;
+    private final boolean isSeniorCitizen;
 
     public Customer(String name, String mobile, String email, boolean isSeniorCitizen) {
         this.email = email;

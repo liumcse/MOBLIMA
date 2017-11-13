@@ -69,16 +69,16 @@ public class Movie implements Serializable {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(getTitle() + "\n");
-        stringBuilder.append(ageRestriction.toString() + "\n");
-        stringBuilder.append("Director: " + director + "\n");
-        stringBuilder.append("Synopsis: " + synopsis + "\n");
+        stringBuilder.append(getTitle()).append("\n");
+        stringBuilder.append(ageRestriction.toString()).append("\n");
+        stringBuilder.append("Director: ").append(director).append("\n");
+        stringBuilder.append("Synopsis: ").append(synopsis).append("\n");
 
         stringBuilder.append("Casts: ");
-        for (String s : cast) stringBuilder.append(s + ", ");
+        for (String s : cast) stringBuilder.append(s).append(", ");
         stringBuilder.append("\n");
 
-        stringBuilder.append("MovieStatus: " + movieStatus.toString() + "\n");
+        stringBuilder.append("MovieStatus: ").append(movieStatus.toString()).append("\n");
 
         return stringBuilder.toString();
     }

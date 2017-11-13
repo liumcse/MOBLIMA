@@ -86,7 +86,7 @@ public class SystemSetting extends View{
             cinema.setBasePrice(newPrice);
             try {
                 updateCinemaList();
-                System.out.println("Ticket price successfully changed.");
+                System.out.println("Ticket price has been successfully changed.");
             } catch (IOException ex) {
                 System.out.println("Failed to change ticket price.");
             }

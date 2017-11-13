@@ -62,7 +62,7 @@ public class MovieListing extends View {
     private void searchMovie() {
         String input = readString("Enter the movie title:");
         ArrayList<Movie> searchResult = getMovieByTitle(input);
-        if (searchResult == null || searchResult.isEmpty()) {
+        if (searchResult.isEmpty()) {
             printMenu("-> 0 result has been found.",
                     "Press ENTER to go back", "");
             readString();
@@ -90,7 +90,7 @@ public class MovieListing extends View {
         else movieListing = getMovieListing();
 
         printHeader("Movies");
-        if (movieListing == null) {
+        if (movieListing.isEmpty()) {
             System.out.println("Movie listing is not available");
             displayMenu();
         }
@@ -171,12 +171,7 @@ public class MovieListing extends View {
         printHeader("Showtime on " + formatTimeMMdd(dateChosen));
 
         ArrayList<Showtime> showtimeList = new ArrayList<>();
-        Collections.sort(showtimeList, new Comparator<Showtime>() {
-            @Override
-            public int compare(Showtime o1, Showtime o2) {
-                return o1.getCinema().getCineplex().toString().compareTo(o2.getCinema().getCineplex().toString());
-            }
-        });
+        Collections.sort(showtimeList, Comparator.comparing(o -> o.getCinema().getCineplex().toString()));
 
         if (getMovieShowtime(movie) != null) {
             for (Showtime s : getMovieShowtime(movie)) {
@@ -252,7 +247,6 @@ public class MovieListing extends View {
     private void displaySeat(Seat[][] seats) {
         System.out.println("                    -------Screen------");
         System.out.println("     1  2  3  4  5  6  7  8     9 10 11 12 13 14 15 16");
-//        seats[4][3].bookSeat();
         for (int row = 0; row <= 8; row++) {
             System.out.print(row + 1 + "   ");
             for (int col = 0; col <= 16; col++) {
@@ -282,7 +276,6 @@ public class MovieListing extends View {
             displayBookSeatMenu(showtime);
         }
         else {
-            // TODO BookingManager
             System.out.println(showtime.getMovie().getSales());
             intent(this, new Booking(showtime.getSeatAt(row, col)));
         }

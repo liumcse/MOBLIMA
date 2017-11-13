@@ -1,3 +1,5 @@
+package Controller;
+
 import static Controller.CineplexManager.*;
 
 import Controller.DataManager;
