@@ -1,19 +1,49 @@
 package View.staff;
 
+import Controller.CineplexManager;
 import Model.Cinema;
 import View.View;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 import static Controller.IOController.*;
 import static Controller.CineplexManager.*;
 import static Model.Constant.*;
 
 public class CinemaList extends View {
+    private boolean help;
+
+    CinemaList(String args) {
+        help = args.equals("help") ? true : false;
+    }
+
     @Override
     protected void start() {
-        displayMenu();
+        if (help) displayCinemaListMenu();
+        else displayMenu();
     }
 
     private void displayMenu() {
+        printHeader("Configure cinemas");
+        printMenu("1. List cinemas",
+                "2. Add cinemas",
+                "3. Go back", "");
+
+        int choice = readChoice(1, 3);
+        switch (choice) {
+            case 1:
+                displayCinemaListMenu();
+                break;
+            case 2:
+                addCinema();
+                break;
+            case 3:
+                break;
+        }
+    }
+
+    private void displayCinemaListMenu() {
         int index = 0;
         for (Cineplex c : Cineplex.values()) {
             index++;
@@ -27,16 +57,66 @@ public class CinemaList extends View {
 
     private void displayCinemaList(Cineplex cineplex) {
         printHeader(cineplex.toString());
-        for (Cinema cinema : getCinemaList(cineplex)) {
-            System.out.print(cinema + " ");
+        ArrayList<Cinema> cinemaList = getCinemaList(cineplex);
+
+        if (cinemaList == null) {
+            printMenu("No cinema at the cineplex.",
+                    "Press ENTER to go back", "");
+            readString();
         }
-        System.out.println();
-        destroy();
+        else {
+            for (Cinema cinema : getCinemaList(cineplex)) {
+                System.out.print(cinema + "(" + (cinema.is3D() ? "3D" : "Digital") + ")");
+            }
+            System.out.println();
+        }
+
+        if (help) destroy();
+        else displayMenu();
     }
+
+    private void addCinema() {
+        int index = 0;
+        for (Cineplex c : Cineplex.values()) {
+            index++;
+            System.out.println(index + ": " + c);
+        }
+
+        printMenu("Choose a cineplex to add the cinema:");
+        int choice = readChoice(1, index);
+        Cineplex cineplex = Cineplex.values()[choice - 1];
+
+        // isPlatinum
+        boolean isPlatinum = askConfirm("Is this a platinum cinema?",
+                "Enter Y for yes, N for no:");
+        // movieType
+        boolean is3D = askConfirm("Is this cinema for 3D movies?",
+                "Enter Y for yes, N for no");
+        // basePrice
+        double basePrice = readDouble("What's the base price for the cinema?",
+                "(Weekday price = base price * 1.2)",
+                "You are advised to set a higher base price for 3D movies");
+        // cinemaCode
+        String code = readString("Enter the cinema code",
+                "e.g. ABC (do not enter the same cinema code for two different cinemas)");
+
+        // create cinema
+        Cinema cinema = new Cinema(cineplex, isPlatinum, is3D, code, basePrice);
+        try {
+            CineplexManager.addCinema(cinema);
+            System.out.println("Successfully added the cinema.");
+        } catch (IOException ex) {
+            System.out.println("Failed to add the cinema.");
+        } finally {
+            destroy();
+        }
+    }
+
 
     @Override
     protected void destroy() {
         // TODO bug here
         if (getPrevView().getClass() == ShowtimeView.class) ((ShowtimeView)getPrevView()).addShowtime();
+        else super.destroy();
     }
 }

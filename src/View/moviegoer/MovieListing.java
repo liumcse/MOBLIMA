@@ -1,10 +1,7 @@
 package View.moviegoer;
 
-import Controller.IOController;
 import Model.Constant;
 import Model.Movie;
-import Model.Seat;
-import Model.Showtime;
 import View.View;
 import java.util.*;
 
@@ -96,14 +93,15 @@ public class MovieListing extends View {
         if (!topFive || getSystem().get("movieOrder")) {  // show movie rating
             for (Movie movie : movieListing) {
                 if (movie.getMovieStatus().equals(Constant.MovieStatus.END_OF_SHOWING)) continue;
-                System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ") " +
+                System.out.println(++index + ". " + movie.getTitle() + generateSpaces(37 - movie.getTitle().length())
+                        + "(" + movie.getMovieStatus().toString() + ") " +
                         "[" + (getMovieRating(movie) == 0.0 ? "No rating" : getMovieRating(movie)) + "]");
             }
         }
         else {
             for (Movie movie : movieListing) {  // show ticket sales
                 if (movie.getMovieStatus().equals(Constant.MovieStatus.END_OF_SHOWING)) continue;
-                System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ") " +
+                System.out.println(++index + ". " + movie.getTitle() + " \t\t\t\t(" + movie.getMovieStatus().toString() + ") " +
                         "[" + (movie.getSales() == 0 ? "No sale" : movie.getSales()) + "]");
             }
         }

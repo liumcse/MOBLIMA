@@ -100,7 +100,7 @@ public class ShowtimeView extends View {
         // get cinema
         String input = readString("Enter cinema code (enter \"help\" to look up cinema code)");
         if (input.equals("help")) {
-            intent(this, new CinemaList());
+            intent(this, new CinemaList("help"));
             displayMenu();
             return;
         }

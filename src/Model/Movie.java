@@ -5,6 +5,9 @@ import Model.Constant.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import static Controller.IOController.*;
+import static Controller.CineplexManager.*;
+
 /**
  * Represent a movie with details.
  */
@@ -69,16 +72,21 @@ public class Movie implements Serializable {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(getTitle()).append("\n");
-        stringBuilder.append(ageRestriction.toString()).append("\n");
+        StringBuilder casts = new StringBuilder();
+        double rating = getMovieRating(this);
+        stringBuilder.append("Title:    ").append(getTitle()).append("\n");
+        stringBuilder.append("Restrict: ").append(ageRestriction.toString()).append("\n");
         stringBuilder.append("Director: ").append(director).append("\n");
-        stringBuilder.append("Synopsis: ").append(synopsis).append("\n");
+        stringBuilder.append("Synopsis: ").append("\"").append(synopsis).append("\"").append("\n");
 
-        stringBuilder.append("Casts: ");
-        for (String s : cast) stringBuilder.append(s).append(", ");
+        stringBuilder.append("Casts:    ");
+        for (String s : cast) casts.append(s).append(", ");
+        stringBuilder.append(addLinebreaks(casts.toString(), 50, 10));
         stringBuilder.append("\n");
-
-        stringBuilder.append("MovieStatus: ").append(movieStatus.toString()).append("\n");
+        stringBuilder.append("Rating:   ");
+        if (rating == 0.0) stringBuilder.append("No rating").append("\n");
+        else stringBuilder.append(getMovieRating(this)).append("/5.0").append("\n");
+        stringBuilder.append("Status:   ").append(movieStatus.toString()).append("\n");
 
         return stringBuilder.toString();
     }

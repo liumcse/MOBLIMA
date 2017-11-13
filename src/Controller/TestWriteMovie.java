@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static Controller.IOController.addLinebreaks;
+
 /**
  * Created by LiuMingyu on 6/11/17.
  */
@@ -70,7 +72,7 @@ public class TestWriteMovie {
             director = sc.nextLine();
 
             System.out.println("Enter synopsis:");
-            synopsis = sc.nextLine();
+            synopsis = addLinebreaks(sc.nextLine(), 50, 10);
 
             System.out.println("Enter casts, separate with semicolon(;)");
             String[] castArray = sc.nextLine().split(";");

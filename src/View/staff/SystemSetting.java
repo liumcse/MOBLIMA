@@ -21,22 +21,27 @@ public class SystemSetting extends View{
     private void displayMenu() {
         printHeader("System setting");
         printMenu("1. Configure ticket prices for cinema",
-                "2. Configure holidays",
-                "3. Configure top 5 ranking schema",
-                "4. Go back",
+                "2. Configure top 5 ranking schema",
+                "3. Configure cinemas",
+                "4. Configure holidays",
+                "5. Go back",
                 "");
 
-        int choice = readChoice(1, 4);
+        int choice = readChoice(1, 5);
         switch (choice) {
             case 1:
                 configureTicket();
                 break;
             case 2:
-                configureHolidays();
+                configureTop5Ranking();
                 break;
             case 3:
-                configureTop5Ranking();
+                intent(this, new CinemaList("help"));
+                break;
             case 4:
+                configureHolidays();
+                break;
+            case 5:
                 destroy();
                 break;
         }
@@ -65,17 +70,21 @@ public class SystemSetting extends View{
 
     private void configureTicket() {
         printHeader("Configure ticket prices for cinema");
-        Cinema cinema;
+        Cinema cinema = null;
 
         // get cinema
-        String input = readString("Enter cinema code (enter \"help\" to look up cinema code)");
-        if (input.equals("help")) {
-            intent(this, new CinemaList());
-            displayMenu();
-            return;
+        while (cinema == null) {
+            String input = readString("Enter cinema code (enter \"help\" to look up cinema code)");
+            if (input.equals("help")) {
+                intent(this, new CinemaList("help"));
+                displayMenu();
+                return;
+            } else {
+                cinema = getCinemaByCode(input);
+                if (cinema == null) System.out.println("Cinema code is invalid. Try again:");
+            }
+            System.out.println();
         }
-        else cinema = getCinemaByCode(input);  // TODO may get null
-        System.out.println();
 
         printHeader(cinema.isPlatinum() ? cinema.getCode() + " (Platinum)" : cinema.getCode());
         if (askConfirm("The ticket price for the cinema is " + cinema.getBasePrice() + ".",

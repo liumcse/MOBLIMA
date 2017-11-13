@@ -34,7 +34,7 @@ public class MovieListing extends View {
         }
 
         for (Movie movie : movieListing) {
-            System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ")");
+            System.out.println(++index + ". " + movie.getTitle() + generateSpaces(49 - movie.getTitle().length())+ "(" + movie.getMovieStatus().toString() + ")");
         }
         System.out.println(index + 1 + ". Go back");
 
@@ -67,7 +67,7 @@ public class MovieListing extends View {
         }
 
         director = readString("Enter director:");
-        synopsis = readString("Enter synopsis:");
+        synopsis = addLinebreaks(readString("Enter synopsis:"), 50, 14);
 
         // set casts
         String[] castArray = readString("Enter casts, separate with semicolon(;)").split(";");
@@ -165,7 +165,7 @@ public class MovieListing extends View {
                     System.out.println("Director changed. Apply changes or make another selection.");
                     break;
                 case 4:
-                    movie.setSynopsis(readString("Enter synopsis"));
+                    movie.setSynopsis(addLinebreaks(readString("Enter synopsis"), 50, 14));
                     changed = true;
                     System.out.println("Synopsis changed. Apply changes or make another selection.");
                     break;

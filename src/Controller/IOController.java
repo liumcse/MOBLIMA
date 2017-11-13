@@ -7,10 +7,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,6 +34,7 @@ public class IOController {
             return readChoice(i, j);
         }
 
+//        sc.nextLine();
         return choice;
     }
 
@@ -59,6 +57,30 @@ public class IOController {
             sc.nextLine();  // flush scanner
             return readDouble(message);
         }
+    }
+
+    public static String generateSpaces(int size) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < size; i++) stringBuilder.append(" ");
+        return stringBuilder.toString();
+    }
+
+    public static String addLinebreaks(String input, int maxLineLength, int lengthOfSpace) {
+        StringTokenizer tok = new StringTokenizer(input, " ");
+        StringBuilder output = new StringBuilder(input.length());
+        int lineLen = 0;
+        while (tok.hasMoreTokens()) {
+            String word = tok.nextToken();
+
+            if (lineLen + word.length() > maxLineLength) {
+                output.append("\n");
+                for (int i = 0; i < lengthOfSpace; i++) output.append(" ");
+                lineLen = 0;
+            }
+            output.append(word).append(" ");
+            lineLen += word.length();
+        }
+        return output.toString();
     }
 
     public static String readEmail(String... message) {
@@ -151,7 +173,7 @@ public class IOController {
     }
 
     public static void printHeader(String header) {
-        int length = 50;
+        int length = 65;
         for (int i = 0; i < length; i++) System.out.print("-");
         System.out.println();
 

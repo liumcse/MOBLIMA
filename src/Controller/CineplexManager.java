@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.*;
 
 import static Model.Constant.*;
+import static Controller.IOController.*;
 
 public class CineplexManager extends DataManager {
     private static final String FILENAME_MOVIE = "res/data/movieListing.dat";  // location of movie.dat
@@ -209,7 +210,7 @@ public class CineplexManager extends DataManager {
         else {
             double sum = 0;
             for (Review review : reviewList) sum += review.getRating();
-            return sum / reviewList.size();
+            return round(sum / reviewList.size(), 1);
         }
     }
 
@@ -234,6 +235,11 @@ public class CineplexManager extends DataManager {
         if(reviewList.get(movie) == null) reviewList.put(movie, new ArrayList<>());
         reviewList.get(movie).add(review);
         updateReviewList();
+    }
+
+    public static void addCinema(Cinema cinema) throws IOException {
+        if (cinemaList.get(cinema.getCineplex()) == null) cinemaList.put(cinema.getCineplex(), new ArrayList<>());
+        cinemaList.get(cinema.getCineplex()).add(cinema);
     }
 
     public static void addHoliday(String date, Holiday holiday) throws IOException {

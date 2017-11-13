@@ -36,20 +36,6 @@ public class Constant {
         public String toString() { return cineplex; }
     }
 
-    public enum MovieType {
-        Digital("Digital"), ThreeD("3D");
-
-        private String movieType;
-        MovieType(String movieType) {
-            this.movieType = movieType;
-        }
-
-        @Override
-        public String toString() {
-            return movieType;
-        }
-    }
-
     public enum AgeRestriction {
         G("G"), PG("PG"), PG13("PG13"), NC16("NC16"), M18("M18"), R21("R21");
 

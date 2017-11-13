@@ -75,10 +75,10 @@ public class ReviewView extends View{
         if (reviewList != null){
             int index = 0;
             for (Review r : reviewList) {
-                System.out.println(++index + " Reviewer's name: " + r.getName());
-                System.out.println("  Date: " + formatTimeMMddkkmm(r.getDate()));
-                System.out.println("  Reviewer's rating: " + r.getRating());
-                System.out.println("  Comments: " + r.getContent());
+                System.out.println(++index + " Name:     " + r.getName());
+                System.out.println("  Date:     " + formatTimeMMddkkmm(r.getDate()));
+                System.out.println("  Rating:   " + r.getRating());
+                System.out.println("  Comments: " + addLinebreaks(r.getContent(), 45, 12));
                 System.out.println();
             }
         }

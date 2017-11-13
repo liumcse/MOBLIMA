@@ -32,7 +32,7 @@ public class Review implements Serializable {
         return content;
     }
 
-    public double getRating() {
+    public int getRating() {
         return rating;
     }
 

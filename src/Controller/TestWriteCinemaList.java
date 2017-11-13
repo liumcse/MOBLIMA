@@ -17,11 +17,11 @@ public class TestWriteCinemaList {
         cinemaList.put(Cineplex.JEM, new ArrayList<>());
         cinemaList.put(Cineplex.TheCathay, new ArrayList<>());
 
-        cinemaList.get(Cineplex.JEM).add(new Cinema(Cineplex.JEM,true, MovieType.ThreeD, "XYZ", 10));
-        cinemaList.get(Cineplex.JEM).add(new Cinema(Cineplex.JEM,false, MovieType.Digital, "ACS", 10));
+        cinemaList.get(Cineplex.JEM).add(new Cinema(Cineplex.JEM,true, true, "XYZ", 10));
+        cinemaList.get(Cineplex.JEM).add(new Cinema(Cineplex.JEM,false, false, "ACS", 10));
 
-        cinemaList.get(Cineplex.TheCathay).add(new Cinema(Cineplex.TheCathay,true, MovieType.ThreeD, "SAD", 10));
-        cinemaList.get(Cineplex.TheCathay).add(new Cinema(Cineplex.TheCathay,false, MovieType.Digital, "VSA", 10));
+        cinemaList.get(Cineplex.TheCathay).add(new Cinema(Cineplex.TheCathay,true, true, "SAD", 10));
+        cinemaList.get(Cineplex.TheCathay).add(new Cinema(Cineplex.TheCathay,false, false, "VSA", 10));
 
         try {
             DataManager.writeSerializedObject("res/data/cinemaList.dat", cinemaList);

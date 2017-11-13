@@ -1,7 +1,7 @@
 package View;
 
 public abstract class View {
-    private View prevView;  // NULL by default
+    public View prevView;  // NULL by default
 
     protected abstract void start();
 

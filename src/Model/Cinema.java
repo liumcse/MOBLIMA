@@ -11,36 +11,20 @@ import java.io.Serializable;
 public class Cinema implements Serializable {
     private Cineplex cineplex;
     private boolean isPlatinum;
-    private MovieType movieType;
+    private boolean is3D;
     private String code;
     private double basePrice;
 
-    public Cinema(Cineplex cineplex, boolean isPlatinum, MovieType movieType, String code, double basePrice) {
+    public Cinema(Cineplex cineplex, boolean isPlatinum, boolean is3D, String code, double basePrice) {
         this.cineplex = cineplex;
         this.isPlatinum = isPlatinum;
-        this.movieType = movieType;
+        this.is3D = is3D;
         this.code = code;
         this.basePrice = basePrice;
     }
 
     public Cinema() {
 
-    }
-
-    public void setPlatinum(boolean isPlatinum) {
-        this.isPlatinum = isPlatinum;
-    }
-
-    public void setMovieType(MovieType movieType) {
-        this.movieType = movieType;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public void setBasePrice(double basePrice) {
-        this.basePrice = basePrice;
     }
 
     public boolean isPlatinum() {
@@ -55,9 +39,11 @@ public class Cinema implements Serializable {
         return code;
     }
 
-    public MovieType getMovieType() {
-        return movieType;
+    public boolean is3D() {
+        return is3D;
     }
+
+    public void setBasePrice(double basePrice ) { this.basePrice = basePrice; }
 
     public double getBasePrice() {
         return basePrice;

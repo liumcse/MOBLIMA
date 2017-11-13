@@ -36,8 +36,8 @@ public class TestWriteShowtime {
 
                 tempShowtime1.setMovie(movie);
                 tempShowtime2.setMovie(movie);
-                tempShowtime1.setCinema(new Cinema(Cineplex.TheCathay, true, MovieType.ThreeD, "ACS", 10));
-                tempShowtime2.setCinema(new Cinema(Cineplex.TheCathay, true, MovieType.ThreeD, "ACS", 10));
+                tempShowtime1.setCinema(new Cinema(Cineplex.TheCathay, true, true, "ACS", 10));
+                tempShowtime2.setCinema(new Cinema(Cineplex.TheCathay, true, true, "ACS", 10));
 
 
                 tempShowtime1.setTime(time);

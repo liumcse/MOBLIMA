@@ -63,7 +63,7 @@ public class Booking extends View {
         Movie movie = showtime.getMovie();
         Cinema cinema = showtime.getCinema();
 
-        System.out.println(movie.getTitle() + " (" + cinema.getMovieType() + ")");
+        System.out.println(movie.getTitle() + " (" + (showtime.getCinema().is3D() ? "3D" : "Digital") + ")");
         System.out.println(movie.getAgeRestriction());
         System.out.println("Cinema: " + cinema + " (" + cinema.getCineplex() + ")");
         System.out.println("Showing on " + formatTimeMMddkkmm(showtime.getTime()));
@@ -90,6 +90,6 @@ public class Booking extends View {
 
     @Override
     protected void destroy() {
-        ((MovieListing)(getPrevView())).start(seat.getShowtime().getMovie());
+        ((MovieListing)(prevView.prevView)).start(seat.getShowtime().getMovie());
     }
 }

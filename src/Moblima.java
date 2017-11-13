@@ -19,7 +19,7 @@ public class Moblima extends View {
             return;
         }
 
-        printHeader("MOBLIMA");
+        printHeader("MOvie Booking and LIsting Management Application (MOBLIMA)");
         printMenu("Welcome to MOBLIMA, please make a selection:",
                 "1. I'm a moviegoer",
                 "2. I'm a staff",
@@ -35,6 +35,7 @@ public class Moblima extends View {
                 intent(this, new StaffView());
                 break;
             case 3:
+                System.out.println("Bye, hope to see you again!");
                 destroy();
                 break;
             default:
