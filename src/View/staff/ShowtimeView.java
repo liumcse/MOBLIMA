@@ -16,9 +16,9 @@ import static Controller.IOController.printHeader;
 import static Controller.IOController.readString;
 
 public class ShowtimeView extends View {
-    Movie movie;
+    private Movie movie;
 
-    public ShowtimeView(Movie movie) {
+    ShowtimeView(Movie movie) {
         this.movie = movie;
     }
 
@@ -39,10 +39,9 @@ public class ShowtimeView extends View {
             int choice = readChoice(1, 2);
             if (choice == 1) addShowtime();
             else destroy();
-            return;
         }
         else {
-            Collections.sort(showtimeList, Comparator.comparing(o -> o.getCinema().getCineplex().toString()));
+            showtimeList.sort(Comparator.comparing(o -> o.getCinema().getCineplex().toString()));
 
             int index = 0;
             for (Model.Showtime s : showtimeList) printMenu(++index + ": " + s);
@@ -93,7 +92,7 @@ public class ShowtimeView extends View {
     }
 
     // TODO modify here
-    protected void addShowtime() {
+    void addShowtime() {
         Cinema cinema;
 
         printHeader("Add showtime");

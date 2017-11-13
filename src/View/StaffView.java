@@ -13,7 +13,6 @@ public class StaffView extends View {
         loggedIn = false;
     }
 
-
     @Override
     protected void start() {
         if (!loggedIn) login();
@@ -39,7 +38,8 @@ public class StaffView extends View {
 
     private void displayMenu() {
         printHeader("Staff");
-        printMenu("1. Modify movie listing",
+        printMenu("Welcome, please make a selection:",
+                "1. Modify movie listing",
                 "2. Configure system settings",
                 "3. Logout", "");
 

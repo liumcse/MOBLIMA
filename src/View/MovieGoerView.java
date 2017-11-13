@@ -10,10 +10,6 @@ import static Controller.IOController.*;
  */
 
 public class MovieGoerView extends View {
-    public MovieGoerView() {
-
-    }
-
     @Override
     protected void start() {
         printHeader("Movie goer");

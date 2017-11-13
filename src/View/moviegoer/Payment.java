@@ -27,7 +27,7 @@ public class Payment extends View {
         displayMenu();
     }
 
-    public Payment(Customer customer, Seat seat, double basePrice) {
+    Payment(Customer customer, Seat seat, double basePrice) {
         this.customer = customer;
         this.seat = seat;
         this.basePrice = basePrice;
