@@ -15,7 +15,7 @@ public class CinemaList extends View {
     private boolean help;
 
     CinemaList(String args) {
-        help = args.equals("help") ? true : false;
+        help = args.equals("help");
     }
 
     @Override
@@ -94,8 +94,8 @@ public class CinemaList extends View {
                 "Enter Y for yes, N for no");
         // basePrice
         double basePrice = readDouble("What's the base price for the cinema?",
-                "(Weekday price = base price * 1.2)",
-                "You are advised to set a higher base price for 3D movies");
+                "(Weekday price = base price * 1.2, senior citizens enjoy 50% off)",
+                "You are advised to set a higher base price for 3D and platinum cinemas");
         // cinemaCode
         String code = readString("Enter the cinema code",
                 "e.g. ABC (do not enter the same cinema code for two different cinemas)");

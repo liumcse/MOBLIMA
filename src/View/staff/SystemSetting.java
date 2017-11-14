@@ -36,7 +36,7 @@ public class SystemSetting extends View{
                 configureTop5Ranking();
                 break;
             case 3:
-                intent(this, new CinemaList("help"));
+                intent(this, new CinemaList("configure"));
                 break;
             case 4:
                 configureHolidays();

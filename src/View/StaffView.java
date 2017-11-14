@@ -31,8 +31,8 @@ public class StaffView extends View {
             displayMenu();
         }
         else {
-            System.out.println("Invalid username or password, please retry.");
-            start();
+            System.out.println("Invalid username or password.");
+            destroy();
         }
     }
 
