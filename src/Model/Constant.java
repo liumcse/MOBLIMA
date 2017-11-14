@@ -17,14 +17,14 @@ public class Constant {
     }
 
     public enum Cineplex {
-        Cineleisure_Orchard("Cineleisure Orchard"),
-        Causeway_Point("Causeway Point"),
-        Downtown_East("Downtown East"),
         JEM("JEM"),
-        ParkwayParade("ParkwayParade"),
         TheCathay("The Cathay"),
         WestMall("West Mall"),
         AMK_Hub("AMK Hub");
+        //Cineleisure_Orchard("Cineleisure Orchard"),
+        //Causeway_Point("Causeway Point"),
+        //Downtown_East("Downtown East"),
+        //ParkwayParade("ParkwayParade");
 
         private String cineplex;
 

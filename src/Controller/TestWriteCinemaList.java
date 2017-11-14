@@ -16,13 +16,24 @@ public class TestWriteCinemaList {
 
         cinemaList.put(Cineplex.JEM, new ArrayList<>());
         cinemaList.put(Cineplex.TheCathay, new ArrayList<>());
+        cinemaList.put(Cineplex.WestMall, new ArrayList<>());
+        cinemaList.put(Cineplex.AMK_Hub, new ArrayList<>());
 
-        cinemaList.get(Cineplex.JEM).add(new Cinema(Cineplex.JEM,true, true, "XYZ", 10));
-        cinemaList.get(Cineplex.JEM).add(new Cinema(Cineplex.JEM,false, false, "ACS", 10));
+        cinemaList.get(Cineplex.JEM).add(new Cinema(Cineplex.JEM,true, true, "GBP", 10));
+        cinemaList.get(Cineplex.JEM).add(new Cinema(Cineplex.JEM,false, true, "FRA", 10));
+        cinemaList.get(Cineplex.JEM).add(new Cinema(Cineplex.JEM,false, false, "GER", 10));
 
-        cinemaList.get(Cineplex.TheCathay).add(new Cinema(Cineplex.TheCathay,true, true, "SAD", 10));
-        cinemaList.get(Cineplex.TheCathay).add(new Cinema(Cineplex.TheCathay,false, false, "VSA", 10));
+        cinemaList.get(Cineplex.TheCathay).add(new Cinema(Cineplex.TheCathay,true, true, "CHN", 10));
+        cinemaList.get(Cineplex.TheCathay).add(new Cinema(Cineplex.TheCathay,false, true, "JPN", 10));
+        cinemaList.get(Cineplex.TheCathay).add(new Cinema(Cineplex.TheCathay,false, false, "KOR", 10));
 
+        cinemaList.get(Cineplex.WestMall).add(new Cinema(Cineplex.WestMall,true, true, "USA", 10));
+        cinemaList.get(Cineplex.WestMall).add(new Cinema(Cineplex.WestMall,false, true, "CAN", 10));
+        cinemaList.get(Cineplex.WestMall).add(new Cinema(Cineplex.WestMall,false, false, "AUS", 10));
+
+        cinemaList.get(Cineplex.AMK_Hub).add(new Cinema(Cineplex.AMK_Hub,true, true, "SGP", 10));
+        cinemaList.get(Cineplex.AMK_Hub).add(new Cinema(Cineplex.AMK_Hub,false, true, "MYS", 10));
+        cinemaList.get(Cineplex.AMK_Hub).add(new Cinema(Cineplex.AMK_Hub,false, false, "THA", 10));
         try {
             DataManager.writeSerializedObject("res/data/cinemaList.dat", cinemaList);
             System.out.println("Success");
