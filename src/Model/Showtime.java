@@ -5,20 +5,36 @@ import java.util.Date;
 
 import static Controller.IOController.*;
 
+/**
+ * This class contains all information of a showtime - including its {@code Movie}, {@code Cinema},
+ * {@code date} and a 2D array of {@code seat}.
+ *
+ * @version 1.0
+ */
+
 public class Showtime implements Serializable {
     private Movie movie;
     private Cinema cinema;
     private Date time;
     private Seat[][] seats;
 
+    /** number of total columns */
     private final static int COLS = 17;
+    /** number of total rows */
     private final static int ROWS = 9;
 
+    /**
+     * Constructor, no parameter. It initializes all seats.
+     */
     public Showtime() {
         seats = new Seat[ROWS][COLS];
         initializeSeat(seats);
     }
 
+    /**
+     * This method is to set
+     * @param time
+     */
     public void setTime(Date time) {
         this.time = time;
     }

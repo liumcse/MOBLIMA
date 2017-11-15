@@ -9,7 +9,10 @@ import static Controller.IOController.*;
 import static Controller.CineplexManager.*;
 
 /**
- * Represent a movie with details.
+ * This class contains all information of a movie - including  its title, age restriction,
+ * director, synopsis, cast, status and ticket sales.
+ *
+ * @version 1.0
  */
 
 public class Movie implements Serializable {
@@ -21,50 +24,96 @@ public class Movie implements Serializable {
     private MovieStatus movieStatus;
     private int sales;
 
+    /**
+     * Constructor, no parameter.
+     */
     public Movie() {
         this.sales = 0;
     }
 
+    /**
+     * This method is used to set the title.
+     * @param title This is the title to be assigned
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
+    /**
+     * This method is used to set age restriction.
+     * @param ageRestriction this is the age restriction to be assigned
+     */
     public void setAgeRestriction(AgeRestriction ageRestriction) {
         this.ageRestriction = ageRestriction;
     }
 
+    /**
+     * This method is used to set synopsis.
+     * @param synopsis this is the synopsis to be assigned
+     */
     public void setSynopsis(String synopsis) {
         this.synopsis = synopsis;
     }
 
+    /**
+     * This method is used to set director.
+     * @param director this is the director to be assigned
+     */
     public void setDirector(String director) {
         this.director = director;
     }
 
+    /**
+     * This method is used to set cast.
+     * @param cast this is the cast to be assigned
+     */
     public void setCast(ArrayList<String> cast) {
         this.cast = cast;
     }
 
+    /**
+     * This method is used to set movie status.
+     * @param movieStatus this is the movie status to be assigned
+     */
     public void setMovieStatus(MovieStatus movieStatus) {
         this.movieStatus = movieStatus;
     }
 
+    /**
+     * This method is used to increment ticket sale by one.
+     */
     public void incrementSales() {
         this.sales += 1;
     }
 
+    /**
+     * This method is to get the title.
+     * @return the title
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * This method is to get movie status.
+     * @return movie status
+     */
     public MovieStatus getMovieStatus() {
         return movieStatus;
     }
 
+    /**
+     * This method is to get age restriction.
+     * @return age restriction
+     */
     public AgeRestriction getAgeRestriction() {
         return ageRestriction;
     }
 
+    /**
+     * This method is to get ticket sale.
+     * @return ticket sale
+     */
     public int getSales() {
         return sales;
     }
