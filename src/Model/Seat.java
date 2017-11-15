@@ -16,7 +16,8 @@ public class Seat implements Serializable{
     private boolean booked;
 
     /**
-     * Constructor. It takes the row number, col number and showtime.
+     * Allocates a {@code Seat} object and initializes it specified by its row number, column
+     * number and showtime.
      * @param row This it the row number of the seat
      * @param col This is the column number of the seat
      * @param showtime This is the showtime of the seat

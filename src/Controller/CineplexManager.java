@@ -8,7 +8,14 @@ import java.util.*;
 import static Model.Constant.*;
 import static Controller.IOController.*;
 
+/**
+ * This class contains only static methods to read and manipulate from files.
+ *
+ * @version 1.0
+ */
+
 public class CineplexManager extends DataManager {
+    /** Addresses of files */
     private static final String FILENAME_MOVIE = "res/data/movieListing.dat";  // location of movie.dat
     private static final String FILENAME_SHOWTIME = "res/data/showtime.dat";  // location of showtime.dat
     private static final String FILENAME_STAFFACCOUNT = "res/data/staffAccount.dat";  // location of staffAccount.dat
@@ -27,16 +34,12 @@ public class CineplexManager extends DataManager {
     private static HashMap<String, Holiday> holidayList;
     private static HashMap<String, Boolean> system;
 
-
-    public CineplexManager() {
-        /**
-         * Since all methods are static, constructor can be left empty
-         */
-    }
+    /** Private constructor to suppress instantiation */
+    private CineplexManager() { }
 
     /**
-     * Initialize, get all data from files
-     * @return
+     * The method is to read necessary data from files and store it
+     * @return true if there's no error, false if error occurs
      */
     public static boolean initialize() {
         try {
@@ -57,6 +60,11 @@ public class CineplexManager extends DataManager {
         return true;
     }
 
+    /**
+     * This method is to read movie listing (an {@code ArrayList<Movie>}) and store it.
+     * @throws IOException when the file is not found
+     * @throws ClassNotFoundException when the class is not found
+     */
     @SuppressWarnings("unchecked")
     private static void readMovieListing() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_MOVIE) == null) movieListing = new ArrayList<>();
@@ -67,84 +75,150 @@ public class CineplexManager extends DataManager {
         }
     }
 
+    /**
+     * This method is to read movie showtime (a {@code HashMap<Movie, Arraylist<Showtime>>}) and store it.
+     * @throws IOException when the file is not found
+     * @throws ClassNotFoundException when the class is not found
+     */
     @SuppressWarnings("unchecked")
     private static void readMovieShowtime() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_SHOWTIME) == null) movieShowtime = new HashMap<>();
         else movieShowtime = (HashMap<Movie, ArrayList<Showtime>>) readSerializedObject(FILENAME_SHOWTIME);
     }
 
+    /**
+     * This method is to read staff account (a {@code HashMap<String, String>}) and store it.
+     * @throws IOException when the file is not found
+     * @throws ClassNotFoundException when the class is not found
+     */
     @SuppressWarnings("unchecked")
     private static void readStaffAccount() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_STAFFACCOUNT) == null) staffAccount = new HashMap<>();
         else staffAccount = (HashMap<String, String>) readSerializedObject(FILENAME_STAFFACCOUNT);
     }
 
+    /**
+     * This method is to read cinema list (a {@code HashMap<Cineplex, ArrayList<Cinema>>}) and store it.
+     * @throws IOException when the file is not found
+     * @throws ClassNotFoundException when the class is not found
+     */
     @SuppressWarnings("unchecked")
     private static void readCinemaList() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_CINEMALIST) == null) cinemaList = new HashMap<>();
         else cinemaList = (HashMap<Cineplex, ArrayList<Cinema>>) readSerializedObject(FILENAME_CINEMALIST);
     }
 
+    /**
+     * This method is to read booking history (a {@code ArrayList<BookingHistory>}) and store it.
+     * @throws IOException when the file is not found
+     * @throws ClassNotFoundException when the class is not found
+     */
     @SuppressWarnings("unchecked")
     private static void readBookingHistory() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_BOOKINGHISTORY) == null) bookingHistory = new ArrayList<>();
         else bookingHistory = (ArrayList<BookingHistory>) readSerializedObject(FILENAME_BOOKINGHISTORY);
     }
 
+    /**
+     * This method is to read review list (a {@code HashMap<Movie, ArrayList<Review>>}) and store it.
+     * @throws IOException when the file is not found
+     * @throws ClassNotFoundException when the class is not found
+     */
     @SuppressWarnings("unchecked")
     private static void readReviewList() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_REVIEWLIST) == null) reviewList = new HashMap<>();
         else reviewList = (HashMap<Movie, ArrayList<Review>>) readSerializedObject(FILENAME_REVIEWLIST);
     }
 
+    /**
+     * This method is to read holiday list (a {@code HashMap<String, Holiday>}) and store it.
+     * @throws IOException when the file is not found
+     * @throws ClassNotFoundException when the class is not found
+     */
     @SuppressWarnings("unchecked")
     private static void readHolidayList() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_HOLIDAY) == null) holidayList = new HashMap<>();
         else holidayList = (HashMap<String, Holiday>) readSerializedObject(FILENAME_HOLIDAY);
     }
 
+    /**
+     * This method is to read system (a {@code HashMap<String, Boolean>}) and store it.
+     * @throws IOException when the file is not found
+     * @throws ClassNotFoundException when the class is not found
+     */
     @SuppressWarnings("unchecked")
     private static void readSystem() throws IOException, ClassNotFoundException {
         if (readSerializedObject(FILENAME_SYSTEM) == null) system = new HashMap<>();
         else system = (HashMap<String, Boolean>) readSerializedObject(FILENAME_SYSTEM);
     }
 
+    /**
+     * This method is to overwrite movie listing file.
+     * @throws IOException when the file address is invalid
+     */
     public static void updateMovieListing() throws IOException {
         writeSerializedObject(FILENAME_MOVIE, movieListing);
     }
 
+    /**
+     * This method is to overwrite showtime file.
+     * @throws IOException when the file address is invalid
+     */
     public static void updateShowtime() throws IOException {
         writeSerializedObject(FILENAME_SHOWTIME, movieShowtime);
     }
 
+    /**
+     * This method is to overwrite cinema list file.
+     * @throws IOException when the file address is invalid
+     */
     public static void updateCinemaList() throws IOException {
         writeSerializedObject(FILENAME_CINEMALIST, cinemaList);
     }
 
+    /**
+     * This method is to overwrite booking history file.
+     * @throws IOException when the file address is invalid
+     */
     public static void updateBookingHistory() throws IOException {
         writeSerializedObject(FILENAME_BOOKINGHISTORY, bookingHistory);
     }
 
+    /**
+     * This method is to overwrite review list file.
+     * @throws IOException when the file address is invalid
+     */
     public static void updateReviewList() throws IOException {
         writeSerializedObject(FILENAME_REVIEWLIST, reviewList);
     }
 
+    /**
+     * This method is to overwrite holiday list file.
+     * @throws IOException when the file address is invalid
+     */
     public static void updateHolidayList() throws IOException {
         writeSerializedObject(FILENAME_HOLIDAY, holidayList);
     }
 
+    /**
+     * This method is to overwrite system file.
+     * @throws IOException when the file address is invalid
+     */
     public static void updateSystem() throws IOException {
         writeSerializedObject(FILENAME_SYSTEM, system);
     }
 
+    /**
+     * This method is to get movie listing (an {@code ArrayList<Movie>}).
+     * @return the movie listing (an {@code ArrayList<Movie>})
+     */
     public static ArrayList<Movie> getMovieListing() {
         return movieListing;
     }
 
     /**
-     * orderBy is true: top 5 ranking by overall rating
-     * orderBy is false: top 5 ranking by ticket sales
-     * @return
+     * This method is to get the top 5 ranking movie (an {@code ArrayList<Movie>}).
+     * @return top 5 ranking by overall rating when orderBy is true, top 5 ranking by ticket sales when orderBy is false
      */
     @SuppressWarnings("unchecked")
     public static ArrayList<Movie> getTop5MovieListing() {
@@ -164,10 +238,20 @@ public class CineplexManager extends DataManager {
         return top5;
     }
 
+    /**
+     * This method is to get showtime by movie.
+     * @param movie the movie of the showtime
+     * @return the showtime of the movie
+     */
     public static ArrayList<Showtime> getMovieShowtime(Movie movie) {
         return movieShowtime.get(movie);
     }
 
+    /**
+     * This method is to get the cinema list (an {@code ArrayList<Cinema>}) by cineplex.
+     * @param cineplex the cineplex
+     * @return the cinema list
+     */
     public static ArrayList<Cinema> getCinemaList(Cineplex cineplex) {
         return cinemaList.get(cineplex);
     }

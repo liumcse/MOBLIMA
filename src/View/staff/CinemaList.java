@@ -41,6 +41,7 @@ public class CinemaList extends View {
             case 3:
                 break;
         }
+        destroy();
     }
 
     private void displayCinemaListMenu() {
@@ -66,7 +67,7 @@ public class CinemaList extends View {
         }
         else {
             for (Cinema cinema : getCinemaList(cineplex)) {
-                System.out.print(cinema + "(" + (cinema.is3D() ? "3D" : "Digital") + ")");
+                System.out.print(cinema + "(" + (cinema.is3D() ? "3D" : "Digital") + ") ");
             }
             System.out.println();
         }

@@ -3,14 +3,19 @@ package Controller;
 import java.io.*;
 
 /**
- * DataManager
+ * This class contains only two methods - write serialized object to a file and read
+ * serialized object from a file.
+ *
+ * @version 1.0
  */
 
 public class DataManager {
     /**
-     * Read serialized object from files. Return null if file or class cannot be found.
-     * @param filename
-     * @return List object
+     * This method is to read serialized object from a file.
+     * @param filename the file address to be read
+     * @return the object read from file. Return null if file or class cannot be found.
+     * @throws IOException when the file is not found
+     * @throws ClassNotFoundException when the class is not found
      */
     protected static Object readSerializedObject(String filename) throws IOException, ClassNotFoundException {
         Object data;
@@ -29,9 +34,10 @@ public class DataManager {
     }
 
     /**
-     * Write serialized object to files.
-     * @param filename
-     * @param data
+     * This method is to write serialized object to a file.
+     * @param filename the file address to write to
+     * @param data the data to be written to the file
+     * @throws IOException when the file address is invalid
      */
     protected static void writeSerializedObject(String filename, Object data) throws IOException {
         FileOutputStream fileOutputStream;

@@ -3,7 +3,10 @@ package Model;
 import java.io.Serializable;
 
 /**
- * Created by LiuMingyu on 6/11/17.
+ * This class contains all information of the booking history - including its
+ * TID (Transaction ID), customer who made the booking and the seat booked.
+ *
+ * @version 1.0
  */
 
 public class BookingHistory implements Serializable {
@@ -11,6 +14,13 @@ public class BookingHistory implements Serializable {
     private final Customer customer;
     private final Seat seat;
 
+    /**
+     * Allocates a {@code BookingHistory} object and initializes it specified by
+     * its its TID (Transaction ID), customer who made the booking and the seat booked.
+     * @param TID Transaction ID
+     * @param customer customer who made the booking
+     * @param seat the seat booked
+     */
     public BookingHistory(String TID, Customer customer, Seat seat) {
         this.TID = TID;
         this.customer = customer;

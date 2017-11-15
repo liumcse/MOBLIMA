@@ -9,7 +9,7 @@ import static Controller.IOController.*;
 import static Controller.CineplexManager.*;
 
 /**
- * This class contains all information of a movie - including  its title, age restriction,
+ * This class contains all information of a movie - including its title, age restriction,
  * director, synopsis, cast, status and ticket sales.
  *
  * @version 1.0
@@ -25,7 +25,7 @@ public class Movie implements Serializable {
     private int sales;
 
     /**
-     * Constructor, no parameter.
+     * Allocates a {@code Movie} object and initializes it.
      */
     public Movie() {
         this.sales = 0;
@@ -33,7 +33,7 @@ public class Movie implements Serializable {
 
     /**
      * This method is used to set the title.
-     * @param title This is the title to be assigned
+     * @param title the title to be assigned
      */
     public void setTitle(String title) {
         this.title = title;
@@ -41,7 +41,7 @@ public class Movie implements Serializable {
 
     /**
      * This method is used to set age restriction.
-     * @param ageRestriction this is the age restriction to be assigned
+     * @param ageRestriction the age restriction to be assigned
      */
     public void setAgeRestriction(AgeRestriction ageRestriction) {
         this.ageRestriction = ageRestriction;
@@ -49,7 +49,7 @@ public class Movie implements Serializable {
 
     /**
      * This method is used to set synopsis.
-     * @param synopsis this is the synopsis to be assigned
+     * @param synopsis the synopsis to be assigned
      */
     public void setSynopsis(String synopsis) {
         this.synopsis = synopsis;
@@ -57,7 +57,7 @@ public class Movie implements Serializable {
 
     /**
      * This method is used to set director.
-     * @param director this is the director to be assigned
+     * @param director the director to be assigned
      */
     public void setDirector(String director) {
         this.director = director;
@@ -65,7 +65,7 @@ public class Movie implements Serializable {
 
     /**
      * This method is used to set cast.
-     * @param cast this is the cast to be assigned
+     * @param cast the cast to be assigned
      */
     public void setCast(ArrayList<String> cast) {
         this.cast = cast;
@@ -73,7 +73,7 @@ public class Movie implements Serializable {
 
     /**
      * This method is used to set movie status.
-     * @param movieStatus this is the movie status to be assigned
+     * @param movieStatus the movie status to be assigned
      */
     public void setMovieStatus(MovieStatus movieStatus) {
         this.movieStatus = movieStatus;

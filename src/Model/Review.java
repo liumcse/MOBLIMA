@@ -25,7 +25,8 @@ public class Review implements Serializable {
     private static final int minRating = 1;
 
     /**
-     * Constructor. It takes the movie, rating, content and reviewer's name.
+     * Allocates a {@code Review} object and initializes it specified by the Movie being
+     * reviewed, rating, review content and name of the reviewer.
      * @param movie the movie reviewed
      * @param rating the rating reviewer gives
      * @param content the content of the review

@@ -1,6 +1,15 @@
 package Model;
 
+/**
+ * This class contains all the Enum classes
+ *
+ * @version 1.0
+ */
+
 public class Constant {
+    /**
+     * Movie status
+     */
     public enum MovieStatus {
         COMING_SOON("Coming soon"),
         END_OF_SHOWING("End of showing"),
@@ -16,15 +25,14 @@ public class Constant {
 
     }
 
+    /**
+     * Cineplex
+     */
     public enum Cineplex {
         JEM("JEM"),
         TheCathay("The Cathay"),
         WestMall("West Mall"),
         AMK_Hub("AMK Hub");
-        //Cineleisure_Orchard("Cineleisure Orchard"),
-        //Causeway_Point("Causeway Point"),
-        //Downtown_East("Downtown East"),
-        //ParkwayParade("ParkwayParade");
 
         private String cineplex;
 
@@ -36,6 +44,9 @@ public class Constant {
         public String toString() { return cineplex; }
     }
 
+    /**
+     * Age restriction
+     */
     public enum AgeRestriction {
         G("G"), PG("PG"), PG13("PG13"), NC16("NC16"), M18("M18"), R21("R21");
 
