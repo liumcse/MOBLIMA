@@ -4,6 +4,7 @@ import Model.*;
 import View.View;
 
 import static Controller.IOController.*;
+import static Controller.CineplexManager.*;
 
 public class Booking extends View {
     private Seat seat;

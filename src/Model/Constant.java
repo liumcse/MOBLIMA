@@ -5,7 +5,6 @@ package Model;
  *
  * @version 1.0
  */
-
 public class Constant {
     /**
      * Movie status

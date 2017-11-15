@@ -10,7 +10,6 @@ import java.util.Date;
  *
  * @version 1.0
  */
-
 public class Review implements Serializable {
     private final Date date;
     private final int rating;

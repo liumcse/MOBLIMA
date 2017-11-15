@@ -4,11 +4,14 @@ import View.*;
 import static Controller.IOController.*;
 
 /**
- * Main function is here.
+ * This class is the launcher of the application.
+ *
+ * @version 1.0
  */
-
 public class Moblima extends View {
-
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void start() {
         // initialize CineplexManager
@@ -43,6 +46,10 @@ public class Moblima extends View {
         }
     }
 
+    /**
+     * The main function.
+     * @param args unused
+     */
     public static void main(String[] args) {
         new Moblima().start();
     }

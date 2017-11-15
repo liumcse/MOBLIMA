@@ -14,9 +14,18 @@ import java.util.regex.Pattern;
 import static Controller.CineplexManager.*;
 
 /**
- * IOController class to handle all the input from users and some output
+ * This class handles all input from standard input as well as some formatting methods.
+ *
+ * @version 1.0
  */
 public class IOController {
+    /**
+     * This method is to read an integer from standard input whose value should be in a
+     * certain range.
+     * @param i the lower bound (inclusive) of the input
+     * @param j the upper bound (inclusive) of the input
+     * @return the input from standard input with specified range
+     */
     public static int readChoice(int i, int j) {
         Scanner sc = new Scanner(System.in);
         int choice;
@@ -33,17 +42,25 @@ public class IOController {
             System.out.println("Invalid input, try again.");
             return readChoice(i, j);
         }
-
-//        sc.nextLine();
         return choice;
     }
 
+    /**
+     * The method is to read a {@code String} from standard input.
+     * @param message the message to be shown to the user
+     * @return the input from standard input
+     */
     public static String readString(String... message) {
         for (String m : message) System.out.println(m);
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
 
+    /**
+     * This method is to read a {@code double} from standard input.
+     * @param message the message to be shown to the user
+     * @return the input from standard input
+     */
     public static double readDouble(String... message) {
         for (String m : message) System.out.println(m);
         Scanner sc = new Scanner(System.in);
@@ -59,12 +76,25 @@ public class IOController {
         }
     }
 
+    /**
+     * This method is to generate multiple spaces with given size.
+     * @param size the number of spaces to be generated
+     * @return the spaces generated
+     */
     public static String generateSpaces(int size) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < size; i++) stringBuilder.append(" ");
         return stringBuilder.toString();
     }
 
+    /**
+     * This method is to add line breaks for a {@code String} whose length exceeds a certain value
+     * as well as adding spaces to the second line onwards.
+     * @param input the String to be formatted
+     * @param maxLineLength the maximum length a line can be
+     * @param lengthOfSpace the number of spaces to be added to the second line onwards
+     * @return the formatted String
+     */
     public static String addLinebreaks(String input, int maxLineLength, int lengthOfSpace) {
         StringTokenizer tok = new StringTokenizer(input, " ");
         StringBuilder output = new StringBuilder(input.length());
@@ -83,6 +113,11 @@ public class IOController {
         return output.toString();
     }
 
+    /**
+     * This method is to read an Email address from standard input.
+     * @param message the message to be shown to the user
+     * @return the input from standard input with Email format
+     */
     public static String readEmail(String... message) {
         for (String m : message) System.out.println(m);
         Scanner sc = new Scanner(System.in);
@@ -101,6 +136,11 @@ public class IOController {
         }
     }
 
+    /**
+     * This method is to map the {@code String} to respective {@code AgeRestriction}.
+     * @param input the {@code String} to be mapped
+     * @return the {@code AgeRestriction} the input mapped to
+     */
     public static AgeRestriction readAgeRestriction(String input) {
         switch (input.toUpperCase()) {
             case "G":
@@ -120,6 +160,11 @@ public class IOController {
         }
     }
 
+    /**
+     * This method is to map the {@code String} to respective {@code MovieStatus}.
+     * @param input the {@code String} to be mapped
+     * @return the {@code MovieStatus} the input mapped to
+     */
     public static MovieStatus readMovieStatus(String input) {
         switch (input.toUpperCase()) {
             case "COMING SOON":
@@ -133,6 +178,11 @@ public class IOController {
         }
     }
 
+    /**
+     * This method is read a {@code String} with format MM-dd kk:mm from standard input and transform it to be a {@code Date}.
+     * @param message the message to be shown to the user
+     * @return the {@code Date} after formatting
+     */
     public static Date readTimeMMddkkmm(String... message) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd kk:mm");
         try {
@@ -146,6 +196,11 @@ public class IOController {
         }
     }
 
+    /**
+     * This method is read a {@code String} with format MM-dd from standard input and transform it to be a {@code Date}.
+     * @param message the message to be shown to the user
+     * @return the {@code Date} after formatting
+     */
     public static Date readTimeMMdd(String... message) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
@@ -159,6 +214,11 @@ public class IOController {
         }
     }
 
+    /**
+     * This method is to ask user for confirmation from standard input.
+     * @param message the message to be shown to the user
+     * @return true if the input from standard input is Y, false otherwise
+     */
     public static boolean askConfirm(String... message) {
         for (String m : message) System.out.println(m);
         Scanner sc = new Scanner(System.in);
@@ -166,12 +226,20 @@ public class IOController {
         else return false;
     }
 
+    /**
+     * This method is to print specified {@code String} to standard output.
+     * @param menu the menu message to be written to standard output
+     */
     public static void printMenu(String... menu) {
         for (String s : menu) {
             System.out.println(s);
         }
     }
 
+    /**
+     * This method is to print specified {@code String} to standard output.
+     * @param header the header message to be written to standard output
+     */
     public static void printHeader(String header) {
         int length = 65;
         for (int i = 0; i < length; i++) System.out.print("-");
@@ -187,35 +255,51 @@ public class IOController {
         System.out.println();
     }
 
+    /**
+     * This method is to format a {@code Date} to a {@code String} with format MMMM dd, kk:mm.
+     * @param time the {@code Date} to be formatted
+     * @return the {@code String} formatted
+     */
     public static String formatTimeMMddkkmm(Date time) {
         return new SimpleDateFormat("MMMM dd, kk:mm").format(time);
     }
 
+    /**
+     * This method is to format a {@code Date} to a {@code String} with format MMMM dd.
+     * @param time the {@code Date} to be formatted
+     * @return the {@code String} formatted
+     */
     public static String formatTimeMMdd(Date time) {
         return new SimpleDateFormat("MMMM, dd").format(time);
     }
 
+    /**
+     * This method is to test whether a {@code Date} is a weekend
+     * @param time the {@code Date} to be tested
+     * @return true if the {@code Date} is a weekend, false otherwise
+     */
     public static boolean isWeekend(Date time) {
         String whatDay = new SimpleDateFormat("EEEE").format(time);
         if (whatDay.equals("Saturday") || whatDay.equals("Sunday")) return true;
         else return false;
     }
 
-    public static Holiday getHoliday(Date time) {
-        HashMap<String, Holiday> holidayList = getHolidayList();
-        return holidayList.get(formatTimeMMdd(time));
-    }
-
+    /**
+     * This method is to test whether two {@code Date} equals in month and date
+     * @param d1 the first {@code Date} to be compared
+     * @param d2 the second {@code Date} to be compared
+     * @return true if they equals in month and date, false otherwise
+     */
     public static boolean dateEquals(Date d1, Date d2) {
         return formatTimeMMdd(d1).equals(formatTimeMMdd(d2));
     }
 
 
     /**
-     * This method is used to round a double value to a specified decimal place
-     * @param value
-     * @param places
-     * @return
+     * This method is used to round a double value to a specified decimal place.
+     * @param value the value to be rounded
+     * @param places the number of decimal places of the result
+     * @return the result after rounding
      */
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();

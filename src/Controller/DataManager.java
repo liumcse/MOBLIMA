@@ -8,7 +8,6 @@ import java.io.*;
  *
  * @version 1.0
  */
-
 public class DataManager {
     /**
      * This method is to read serialized object from a file.

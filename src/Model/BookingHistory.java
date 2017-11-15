@@ -8,7 +8,6 @@ import java.io.Serializable;
  *
  * @version 1.0
  */
-
 public class BookingHistory implements Serializable {
     private final String TID;
     private final Customer customer;

@@ -11,7 +11,6 @@ import static Controller.IOController.*;
  *
  * @version 1.0
  */
-
 public class Holiday implements Serializable {
     private String name;
     private Date date;

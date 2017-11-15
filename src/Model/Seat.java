@@ -8,7 +8,6 @@ import java.io.Serializable;
  *
  * @version 1.0
  */
-
 public class Seat implements Serializable{
     private final int row;
     private final int col;

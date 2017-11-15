@@ -14,7 +14,6 @@ import static Controller.CineplexManager.*;
  *
  * @version 1.0
  */
-
 public class Movie implements Serializable {
     private String title;
     private AgeRestriction ageRestriction;

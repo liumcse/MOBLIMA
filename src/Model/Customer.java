@@ -8,7 +8,6 @@ import java.io.Serializable;
  *
  * @version 1.0
  */
-
 public class Customer implements Serializable {
     private final String name;
     private final String mobile;

@@ -13,7 +13,6 @@ import static Controller.IOController.*;
  *
  * @version 1.0
  */
-
 public class CineplexManager extends DataManager {
     /** Addresses of files */
     private static final String FILENAME_MOVIE = "res/data/movieListing.dat";  // location of movie.dat
@@ -256,20 +255,42 @@ public class CineplexManager extends DataManager {
         return cinemaList.get(cineplex);
     }
 
+    /**
+     * This method is to get the booking history (an {@code ArrayList<BookingHistory>}).
+     * @return the booking history
+     */
     public static ArrayList<BookingHistory> getBookingHistory() {
         return bookingHistory;
     }
 
+    /**
+     * This method is to get the review list (an {@code ArrayList<Review>}) by movie.
+     * @param movie the movie
+     * @return the review list
+     */
     public static ArrayList<Review> getReviewList(Movie movie) {
         return reviewList.get(movie);
     }
 
+    /**
+     * This method is to get the holiday list (an {@code HashMap<String, Holiday>}).
+     * @return the holiday list
+     */
     public static HashMap<String, Holiday> getHolidayList() {
         return holidayList;
     }
 
+    /**
+     * This method is to get the system setting (an {@code HashMap<String, Boolean>}).
+     * @return the system setting
+     */
     public static HashMap<String, Boolean> getSystem() { return system; }
 
+    /**
+     * This method is to get {@code Cinema} by cinema code.
+     * @param code the cinema code
+     * @return the cinema
+     */
     public static Cinema getCinemaByCode(String code) {
         for (Cineplex cineplex : Cineplex.values()) {
             if (getCinemaList(cineplex) == null) continue;
@@ -280,6 +301,11 @@ public class CineplexManager extends DataManager {
         return null;  // not found
     }
 
+    /**
+     * This method is to get the search result (an {@code ArrayList<Movie>} by matching the movie title.
+     * @param title the movie title to be searched
+     * @return the movie list
+     */
     public static ArrayList<Movie> getMovieByTitle(String title) {
         ArrayList<Movie> searchResult = new ArrayList<>();
         for (Movie movie: movieListing) {
@@ -288,6 +314,11 @@ public class CineplexManager extends DataManager {
         return searchResult;
     }
 
+    /**
+     * This method is to get the average rating ({@code double}) of a movie.
+     * @param movie the movie to calculate average rating
+     * @return the average rating of the movie (round to two decimal places)
+     */
     public static double getMovieRating(Movie movie) {
         ArrayList<Review> reviewList = getReviewList(movie);
         if (reviewList == null || reviewList.isEmpty()) return 0;
@@ -298,11 +329,31 @@ public class CineplexManager extends DataManager {
         }
     }
 
+    /**
+     * This method is used to get the holiday with specified {@code Date}.
+     * @param time the {@code Date} of the holiday
+     * @return the holiday on that date
+     */
+    public static Holiday getHoliday(Date time) {
+        HashMap<String, Holiday> holidayList = getHolidayList();
+        return holidayList.get(formatTimeMMdd(time));
+    }
+
+    /**
+     * This method is to add new movie to movie listing and update local files.
+     * @param movie the movie to be added
+     * @throws IOException when the file address is invalid
+     */
     public static void addNewListing(Movie movie) throws IOException{
         movieListing.add(movie);
         updateMovieListing();
     }
 
+    /**
+     * This method is to add showtime to the showtime list of a movie and update local files.
+     * @param showtime the showtime to be added
+     * @throws IOException when the file address is invalid
+     */
     public static void addShowtime(Showtime showtime) throws IOException {
         Movie movie = showtime.getMovie();
         if (movieShowtime.get(movie) == null) movieShowtime.put(movie, new ArrayList<>());
@@ -310,42 +361,85 @@ public class CineplexManager extends DataManager {
         updateShowtime();
     }
 
+    /**
+     * This method is to log new booking history and update local files.
+     * @param record the new booking record
+     * @throws IOException when the file address is invalid
+     */
     public static void logBooking(BookingHistory record) throws IOException {
         bookingHistory.add(record);
         updateBookingHistory();
     }
 
+    /**
+     * This method is to add new review to a movie and update local files.
+     * @param movie the movie got reviewed
+     * @param review the review
+     * @throws IOException when the file address is invalid
+     */
     public static void addNewReview(Movie movie, Review review) throws IOException {
         if(reviewList.get(movie) == null) reviewList.put(movie, new ArrayList<>());
         reviewList.get(movie).add(review);
         updateReviewList();
     }
 
+    /**
+     * The method is to add new cinema to the cinema list and update local files.
+     * @param cinema the cinema to be added
+     * @throws IOException when the file address is invalid
+     */
     public static void addCinema(Cinema cinema) throws IOException {
         if (cinemaList.get(cinema.getCineplex()) == null) cinemaList.put(cinema.getCineplex(), new ArrayList<>());
         cinemaList.get(cinema.getCineplex()).add(cinema);
     }
 
+    /**
+     * The method is to add holiday to the holiday list and update local files.
+     * @param date the date of the holiday
+     * @param holiday the holiday
+     * @throws IOException when the file address is invalid
+     */
     public static void addHoliday(String date, Holiday holiday) throws IOException {
         holidayList.put(date, holiday);
         updateHolidayList();
     }
 
+    /**
+     * The method is to remove an existing movie from movie list and update local files.
+     * @param movie the movie to be removed
+     * @throws IOException when the file address is invalid
+     */
     public static void removeListing(Movie movie) throws IOException {
         movie.setMovieStatus(MovieStatus.END_OF_SHOWING);
         updateMovieListing();
     }
 
+    /**
+     * The method is to remove an existing showtime from the showtime list of a movie and update local files.
+     * @param showtime the showtime to be removed
+     * @throws IOException when the file address is invalid
+     */
     public static void removeShowtime(Showtime showtime) throws IOException {
         movieShowtime.get(showtime.getMovie()).remove(showtime);
         updateShowtime();
     }
 
+    /**
+     * The method is to remove all showtime of a movie and update local files.
+     * @param movie the movie to remove all its showtime
+     * @throws IOException when the file address is invalid
+     */
     public static void removeAllShowtime(Movie movie) throws IOException {
         movieShowtime.remove(movie);
         updateShowtime();
     }
 
+    /**
+     * The method is to authenticate whether the username matches the password.
+     * @param username the username
+     * @param password the password
+     * @return true if the password matches the username, false otherwise
+     */
     public static boolean authentication (String username, String password) {
         if (staffAccount.get(username) == null) return false;  // username does not exist
         else return staffAccount.get(username).equals(password);  // password does not match

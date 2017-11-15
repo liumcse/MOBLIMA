@@ -11,7 +11,6 @@ import static Controller.IOController.*;
  *
  * @version 1.0
  */
-
 public class Showtime implements Serializable {
     private Movie movie;
     private Cinema cinema;
