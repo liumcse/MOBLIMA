@@ -41,7 +41,7 @@ public class MovieListing extends View {
                 "2. List all movies",
                 "3. List the top 5 movies",
                 "4. Go back","");
-        int choice = readChoice(1, 5);
+        int choice = readChoice(1, 4);
         switch (choice) {
             case 1:
                 searchMovie();
@@ -77,10 +77,9 @@ public class MovieListing extends View {
             printMenu("-> " + searchResult.size() + " results have been found:");
             int index = 0;
             for (Movie movie : searchResult) {
-                System.out.println(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ")");
+                printMenu(++index + ". " + movie.getTitle() + " (" + movie.getMovieStatus().toString() + ")");
             }
-            System.out.println(index + 1 + ". Go back");
-            System.out.println();
+            printMenu(index + 1 + ". Go back", "");
 
             int choice = readChoice(1, index + 1);
             if (choice == index + 1) start();
@@ -100,7 +99,7 @@ public class MovieListing extends View {
 
         printHeader("Movies");
         if (movieListing.isEmpty()) {
-            System.out.println("Movie listing is not available");
+            printMenu("Movie listing is not available");
             displayMenu();
         }
 
@@ -109,7 +108,7 @@ public class MovieListing extends View {
         if (!topFive || getSystem().get("movieOrder")) {  // show movie rating
             for (Movie movie : movieListing) {
                 if (movie.getMovieStatus().equals(Constant.MovieStatus.END_OF_SHOWING)) continue;
-                System.out.println(++index + ". " + movie.getTitle() + generateSpaces(37 - movie.getTitle().length())
+                printMenu(++index + ". " + movie.getTitle() + generateSpaces(37 - movie.getTitle().length())
                         + "(" + movie.getMovieStatus().toString() + ") " +
                         "[" + (getMovieRating(movie) == 0.0 ? "No rating" : getMovieRating(movie)) + "]");
             }
@@ -117,14 +116,13 @@ public class MovieListing extends View {
         else {
             for (Movie movie : movieListing) {  // show ticket sales
                 if (movie.getMovieStatus().equals(Constant.MovieStatus.END_OF_SHOWING)) continue;
-                System.out.println(++index + ". " + movie.getTitle() + generateSpaces(37 - movie.getTitle().length())
+                printMenu(++index + ". " + movie.getTitle() + generateSpaces(37 - movie.getTitle().length())
                                 + "(" + movie.getMovieStatus().toString() + ") " +
                         "[" + (movie.getSales() == 0 ? "No sale" : movie.getSales()) + "]");
             }
         }
 
-        System.out.println(index + 1 + ". Go back");
-        System.out.println();
+        printMenu(index + 1 + ". Go back", "");
 
         int choice = readChoice(1, index + 1);
 
