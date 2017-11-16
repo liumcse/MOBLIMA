@@ -6,12 +6,21 @@ import View.View;
 import static Controller.IOController.*;
 import static Controller.CineplexManager.*;
 
+/**
+ * This class represents booking view.
+ *
+ * @version 1.0
+ */
 public class Booking extends View {
     private Seat seat;
     private String ticketType;
     private double basePrice;
     private boolean bookingFinished;
 
+    /**
+     * Allocates a {@code Booking} object and initializes it specified with seat.
+     * @param seat the seat to be booked
+     */
     public Booking(Seat seat) {
         this.seat = seat;
         basePrice = seat.getShowtime().getCinema().getBasePrice();
@@ -19,12 +28,18 @@ public class Booking extends View {
         computeBasePrice();
     }
 
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void start() {
         if (bookingFinished) destroy();
         else displayMenu();
     }
 
+    /**
+     * This method is to display the main menu of booking.
+     */
     private void displayMenu() {
         printHeader("Booking detail");
         printBookingDetail();
@@ -41,6 +56,9 @@ public class Booking extends View {
         }
     }
 
+    /**
+     * This method is to compute the base price taking weekend, weekday or holiday into consideration.
+     */
     private void computeBasePrice() {
         Holiday holiday = getHoliday(seat.getShowtime().getTime());
         if (holiday != null) {
@@ -59,6 +77,9 @@ public class Booking extends View {
         }
     }
 
+    /**
+     * This method is to print the booking detail
+     */
     private void printBookingDetail() {
         Showtime showtime = seat.getShowtime();
         Movie movie = showtime.getMovie();
@@ -74,6 +95,9 @@ public class Booking extends View {
         System.out.println("Ticket price: " + round(basePrice, 2) + " SGD (Excl. GST)");
     }
 
+    /**
+     * This method is to ask the user to enter their information from standard input.
+     */
     private void promptCustomerInformation() {
         String name = readString("Please enter your name:");
         String mobile = readString("Please enter your mobile number:");
@@ -89,6 +113,9 @@ public class Booking extends View {
         intent(this, new Payment(customer, seat, basePrice));
     }
 
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void destroy() {
         ((MovieListing)(prevView.prevView)).start(seat.getShowtime().getMovie());

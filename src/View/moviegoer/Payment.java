@@ -1,6 +1,5 @@
 package View.moviegoer;
 
-
 import Controller.CineplexManager;
 import Model.BookingHistory;
 import Model.Customer;
@@ -14,6 +13,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * This class represents te payment view.
+ *
+ * @version 1.0
+ */
 public class Payment extends View {
     private Seat seat;
     private Customer customer;
@@ -22,11 +26,20 @@ public class Payment extends View {
     private double GST;
     private double totalPrice;
 
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void start() {
         displayMenu();
     }
 
+    /**
+     * Allocates a {@code Payment} object and initializes it specified with customer, seat and base price.
+     * @param customer the customer who booked the seat
+     * @param seat the seat to be booked
+     * @param basePrice the base price of the seat
+     */
     Payment(Customer customer, Seat seat, double basePrice) {
         this.customer = customer;
         this.seat = seat;
@@ -35,18 +48,27 @@ public class Payment extends View {
         computeTotalPrice();
     }
 
+    /**
+     * This method is to generate the TID based on current time.
+     */
     private void generateTID() {
         TID = seat.getShowtime().getCinema().getCode() +
                 new SimpleDateFormat("YYYYMMddhhmm").format(new Date().getTime())
         ;
     }
 
+    /**
+     * This method is to compute the total price.
+     */
     private void computeTotalPrice() {
         if (customer.isSeniorCitizen()) basePrice /= 2;
         GST = round((basePrice + 2) * 0.07, 2);
         totalPrice = round(basePrice + 2 + GST, 2);
     }
 
+    /**
+     * This method is to display the main menu of payment.
+     */
     private void displayMenu() {
         printHeader("Payment");
         printMenu("Transaction ID: " + TID,
@@ -74,6 +96,9 @@ public class Payment extends View {
         }
     }
 
+    /**
+     * This method is to log booking into booking history.
+     */
     private void logBooking() {
         try {
             seat.bookSeat();

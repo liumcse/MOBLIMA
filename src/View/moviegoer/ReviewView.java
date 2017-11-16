@@ -12,17 +12,30 @@ import static Controller.CineplexManager.*;
 import static Controller.IOController.*;
 import static Model.Constant.MovieStatus.*;
 
+/**
+ * This class represents the review view.
+ */
 public class ReviewView extends View{
     private Movie movie;
 
+    /**
+     * Allocates a {@code ReviewView} object and initializes it with specified {@code Movie}.
+     * @param movie the movie of the review
+     */
     public ReviewView(Movie movie) {
         this.movie = movie;
     }
 
+    /**
+     * @inheritDoc
+     */
     protected void start(){
         displayMenu();
     }
 
+    /**
+     * This method is to display the main menu.
+     */
     private void displayMenu() {
         printHeader("Review");
         if (movie.getMovieStatus() == COMING_SOON) {
@@ -48,6 +61,9 @@ public class ReviewView extends View{
         }
     }
 
+    /**
+     * This method is to add a review.
+     */
     private void addReview(){
         printHeader("Write Review:");
         String name = readString("Please enter your name:");
@@ -68,6 +84,9 @@ public class ReviewView extends View{
         }
     }
 
+    /**
+     * This method is to list all reviews of the movie.
+     */
     private void listReview(){
         printHeader("Reviews for " + movie.getTitle());
         ArrayList<Review> reviewList = CineplexManager.getReviewList(movie);
