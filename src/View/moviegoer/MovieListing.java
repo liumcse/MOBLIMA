@@ -15,6 +15,7 @@ import static Controller.IOController.*;
  */
 
 public class MovieListing extends View {
+    private boolean topFive = false;
     /**
      * {@inheritDoc}
      */
@@ -46,10 +47,12 @@ public class MovieListing extends View {
                 searchMovie();
                 break;
             case 2:
-                displayMovieListing(false);
+                topFive = false;
+                displayMovieListing();
                 break;
             case 3:
-                displayMovieListing(true);
+                topFive = true;
+                displayMovieListing();
                 break;
             case 4:
                 break;
@@ -87,9 +90,9 @@ public class MovieListing extends View {
 
     /**
      * This method is to display the movie listing.
-     * @param topFive display top 5 ranking movie if {@code topFive} is true
+     * Display top 5 ranking movie if {@code topFive} is true
      */
-    private void displayMovieListing(boolean topFive) {
+    private void displayMovieListing() {
         ArrayList<Movie> movieListing;
 
         if (topFive) movieListing = getTop5MovieListing();
@@ -151,6 +154,6 @@ public class MovieListing extends View {
             case 3:
                 break;
         }
-        displayMovieListing(false);
+        displayMovieListing();
     }
 }
