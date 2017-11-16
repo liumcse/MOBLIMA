@@ -99,7 +99,6 @@ public class Cinema implements Serializable {
 
     @Override
     public String toString() {
-        // TODO modify this
         return code;
     }
 }

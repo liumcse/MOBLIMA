@@ -45,7 +45,6 @@ public class ShowtimeView extends View {
      */
     private void displayMenu() {
         printHeader("Show time");
-        // TODO bug here, what is there's no showtime?
         ArrayList<Model.Showtime> showtimeList = getMovieShowtime(movie);
         if (showtimeList == null || showtimeList.isEmpty()) {
             printMenu("No showtime on that day.",
@@ -98,7 +97,7 @@ public class ShowtimeView extends View {
                 if (askConfirm("Are you sure to remove the showtime?",
                         "Enter Y to confirm, N to cancel:")) {
                     try {
-                        CineplexManager.removeShowtime(showtime);  // TODO does it work?
+                        CineplexManager.removeShowtime(showtime);
                         System.out.println("The showtime has been removed.");
                     } catch (IOException ex) {
                         System.out.println("Failed to remove showtime");

@@ -143,16 +143,14 @@ public class MovieListing extends View {
         int choice = readChoice(1, 3);
         switch (choice) {
             case 1:
-                // TODO movie.getShowtime()
                 intent(this, new ShowtimeView(movie));
                 break;
             case 2:
-                // TODO movie.getReview()
                 intent(this, new ReviewView(movie));
                 break;
             case 3:
                 break;
         }
-        displayMovieListing(false);  // TODO where does it go back to?
+        displayMovieListing(false);
     }
 }

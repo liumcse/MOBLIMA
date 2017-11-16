@@ -143,7 +143,6 @@ public class CinemaList extends View {
      */
     @Override
     protected void destroy() {
-        // TODO bug here
         if (getPrevView().getClass() == ShowtimeView.class) ((ShowtimeView)getPrevView()).addShowtime();
         else super.destroy();
     }
