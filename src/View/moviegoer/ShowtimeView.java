@@ -154,9 +154,9 @@ public class ShowtimeView extends View {
         double basePrice = showtime.getCinema().getBasePrice();
         Movie movie = showtime.getMovie();
         printHeader("Ticket price for " + movie.getTitle() + " (" + (showtime.getCinema().is3D() ? "3D" : "Digital") + ")");
-        System.out.printf("\t\t\t\t\tWeekdays\t\tWeekends\n" +
-                "Regular Citizens\t%.2f\t\t\t%.2f\n" +
-                "Senior Citizens\t\t%.2f\t\t\t%.2f\n\n", basePrice, basePrice * 1.2, basePrice * 0.5, basePrice * 0.5 * 1.2);
+        System.out.printf(generateSpaces(20) + "Weekdays" + generateSpaces(8) + "Weekends\n" +
+                "Regular Citizens    %-8.2f        %-8.2f\n" +
+                "Senior Citizens     %-8.2f        %-8.2f\n\n", basePrice, basePrice * 1.2, basePrice * 0.5, basePrice * 0.5 * 1.2);
         System.out.println("Note that price may change on holidays.");
         System.out.println("Please refer to the price when making payment.");
         System.out.println();

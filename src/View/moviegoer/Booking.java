@@ -1,5 +1,6 @@
 package View.moviegoer;
 
+import Controller.CineplexManager;
 import Model.*;
 import View.View;
 
@@ -118,6 +119,8 @@ public class Booking extends View {
      */
     @Override
     protected void destroy() {
-        ((MovieListing)(prevView.prevView)).start(seat.getShowtime().getMovie());
+        ((MovieListing)(prevView.prevView)).start(
+                CineplexManager.getMovieListing().get(CineplexManager.getMovieListing().indexOf(
+                        seat.getShowtime().getMovie())));
     }
 }

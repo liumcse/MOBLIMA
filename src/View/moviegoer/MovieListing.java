@@ -117,7 +117,8 @@ public class MovieListing extends View {
         else {
             for (Movie movie : movieListing) {  // show ticket sales
                 if (movie.getMovieStatus().equals(Constant.MovieStatus.END_OF_SHOWING)) continue;
-                System.out.println(++index + ". " + movie.getTitle() + " \t\t\t\t(" + movie.getMovieStatus().toString() + ") " +
+                System.out.println(++index + ". " + movie.getTitle() + generateSpaces(37 - movie.getTitle().length())
+                                + "(" + movie.getMovieStatus().toString() + ") " +
                         "[" + (movie.getSales() == 0 ? "No sale" : movie.getSales()) + "]");
             }
         }
