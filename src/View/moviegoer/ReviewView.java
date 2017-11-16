@@ -27,7 +27,7 @@ public class ReviewView extends View{
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     protected void start(){
         displayMenu();

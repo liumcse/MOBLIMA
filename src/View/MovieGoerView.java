@@ -12,7 +12,7 @@ import static Controller.IOController.*;
  */
 public class MovieGoerView extends View {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {

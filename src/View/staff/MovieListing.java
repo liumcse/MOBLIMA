@@ -17,7 +17,7 @@ import static Model.Constant.MovieStatus.*;
  */
 public class MovieListing extends View {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {

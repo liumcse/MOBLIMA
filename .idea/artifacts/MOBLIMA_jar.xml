@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MOBLIMA:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MOBLIMA_jar</output-path>
+    <root id="archive" name="MOBLIMA.jar">
+      <element id="module-output" name="MOBLIMA" />
+    </root>
+  </artifact>
+</component>

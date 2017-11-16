@@ -14,7 +14,7 @@ import static Controller.CineplexManager.*;
  */
 public class BookingHistoryView extends View {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {

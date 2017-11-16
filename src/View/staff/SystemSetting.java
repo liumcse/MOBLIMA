@@ -19,7 +19,7 @@ import static Controller.CineplexManager.*;
  */
 public class SystemSetting extends View{
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {

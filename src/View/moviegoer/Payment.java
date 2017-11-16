@@ -27,7 +27,7 @@ public class Payment extends View {
     private double totalPrice;
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {

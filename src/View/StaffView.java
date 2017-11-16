@@ -22,7 +22,7 @@ public class StaffView extends View {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {

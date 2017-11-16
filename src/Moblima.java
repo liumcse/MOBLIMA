@@ -10,7 +10,7 @@ import static Controller.IOController.*;
  */
 public class Moblima extends View {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {

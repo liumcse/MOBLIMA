@@ -31,7 +31,7 @@ public class ShowtimeView extends View {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {
@@ -209,7 +209,7 @@ public class ShowtimeView extends View {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void destroy() {

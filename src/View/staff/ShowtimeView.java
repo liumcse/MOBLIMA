@@ -33,7 +33,7 @@ public class ShowtimeView extends View {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {

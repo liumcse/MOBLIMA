@@ -16,7 +16,7 @@ import static Controller.IOController.*;
 
 public class MovieListing extends View {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {

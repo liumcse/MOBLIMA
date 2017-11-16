@@ -29,7 +29,7 @@ public class Booking extends View {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {
@@ -114,7 +114,7 @@ public class Booking extends View {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void destroy() {

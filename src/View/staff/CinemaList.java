@@ -28,7 +28,7 @@ public class CinemaList extends View {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void start() {
@@ -139,7 +139,7 @@ public class CinemaList extends View {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     @Override
     protected void destroy() {
