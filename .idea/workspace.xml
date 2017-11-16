@@ -9,139 +9,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f89b421-fad6-4c16-ac6a-594ebe544363" name="Default" comment="Build.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/SuperSuperShowtime.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/IOController.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/IOController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Cinema.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Cinema.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/MovieListing.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/MovieListing.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/ReviewView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/ReviewView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/ShowtimeView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/ShowtimeView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/MovieListing.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/MovieListing.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/ShowtimeView.class" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/ShowtimeView.class" />
+    <list default="true" id="9f89b421-fad6-4c16-ac6a-594ebe544363" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Controller/CineplexManager.html" afterPath="$PROJECT_DIR$/docs/Controller/CineplexManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Controller/DataManager.html" afterPath="$PROJECT_DIR$/docs/Controller/DataManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Controller/IOController.html" afterPath="$PROJECT_DIR$/docs/Controller/IOController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Controller/class-use/CineplexManager.html" afterPath="$PROJECT_DIR$/docs/Controller/class-use/CineplexManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Controller/class-use/DataManager.html" afterPath="$PROJECT_DIR$/docs/Controller/class-use/DataManager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Controller/class-use/IOController.html" afterPath="$PROJECT_DIR$/docs/Controller/class-use/IOController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Controller/package-frame.html" afterPath="$PROJECT_DIR$/docs/Controller/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Controller/package-summary.html" afterPath="$PROJECT_DIR$/docs/Controller/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Controller/package-tree.html" afterPath="$PROJECT_DIR$/docs/Controller/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Controller/package-use.html" afterPath="$PROJECT_DIR$/docs/Controller/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Moblima.html" afterPath="$PROJECT_DIR$/docs/Moblima.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/BookingHistory.html" afterPath="$PROJECT_DIR$/docs/Model/BookingHistory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/Cinema.html" afterPath="$PROJECT_DIR$/docs/Model/Cinema.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/Constant.AgeRestriction.html" afterPath="$PROJECT_DIR$/docs/Model/Constant.AgeRestriction.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/Constant.Cineplex.html" afterPath="$PROJECT_DIR$/docs/Model/Constant.Cineplex.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/Constant.MovieStatus.html" afterPath="$PROJECT_DIR$/docs/Model/Constant.MovieStatus.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/Constant.html" afterPath="$PROJECT_DIR$/docs/Model/Constant.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/Customer.html" afterPath="$PROJECT_DIR$/docs/Model/Customer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/Holiday.html" afterPath="$PROJECT_DIR$/docs/Model/Holiday.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/Movie.html" afterPath="$PROJECT_DIR$/docs/Model/Movie.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/Review.html" afterPath="$PROJECT_DIR$/docs/Model/Review.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/Seat.html" afterPath="$PROJECT_DIR$/docs/Model/Seat.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/Showtime.html" afterPath="$PROJECT_DIR$/docs/Model/Showtime.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/BookingHistory.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/BookingHistory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/Cinema.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/Cinema.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/Constant.AgeRestriction.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/Constant.AgeRestriction.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/Constant.Cineplex.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/Constant.Cineplex.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/Constant.MovieStatus.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/Constant.MovieStatus.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/Constant.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/Constant.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/Customer.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/Customer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/Holiday.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/Holiday.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/Movie.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/Movie.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/Review.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/Review.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/Seat.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/Seat.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/class-use/Showtime.html" afterPath="$PROJECT_DIR$/docs/Model/class-use/Showtime.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/package-frame.html" afterPath="$PROJECT_DIR$/docs/Model/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/package-summary.html" afterPath="$PROJECT_DIR$/docs/Model/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/package-tree.html" afterPath="$PROJECT_DIR$/docs/Model/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/Model/package-use.html" afterPath="$PROJECT_DIR$/docs/Model/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/MovieGoerView.html" afterPath="$PROJECT_DIR$/docs/View/MovieGoerView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/StaffView.html" afterPath="$PROJECT_DIR$/docs/View/StaffView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/View.html" afterPath="$PROJECT_DIR$/docs/View/View.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/class-use/MovieGoerView.html" afterPath="$PROJECT_DIR$/docs/View/class-use/MovieGoerView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/class-use/StaffView.html" afterPath="$PROJECT_DIR$/docs/View/class-use/StaffView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/class-use/View.html" afterPath="$PROJECT_DIR$/docs/View/class-use/View.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/Booking.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/Booking.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/BookingHistoryView.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/BookingHistoryView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/MovieListing.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/MovieListing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/Payment.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/Payment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/ReviewView.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/ReviewView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/ShowtimeView.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/ShowtimeView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/class-use/Booking.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/class-use/Booking.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/class-use/BookingHistoryView.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/class-use/BookingHistoryView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/class-use/MovieListing.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/class-use/MovieListing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/class-use/Payment.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/class-use/Payment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/class-use/ReviewView.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/class-use/ReviewView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/class-use/ShowtimeView.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/class-use/ShowtimeView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/package-frame.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/package-summary.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/package-tree.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/moviegoer/package-use.html" afterPath="$PROJECT_DIR$/docs/View/moviegoer/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/package-frame.html" afterPath="$PROJECT_DIR$/docs/View/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/package-summary.html" afterPath="$PROJECT_DIR$/docs/View/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/package-tree.html" afterPath="$PROJECT_DIR$/docs/View/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/package-use.html" afterPath="$PROJECT_DIR$/docs/View/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/CinemaList.html" afterPath="$PROJECT_DIR$/docs/View/staff/CinemaList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/MovieListing.html" afterPath="$PROJECT_DIR$/docs/View/staff/MovieListing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/ShowtimeView.html" afterPath="$PROJECT_DIR$/docs/View/staff/ShowtimeView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/SystemSetting.html" afterPath="$PROJECT_DIR$/docs/View/staff/SystemSetting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/class-use/CinemaList.html" afterPath="$PROJECT_DIR$/docs/View/staff/class-use/CinemaList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/class-use/MovieListing.html" afterPath="$PROJECT_DIR$/docs/View/staff/class-use/MovieListing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/class-use/ShowtimeView.html" afterPath="$PROJECT_DIR$/docs/View/staff/class-use/ShowtimeView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/class-use/SystemSetting.html" afterPath="$PROJECT_DIR$/docs/View/staff/class-use/SystemSetting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/package-frame.html" afterPath="$PROJECT_DIR$/docs/View/staff/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/package-summary.html" afterPath="$PROJECT_DIR$/docs/View/staff/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/package-tree.html" afterPath="$PROJECT_DIR$/docs/View/staff/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/View/staff/package-use.html" afterPath="$PROJECT_DIR$/docs/View/staff/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/allclasses-frame.html" afterPath="$PROJECT_DIR$/docs/allclasses-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/allclasses-noframe.html" afterPath="$PROJECT_DIR$/docs/allclasses-noframe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/class-use/Moblima.html" afterPath="$PROJECT_DIR$/docs/class-use/Moblima.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/constant-values.html" afterPath="$PROJECT_DIR$/docs/constant-values.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/deprecated-list.html" afterPath="$PROJECT_DIR$/docs/deprecated-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/help-doc.html" afterPath="$PROJECT_DIR$/docs/help-doc.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-1.html" afterPath="$PROJECT_DIR$/docs/index-files/index-1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-10.html" afterPath="$PROJECT_DIR$/docs/index-files/index-10.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-11.html" afterPath="$PROJECT_DIR$/docs/index-files/index-11.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-12.html" afterPath="$PROJECT_DIR$/docs/index-files/index-12.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-13.html" afterPath="$PROJECT_DIR$/docs/index-files/index-13.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-14.html" afterPath="$PROJECT_DIR$/docs/index-files/index-14.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-15.html" afterPath="$PROJECT_DIR$/docs/index-files/index-15.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-16.html" afterPath="$PROJECT_DIR$/docs/index-files/index-16.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-17.html" afterPath="$PROJECT_DIR$/docs/index-files/index-17.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-18.html" afterPath="$PROJECT_DIR$/docs/index-files/index-18.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-19.html" afterPath="$PROJECT_DIR$/docs/index-files/index-19.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-2.html" afterPath="$PROJECT_DIR$/docs/index-files/index-2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-3.html" afterPath="$PROJECT_DIR$/docs/index-files/index-3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-4.html" afterPath="$PROJECT_DIR$/docs/index-files/index-4.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-5.html" afterPath="$PROJECT_DIR$/docs/index-files/index-5.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-6.html" afterPath="$PROJECT_DIR$/docs/index-files/index-6.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-7.html" afterPath="$PROJECT_DIR$/docs/index-files/index-7.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-8.html" afterPath="$PROJECT_DIR$/docs/index-files/index-8.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index-files/index-9.html" afterPath="$PROJECT_DIR$/docs/index-files/index-9.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index.html" afterPath="$PROJECT_DIR$/docs/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/overview-frame.html" afterPath="$PROJECT_DIR$/docs/overview-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/overview-summary.html" afterPath="$PROJECT_DIR$/docs/overview-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/overview-tree.html" afterPath="$PROJECT_DIR$/docs/overview-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/package-frame.html" afterPath="$PROJECT_DIR$/docs/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/package-summary.html" afterPath="$PROJECT_DIR$/docs/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/package-tree.html" afterPath="$PROJECT_DIR$/docs/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/package-use.html" afterPath="$PROJECT_DIR$/docs/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/serialized-form.html" afterPath="$PROJECT_DIR$/docs/serialized-form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/data/bookingHistory.dat" afterPath="$PROJECT_DIR$/res/data/bookingHistory.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/data/holidayList.dat" afterPath="$PROJECT_DIR$/res/data/holidayList.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/data/movieListing.dat" afterPath="$PROJECT_DIR$/res/data/movieListing.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/data/reviewList.dat" afterPath="$PROJECT_DIR$/res/data/reviewList.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/CineplexManager.java" afterPath="$PROJECT_DIR$/src/Controller/CineplexManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/IOController.java" afterPath="$PROJECT_DIR$/src/Controller/IOController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/moviegoer/MovieListing.java" afterPath="$PROJECT_DIR$/src/View/moviegoer/MovieListing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/moviegoer/ReviewView.java" afterPath="$PROJECT_DIR$/src/View/moviegoer/ReviewView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/moviegoer/ShowtimeView.java" afterPath="$PROJECT_DIR$/src/View/moviegoer/ShowtimeView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/staff/MovieListing.java" afterPath="$PROJECT_DIR$/src/View/staff/MovieListing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/staff/ShowtimeView.java" afterPath="$PROJECT_DIR$/src/View/staff/ShowtimeView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -201,8 +70,8 @@
       <file leaf-file-name="SuperSuperShowtime.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/SuperSuperShowtime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+            <state relative-caret-position="270">
+              <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -662,7 +531,7 @@
       <workItem from="1510744965971" duration="5325000" />
       <workItem from="1510760251622" duration="8357000" />
       <workItem from="1510813359360" duration="1336000" />
-      <workItem from="1510840118270" duration="4651000" />
+      <workItem from="1510840118270" duration="4843000" />
     </task>
     <task id="LOCAL-00001" summary="Created Classes.">
       <created>1509205447562</created>
@@ -769,11 +638,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510826436681</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Build.">
+      <created>1510846087458</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1510846087459</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140010000" />
+    <option name="totallyTimeSpent" value="140202000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1004,7 +880,7 @@
         <state relative-caret-position="90">
           <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1216,8 +1092,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/SuperSuperShowtime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        <state relative-caret-position="270">
+          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
