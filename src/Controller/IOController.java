@@ -222,7 +222,7 @@ public class IOController {
     public static boolean askConfirm(String... message) {
         for (String m : message) System.out.println(m);
         Scanner sc = new Scanner(System.in);
-        if (sc.nextLine().toUpperCase().equals("Y")) return true;
+        if (sc.next().toUpperCase().equals("Y")) return true;
         else return false;
     }
 

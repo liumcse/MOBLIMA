@@ -128,7 +128,13 @@ public class MovieListing extends View {
         int choice = readChoice(1, index + 1);
 
         if (choice == index + 1) start();
-        else displayMovieDetailMenu(movieListing.get(choice - 1));
+        else {
+            Movie movie = movieListing.get(choice - 1);
+            if (movie.getMovieStatus().equals(Constant.MovieStatus.END_OF_SHOWING)) {
+                movie = movieListing.get(choice);
+            }
+            displayMovieDetailMenu(movie);
+        }
 
     }
 

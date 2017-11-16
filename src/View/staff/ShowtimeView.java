@@ -90,8 +90,10 @@ public class ShowtimeView extends View {
         int choice = readChoice(1, 4);
         switch (choice) {
             case 1:
+                modifyCinema(showtime);
                 break;
             case 2:
+                modifyTime(showtime);
                 break;
             case 3:
                 if (askConfirm("Are you sure to remove the showtime?",
@@ -107,6 +109,61 @@ public class ShowtimeView extends View {
             case 4:
                 displayMenu();
                 break;
+        }
+    }
+
+    /**
+     * This method is to modify the cinema of the showtime.
+     * @param showtime the showtime to be modified
+     */
+    private void modifyCinema(Showtime showtime) {
+        Cinema cinema;
+
+        // get cinema
+        String input = readString("Enter cinema code:");
+        cinema = getCinemaByCode(input);
+
+        if (cinema == null) {
+            printMenu("Invalid cinema code.",
+                    "Press ENTER to go back.");
+            readString();
+            displayShowtimeDetailMenu(showtime);
+        }
+        else {
+            try {
+                showtime.setCinema(cinema);
+                updateShowtime();
+                System.out.println("Successfully modified cinema.");
+            } catch (IOException ex) {
+                System.out.println("Failed to modify cinema.");
+            }
+            finally {
+                displayShowtimeDetailMenu(showtime);
+            }
+        }
+    }
+
+    /**
+     * This method is to modify the time of the showtime.
+     * @param showtime the showtime to be modified
+     */
+    private void modifyTime(Showtime showtime) {
+        printHeader("Modify time");
+        // get time
+        Date time = readTimeMMddkkmm("Enter the time for the show",
+                "Format: MM-DD HH:MM (e.g. 12-25 09:30)");
+
+        showtime.setTime(time);
+
+        try {
+            showtime.setTime(time);
+            updateShowtime();
+            System.out.println("Successfully modified time.");
+        } catch (IOException ex) {
+            System.out.println("Failed to modify time.");
+        }
+        finally {
+            displayShowtimeDetailMenu(showtime);
         }
     }
 
@@ -148,7 +205,7 @@ public class ShowtimeView extends View {
             CineplexManager.addShowtime(showtime);
             System.out.println("Successfully added showtime.");
         } catch (IOException ex) {
-            System.out.println("Failed to add showtime");
+            System.out.println("Failed to add showtime.");
         }
         finally {
             displayMenu();

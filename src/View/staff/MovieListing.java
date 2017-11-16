@@ -156,17 +156,14 @@ public class MovieListing extends View {
                 "4. Change synopsis",
                 "5. Change casts",
                 "6. Switch status",
-                "7. Apply changes",
-                "8. Go back");
+                "7. Go back");
 
-        boolean changed = false;
         int choice = -1;
-        while (choice != 8) {
-            choice = readChoice(1, 8);
+        while (choice != 7) {
+            choice = readChoice(1, 7);
             switch (choice) {
                 case 1:
                     movie.setTitle(readString("Enter the title:"));
-                    changed = true;
                     System.out.println("Title changed. Please make another selection.");
                     break;
                 case 2:
@@ -177,61 +174,54 @@ public class MovieListing extends View {
                         ageRestriction = readAgeRestriction(input);
                     }
                     movie.setAgeRestriction(ageRestriction);
-                    changed = true;
-                    System.out.println("Age restriction changed. Apply changes or make another selection.");
+                    System.out.println("Age restriction changed.");
                     break;
                 case 3:
                     movie.setDirector(readString("Enter director:"));
-                    changed = true;
-                    System.out.println("Director changed. Apply changes or make another selection.");
+                    System.out.println("Director changed.");
                     break;
                 case 4:
-                    movie.setSynopsis(addLinebreaks(readString("Enter synopsis"), 50, 14));
-                    changed = true;
-                    System.out.println("Synopsis changed. Apply changes or make another selection.");
+                    movie.setSynopsis(addLinebreaks(readString("Enter synopsis"), 50, 10));
+                    System.out.println("Synopsis changed.");
                     break;
                 case 5:
                     String[] castArray = readString("Enter casts, separate with semicolon(;)").split(";");
                     ArrayList<String> cast = new ArrayList<>();
                     for (int i = 0; i < castArray.length; i++) cast.add(castArray[i]);
                     movie.setCast(cast);
-                    changed = true;
-                    System.out.println("Casts changed. Apply changes or make another selection.");
+                    System.out.println("Casts changed.");
                     break;
                 case 6:
                     if (movie.getMovieStatus().equals(NOW_SHOWING)) {
                         if (askConfirm("Are you sure to change the movie status to Coming Soon?",
                                 "Enter Y to confirm, N to cancel:")) {
                             movie.setMovieStatus(COMING_SOON);
+                            System.out.println("Movie status changed.");
+                        }
+                        else {
+                            System.out.println("Movie status remains.");
                         }
                     } else {
                         if (askConfirm("Are you sure to change the movie status to Now showing?",
                                 "Enter Y to confirm, N to cancel:")) {
                             movie.setMovieStatus(NOW_SHOWING);
+                            System.out.println("Movie status changed.");
+                        }
+                        else {
+                            System.out.println("Movie status remains.");
                         }
                     }
-                    changed = true;
-                    System.out.println("Movie status changed. Apply changes or make another selection.");
                     break;
                 case 7:
                     try {
                         updateMovieListing();
-                        System.out.println("Changes have been applied. Go back or make another selection.");
-                        changed = false;
+                        printMenu("Changes have been applied.",
+                                "Press ENTER to go back.");
+                        readString();
                     } catch (IOException ex) {
-                        System.out.println("Failed to apply changes.");
-                    }
-                    break;
-                case 8:
-                    if (changed) {
-                        if (askConfirm("Changes haven't been applied. Are you sure to go back?",
-                                "Enter Y to discard changes, N to remain:")) {
-                            break;
-                        }
-                        else {
-                            System.out.println("Please enter your selection.");
-                            continue;
-                        }
+                        printMenu("Failed to apply changes.",
+                                "Press ENTER to go back.");
+                        readString();
                     }
                     break;
             }

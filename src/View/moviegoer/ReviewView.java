@@ -59,6 +59,7 @@ public class ReviewView extends View{
                 destroy();
                 break;
         }
+        destroy();
     }
 
     /**
@@ -106,5 +107,13 @@ public class ReviewView extends View{
         }
         readString("Press ENTER to go back.", "");
         start();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void destroy() {
+        ((MovieListing)(getPrevView())).start(movie);
     }
 }

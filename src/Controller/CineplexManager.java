@@ -222,7 +222,11 @@ public class CineplexManager extends DataManager {
     @SuppressWarnings("unchecked")
     public static ArrayList<Movie> getTop5MovieListing() {
         boolean orderBy = system.get("movieOrder");
-        ArrayList<Movie> top5 = (ArrayList<Movie>) movieListing.clone();
+        ArrayList<Movie> top5 = new ArrayList<>();
+        for (Movie movie : movieListing) {
+            if (!movie.getMovieStatus().equals(MovieStatus.END_OF_SHOWING)) top5.add(movie);
+        }
+
         if (orderBy) {  // order by overall ratings
             Collections.sort(top5, (o1, o2) -> Double.compare(getMovieRating(o2), getMovieRating(o1)));
         }

@@ -141,7 +141,7 @@ public class ShowtimeView extends View {
                 displayPrice(showtime);
                 break;
             case 4:
-                displayMenu();
+                destroy();
                 break;
         }
     }
@@ -180,6 +180,7 @@ public class ShowtimeView extends View {
             System.out.println();
         }
         System.out.println();
+        readString("Press ENTER to continue:");
     }
 
     /**
