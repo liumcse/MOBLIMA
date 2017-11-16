@@ -53,6 +53,15 @@ public class Holiday implements Serializable {
         return rate;
     }
 
+    /**
+     * This method is to return a {@code String} of the holiday detail.
+     * @return a {@code String} of the holiday detail
+     */
+    public String printDetail() {
+        return "Date      : " + formatTimeMMdd(date) + "\n" +
+                "Price rate: " + rate;
+    }
+
     @Override
     public String toString() {
         return name + " (" + formatTimeMMdd(date) + ")";

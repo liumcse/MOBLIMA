@@ -12,15 +12,26 @@ import java.util.HashMap;
 import static Controller.IOController.*;
 import static Controller.CineplexManager.*;
 
+/**
+ * This class represents the system setting view.
+ *
+ * @version 1.0
+ */
 public class SystemSetting extends View{
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void start() {
         displayMenu();
     }
 
+    /**
+     * This method is to display the main menu of system setting.
+     */
     private void displayMenu() {
         printHeader("System setting");
-        printMenu("1. Configure ticket prices for cinema",
+        printMenu("1. Configure ticket prices of cinemas",
                 "2. Configure top 5 ranking schema",
                 "3. Configure cinemas",
                 "4. Configure holidays",
@@ -47,6 +58,9 @@ public class SystemSetting extends View{
         }
     }
 
+    /**
+     * This method is to configure the scheme of top 5 ranking of movies.
+     */
     private void configureTop5Ranking() {
         printHeader("Configure top 5 ranking schema");
         boolean movieOrder = getSystem().get("movieOrder");
@@ -68,8 +82,11 @@ public class SystemSetting extends View{
         displayMenu();
     }
 
+    /**
+     * This method is to configure the base ticket price of cinemas.
+     */
     private void configureTicket() {
-        printHeader("Configure ticket prices for cinema");
+        printHeader("Configure ticket prices of cinemas");
         Cinema cinema = null;
 
         // get cinema
@@ -87,7 +104,7 @@ public class SystemSetting extends View{
         }
 
         printHeader(cinema.isPlatinum() ? cinema.getCode() + " (Platinum)" : cinema.getCode());
-        if (askConfirm("The ticket price for the cinema is " + cinema.getBasePrice() + ".",
+        if (askConfirm("The ticket price of the cinema is " + cinema.getBasePrice() + ".",
                 "Proceed to change?",
                 "Enter Y to confirm, N to cancel:")) {
             double newPrice = readDouble("Enter the new ticket price:");
@@ -104,6 +121,9 @@ public class SystemSetting extends View{
         displayMenu();
     }
 
+    /**
+     * This method is to display the menu of configuring holidays.
+     */
     private void configureHolidays() {
         printHeader("Configure holidays");
         printMenu("1. List all holidays",
@@ -125,11 +145,15 @@ public class SystemSetting extends View{
         displayMenu();
     }
 
+    /**
+     * This method is to display the list of holidays.
+     */
     private void displayHolidayList() {
         printHeader("Holiday list");
         HashMap<String, Holiday> holidayList = getHolidayList();
+        HashMap<Integer, Holiday> searchIndex = new HashMap<>();
         if (holidayList.isEmpty()) {
-            printMenu("No holiday exists");
+            printMenu("No holiday exists", "");
             readString("Press ENTER to go back");
             configureHolidays();
         }
@@ -137,19 +161,41 @@ public class SystemSetting extends View{
             int index  = 0;
             for (String date : holidayList.keySet()) {
                 System.out.println(++index + ". " + holidayList.get(date));
+                searchIndex.put(index, holidayList.get(date));
             }
             System.out.println(++index + ". Go back");
+            System.out.println();
 
             int choice = readChoice(1, index);
             if (choice == index) configureHolidays();
-            else displayHolidayDetail();
+            else displayHolidayDetail(searchIndex.get(choice));
         }
     }
 
-    private void displayHolidayDetail() {
-
+    /**
+     * This method is to display the detail of the holiday and ask user whether
+     * to remove the holiday.
+     * @param holiday the holiday whose detail to be displayed
+     */
+    private void displayHolidayDetail(Holiday holiday) {
+        printHeader(holiday.getName());
+        printMenu(holiday.printDetail(), "");
+        if (askConfirm("Enter Y if you want to delete the holiday",
+                "Enter N to go back:")) {
+            getHolidayList().remove(formatTimeMMdd(holiday.getDate()));
+            try {
+                updateHolidayList();
+                System.out.println("Successfully deleted the holiday.");
+            } catch (IOException e) {
+                System.out.println("Failed to delete the holiday.");
+            }
+        }
+        displayHolidayList();
     }
 
+    /**
+     * This method is to add a holiday.
+     */
     private void addHoliday() {
         String name;
         Date date;

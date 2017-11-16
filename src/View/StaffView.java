@@ -6,19 +6,33 @@ import View.staff.SystemSetting;
 import static Controller.CineplexManager.*;
 import static Controller.IOController.*;
 
+/**
+ * This class represents the staff view.
+ *
+ * @version 1.0
+ */
 public class StaffView extends View {
     private boolean loggedIn;
 
+    /**
+     * Allocates a {@code StaffView} object and initializes it.
+     */
     public StaffView() {
         loggedIn = false;
     }
 
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void start() {
         if (!loggedIn) login();
         else displayMenu();
     }
 
+    /**
+     * This method is to prompt user to login by entering username and password
+     */
     private void login() {
         System.out.println("Please login to access staff system.");
 

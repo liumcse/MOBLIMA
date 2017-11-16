@@ -15,18 +15,34 @@ import static Controller.IOController.*;
 import static Controller.IOController.printHeader;
 import static Controller.IOController.readString;
 
+/**
+ * This class represents the showtime view.
+ *
+ * @version 1.0
+ */
 public class ShowtimeView extends View {
     private Movie movie;
 
+    /**
+     * Allocates a {@code ShowtimeView} object and initializes it specified by
+     * the movie of the showtime.
+     * @param movie the movie of the showtime
+     */
     ShowtimeView(Movie movie) {
         this.movie = movie;
     }
 
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void start() {
         displayMenu();
     }
 
+    /**
+     * This method is to display the main menu of showtime.
+     */
     private void displayMenu() {
         printHeader("Show time");
         // TODO bug here, what is there's no showtime?
@@ -60,6 +76,10 @@ public class ShowtimeView extends View {
         }
     }
 
+    /**
+     * Thie method is to display the menu of showtime detail
+     * @param showtime the showtime whose detail to be displayed
+     */
     private void displayShowtimeDetailMenu(Showtime showtime) {
         printHeader(showtime.toString());
         printMenu(showtime.getDetails(),
@@ -91,7 +111,9 @@ public class ShowtimeView extends View {
         }
     }
 
-    // TODO modify here
+    /**
+     * This method is to add a showtime.
+     */
     void addShowtime() {
         Cinema cinema;
 
@@ -104,7 +126,14 @@ public class ShowtimeView extends View {
             displayMenu();
             return;
         }
-        else cinema = getCinemaByCode(input);  // TODO may get null
+        else cinema = getCinemaByCode(input);
+
+        if (cinema == null) {
+            printMenu("Invalid cinema code.",
+                    "Press ENTER to go back.");
+            readString();
+            displayMenu();
+        }
 
         // get time
         Date time = readTimeMMddkkmm("Enter the time for the show",

@@ -6,13 +6,17 @@ import View.moviegoer.MovieListing;
 import static Controller.IOController.*;
 
 /**
- * This is the user interface for moviegoer.
+ * This class represents the moviegoer view.
+ *
+ * @version 1.0
  */
-
 public class MovieGoerView extends View {
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void start() {
-        printHeader("Movie goer");
+        printHeader("Moviegoer");
         printMenu("Welcome, please make a selection:",
                 "1. Search or list movies",
                 "2. View booking history",

@@ -10,13 +10,23 @@ import static Controller.CineplexManager.*;
 import static Controller.IOController.*;
 import static Model.Constant.MovieStatus.*;
 
-
+/**
+ * The class represents the movie listing view.
+ *
+ * @version 1.0
+ */
 public class MovieListing extends View {
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void start() {
         displayMenu();
     }
 
+    /**
+     * This method is to display the main menu of movie listing.
+     */
     private void displayMenu() {
         ArrayList<Movie> movieListing;
         movieListing = getMovieListing();
@@ -50,6 +60,9 @@ public class MovieListing extends View {
         else displayMovieDetailMenu(movieListing.get(choice - 1));
     }
 
+    /**
+     * This method is to add a movie listing.
+     */
     private void addMovieListing() {
         String title, director, synopsis;
         AgeRestriction ageRestriction = null;
@@ -103,6 +116,10 @@ public class MovieListing extends View {
         }
     }
 
+    /**
+     * This method is to display the menu of movie detail and other operations.
+     * @param movie the movie whose detail to be displayed
+     */
     private void displayMovieDetailMenu(Movie movie) {
         printHeader("Movie details");
         printMenu(movie.toString(),
@@ -127,6 +144,10 @@ public class MovieListing extends View {
         }
     }
 
+    /**
+     * This method is to display the menu of updating movie detail.
+     * @param movie the movie whose detail to be updated
+     */
     private void updateMovieDetailsMenu(Movie movie) {
         printHeader("Modify movie details");
         printMenu("1. Change title",
@@ -218,6 +239,10 @@ public class MovieListing extends View {
         displayMovieDetailMenu(movie);
     }
 
+    /**
+     * This method is to remove a movie listing.
+     * @param movie the movie to be removed.
+     */
     private void removeListingMenu(Movie movie) {
         if (askConfirm("Are you sure to remove the listing?",
                 "All its showtime will be removed as well.",

@@ -14,18 +14,33 @@ import java.util.Date;
 import static Controller.CineplexManager.getMovieShowtime;
 import static Controller.IOController.*;
 
+/**
+ * This class represents the showtime view.
+ *
+ * @version 1.0
+ */
 public class ShowtimeView extends View {
     private Movie movie;
 
+    /**
+     * Allocates a {@code ShowtimeView} object and initializes it specified by {@code Movie}.
+     * @param movie the movie of the showtime
+     */
     ShowtimeView(Movie movie) {
         this.movie = movie;
     }
 
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void start() {
         displayMenu();
     }
 
+    /**
+     * This method is to display the main menu.
+     */
     private void displayMenu() {
         Date today = new Date();
         Date tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
@@ -101,6 +116,10 @@ public class ShowtimeView extends View {
 
     }
 
+    /**
+     * This method is to display the detail of the showtime.
+     * @param showtime the showtime whose display to be displayed
+     */
     private void displayShowtimeDetailMenu(Showtime showtime) {
         printHeader(showtime.toString());
         printMenu("1. Check seat availability",
@@ -125,10 +144,12 @@ public class ShowtimeView extends View {
                 displayMenu();
                 break;
         }
-
-
     }
 
+    /**
+     * This method is to display the price of a showtime.
+     * @param showtime the showtime whose price to be displayed
+     */
     private void displayPrice(Showtime showtime) {
         double basePrice = showtime.getCinema().getBasePrice();
         Movie movie = showtime.getMovie();
@@ -143,6 +164,10 @@ public class ShowtimeView extends View {
         displayShowtimeDetailMenu(showtime);
     }
 
+    /**
+     * This method is to display the seat layout of a showtime.
+     * @param seats the seat layout to be displayed
+     */
     private void displaySeat(Seat[][] seats) {
         System.out.println("                    -------Screen------");
         System.out.println("     1  2  3  4  5  6  7  8     9 10 11 12 13 14 15 16");
@@ -157,6 +182,10 @@ public class ShowtimeView extends View {
         System.out.println();
     }
 
+    /**
+     * This method is to display the menu of booking seat.
+     * @param showtime the showtime to be booked
+     */
     private void displayBookSeatMenu(Showtime showtime) {
         int row, col;
 
@@ -179,6 +208,9 @@ public class ShowtimeView extends View {
         }
     }
 
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void destroy() {
         ((MovieListing)(getPrevView())).start(movie);

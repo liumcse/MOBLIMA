@@ -9,25 +9,31 @@ import static Controller.CineplexManager.*;
 import static Controller.IOController.*;
 
 /**
- * Created by LiuMingyu on 6/11/17.
- * This is the class for movie view.
+ * This class represents the movie view.
+ *
+ * @version 1.0
  */
 
 public class MovieListing extends View {
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void start() {
         displayMenu();
     }
 
     /**
-     * Directly go to movie detail menu
-     * @param movie
+     * This method is to go to movie detail menu of specified {@code Movie}.
+     * @param movie the movie whose detail to be displayed
      */
-
     protected void start(Movie movie) {
         displayMovieDetailMenu(movie);
     }
 
+    /**
+     * This method is to display the main menu.
+     */
     private void displayMenu() {
         printHeader("Search or list movies");
         printMenu("1. Search movies",
@@ -52,6 +58,9 @@ public class MovieListing extends View {
         destroy();
     }
 
+    /**
+     * This method is to search a movie and display the result of all matching titles.
+     */
     private void searchMovie() {
         String input = readString("Enter the movie title:");
         ArrayList<Movie> searchResult = getMovieByTitle(input);
@@ -76,6 +85,10 @@ public class MovieListing extends View {
         }
     }
 
+    /**
+     * This method is to display the movie listing.
+     * @param topFive display top 5 ranking movie if {@code topFive} is true
+     */
     private void displayMovieListing(boolean topFive) {
         ArrayList<Movie> movieListing;
 
@@ -116,6 +129,10 @@ public class MovieListing extends View {
 
     }
 
+    /**
+     * This method is to display the detail of the movie and other operations.
+     * @param movie the movie whose detail to be displayed
+     */
     private void displayMovieDetailMenu(Movie movie) {
         printHeader("Movie details");
         printMenu(movie.toString(),

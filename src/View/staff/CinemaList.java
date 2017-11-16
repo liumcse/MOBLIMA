@@ -11,19 +11,34 @@ import static Controller.IOController.*;
 import static Controller.CineplexManager.*;
 import static Model.Constant.*;
 
+/**
+ * This class represents the cinema list view.
+ *
+ * @version 1.0
+ */
 public class CinemaList extends View {
     private boolean help;
 
+    /**
+     * Allocates a {@code CinemaList} object and initializes it specified by {@code args}.
+     * @param args the parameter that decides which menu to display.
+     */
     CinemaList(String args) {
         help = args.equals("help");
     }
 
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void start() {
         if (help) displayCinemaListMenu();
         else displayMenu();
     }
 
+    /**
+     * The method is to display the main menu of cinema list.
+     */
     private void displayMenu() {
         printHeader("Configure cinemas");
         printMenu("1. List cinemas",
@@ -44,6 +59,9 @@ public class CinemaList extends View {
         destroy();
     }
 
+    /**
+     * This method is to display a list of cineplex.
+     */
     private void displayCinemaListMenu() {
         int index = 0;
         for (Cineplex c : Cineplex.values()) {
@@ -56,6 +74,10 @@ public class CinemaList extends View {
         displayCinemaList(Cineplex.values()[choice - 1]);
     }
 
+    /**
+     * This method is to display the cinema list specified by cineplex.
+     * @param cineplex the cineplex of the cinema
+     */
     private void displayCinemaList(Cineplex cineplex) {
         printHeader(cineplex.toString());
         ArrayList<Cinema> cinemaList = getCinemaList(cineplex);
@@ -76,6 +98,9 @@ public class CinemaList extends View {
         else displayMenu();
     }
 
+    /**
+     * This method is to add a cinema.
+     */
     private void addCinema() {
         int index = 0;
         for (Cineplex c : Cineplex.values()) {
@@ -113,7 +138,9 @@ public class CinemaList extends View {
         }
     }
 
-
+    /**
+     * @inheritDoc
+     */
     @Override
     protected void destroy() {
         // TODO bug here
