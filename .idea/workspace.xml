@@ -56,8 +56,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="135">
-                <caret line="9" column="120" selection-start-line="9" selection-start-column="120" selection-end-line="9" selection-end-column="120" />
+              <first_editor relative-caret-position="225">
+                <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
               </first_editor>
               <second_editor />
             </state>
@@ -76,8 +76,8 @@
       <file leaf-file-name="Moblima.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Moblima.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="292">
+              <caret line="24" column="79" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -400,7 +400,7 @@
       <workItem from="1510995772185" duration="1486000" />
       <workItem from="1514650155364" duration="246000" />
       <workItem from="1523941643760" duration="579000" />
-      <workItem from="1536212720573" duration="577000" />
+      <workItem from="1536212720573" duration="819000" />
     </task>
     <task id="LOCAL-00001" summary="Created Classes.">
       <created>1509205447562</created>
@@ -553,7 +553,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151405000" />
+    <option name="totallyTimeSpent" value="151647000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -566,7 +566,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.28666666" />
@@ -961,16 +960,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Moblima.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="292">
+          <caret line="24" column="79" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="79" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="135">
-            <caret line="9" column="120" selection-start-line="9" selection-start-column="120" selection-end-line="9" selection-end-column="120" />
+          <first_editor relative-caret-position="225">
+            <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
           </first_editor>
           <second_editor />
         </state>
