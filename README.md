@@ -1,7 +1,10 @@
 # MOBLIMA
 
-CZ2002 Assignment
+## Assignment for CZ2002 - Object Oriented Design & Programming
 
-The grades of this project remains unknown because NTU doesn't think it is students' right to know their grades.
+To use this program, you can either load it in IntelliJ IDEA IDE, or run the .jar file located at out/artifacts/MOBLIMA_jar/MOBLIMA.jar
 
-But it seems we have done well, we just didn't know how well.
+To run the *.jar file using command line, you can go to the directory and enter:
+java -jar MOBLIMA.jar
+
+Note that if you encounter errors regarding file integrity, please delete and restore all the files under /res directory.
