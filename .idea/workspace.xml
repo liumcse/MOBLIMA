@@ -10,11 +10,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f89b421-fad6-4c16-ac6a-594ebe544363" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SE2-Grp12-report.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagrams/ClassDiagram.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagrams/Controller.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagrams/Model.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagrams/SequenceDiagram.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagrams/View.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MOBLIMA_jar/MOBLIMA.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MOBLIMA_jar/res/data/bookingHistory.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MOBLIMA_jar/res/data/cinemaList.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MOBLIMA_jar/res/data/holidayList.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MOBLIMA_jar/res/data/input_temp.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MOBLIMA_jar/res/data/movieListing.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MOBLIMA_jar/res/data/reviewList.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MOBLIMA_jar/res/data/showtime.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MOBLIMA_jar/res/data/staffAccount.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MOBLIMA_jar/res/data/system.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/CineplexManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/DataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/DataManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/IOController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Controller/IOController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Moblima.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Moblima.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/BookingHistory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/BookingHistory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Cinema.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Cinema.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Constant$AgeRestriction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Constant$AgeRestriction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Constant$Cineplex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Constant$Cineplex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Constant$MovieStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Constant$MovieStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Constant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Holiday.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Holiday.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Review.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Seat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Seat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Showtime.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/Model/Showtime.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/MovieGoerView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/MovieGoerView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/StaffView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/StaffView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/View.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/Booking.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/BookingHistoryView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/BookingHistoryView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/MovieListing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/MovieListing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/Payment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/Payment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/ReviewView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/ReviewView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/ShowtimeView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/moviegoer/ShowtimeView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/CinemaList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/CinemaList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/MovieListing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/MovieListing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/ShowtimeView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/ShowtimeView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/SystemSetting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/View/staff/SystemSetting.class" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,103 +68,6 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/MOBLIMA$Moblima.coverage" NAME="Moblima Coverage Results" MODIFIED="1510482570481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MovieListing.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/moviegoer/MovieListing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Review.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Review.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Constant.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="225">
-                <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Moblima.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Moblima.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="24" column="79" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/readme.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="43" lean-forward="true" selection-end-line="5" selection-end-column="121" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/DataManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IOController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/IOController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4305">
-              <caret line="304" column="35" selection-start-line="304" selection-start-column="35" selection-end-line="304" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BookingHistory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/BookingHistory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -140,125 +89,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/TestWriteMovie.java" />
-        <option value="$PROJECT_DIR$/src/TestWriteSystem.java" />
-        <option value="$PROJECT_DIR$/src/TestWriteShowtime.java" />
-        <option value="$PROJECT_DIR$/src/View/staff/Login.java" />
-        <option value="$PROJECT_DIR$/src/View/staff/StaffView.java" />
-        <option value="$PROJECT_DIR$/src/Controller/TestWriteSystem.java" />
-        <option value="$PROJECT_DIR$/src/Controller/TestWriteCinemaList.java" />
-        <option value="$PROJECT_DIR$/src/Controller/TestWriteShowtime.java" />
-        <option value="$PROJECT_DIR$/res/data/cinemaList.dat" />
-        <option value="$PROJECT_DIR$/src/TestLineBreaks.java" />
-        <option value="$PROJECT_DIR$/res/data/movieListing.dat" />
-        <option value="$PROJECT_DIR$/src/Controller/TestWriteMovie.java" />
-        <option value="$PROJECT_DIR$/src/Controller/DataManager.java" />
-        <option value="$PROJECT_DIR$/src/Model/BookingHistory.java" />
-        <option value="$PROJECT_DIR$/src/Model/Constant.java" />
-        <option value="$PROJECT_DIR$/src/Model/Customer.java" />
-        <option value="$PROJECT_DIR$/src/Model/Movie.java" />
-        <option value="$PROJECT_DIR$/src/Model/Review.java" />
-        <option value="$PROJECT_DIR$/src/Model/Seat.java" />
-        <option value="$PROJECT_DIR$/src/Model/Showtime.java" />
-        <option value="$PROJECT_DIR$/src/View/View.java" />
-        <option value="$PROJECT_DIR$/src/Model/Holiday.java" />
-        <option value="$PROJECT_DIR$/src/View/StaffView.java" />
-        <option value="$PROJECT_DIR$/src/View/MovieGoerView.java" />
-        <option value="$PROJECT_DIR$/src/View/staff/SystemSetting.java" />
-        <option value="$PROJECT_DIR$/src/View/moviegoer/BookingHistoryView.java" />
-        <option value="$PROJECT_DIR$/src/View/moviegoer/Payment.java" />
-        <option value="$PROJECT_DIR$/src/Moblima.java" />
-        <option value="$PROJECT_DIR$/src/View/package-info.java" />
-        <option value="$PROJECT_DIR$/src/View/staff/package-info.java" />
-        <option value="$PROJECT_DIR$/src/View/moviegoer/package-info.java" />
-        <option value="$PROJECT_DIR$/src/Model/package-info.java" />
-        <option value="$PROJECT_DIR$/src/Controller/package-info.java" />
-        <option value="$PROJECT_DIR$/src/Model/Cinema.java" />
-        <option value="$PROJECT_DIR$/src/View/staff/CinemaList.java" />
-        <option value="$PROJECT_DIR$/src/Controller/IOController.java" />
-        <option value="$PROJECT_DIR$/src/View/staff/MovieListing.java" />
-        <option value="$PROJECT_DIR$/src/View/moviegoer/ReviewView.java" />
-        <option value="$PROJECT_DIR$/res/data/showtime.dat" />
-        <option value="$PROJECT_DIR$/src/Controller/SuperSuper.java" />
-        <option value="$PROJECT_DIR$/res/data/bookingHistory.dat" />
-        <option value="$PROJECT_DIR$/src/Controller/SuperSuperShowtime.java" />
-        <option value="$PROJECT_DIR$/res/data/holidayList.dat" />
-        <option value="$PROJECT_DIR$/res/data/reviewList.dat" />
-        <option value="$PROJECT_DIR$/src/View/moviegoer/ShowtimeView.java" />
-        <option value="$PROJECT_DIR$/src/View/staff/ShowtimeView.java" />
-        <option value="$PROJECT_DIR$/src/Controller/CineplexManager.java" />
-        <option value="$PROJECT_DIR$/src/View/moviegoer/Booking.java" />
-        <option value="$PROJECT_DIR$/src/View/moviegoer/MovieListing.java" />
-        <option value="$PROJECT_DIR$/.gigignore" />
-        <option value="$PROJECT_DIR$/README.md" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
-  </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="22" />
-    <option name="width" value="1280" />
-    <option name="height" value="733" />
-  </component>
+  <component name="ProjectId" id="1UTegsQ5YXt5MQa1s34uxYj89vp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="MOBLIMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MOBLIMA" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MOBLIMA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MOBLIMA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/LiuMingyu/Desktop/MOBLIMA/src/Model/Showtime.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/LiuMingyu/Desktop/MOBLIMA/src/Model/Showtime.java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RunManager" selected="Application.Moblima">
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -268,6 +114,9 @@
       <option name="MAIN_CLASS_NAME" value="Moblima" />
       <module name="MOBLIMA" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="SuperSuper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Controller.SuperSuper" />
@@ -279,11 +128,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="TestLineBreaks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestLineBreaks" />
       <module name="MOBLIMA" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="TestWriteCinemaList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Controller.TestWriteCinemaList" />
@@ -295,65 +150,48 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="TestWriteMovie" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Controller.TestWriteMovie" />
       <module name="MOBLIMA" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
+    <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
       <item itemvalue="Application.Moblima" />
@@ -371,6 +209,18 @@
         <item itemvalue="Application.TestLineBreaks" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -400,7 +250,10 @@
       <workItem from="1510995772185" duration="1486000" />
       <workItem from="1514650155364" duration="246000" />
       <workItem from="1523941643760" duration="579000" />
-      <workItem from="1536212720573" duration="819000" />
+      <workItem from="1536212720573" duration="1791000" />
+      <workItem from="1575385132706" duration="297000" />
+      <workItem from="1575385455209" duration="338000" />
+      <workItem from="1575385812505" duration="277000" />
     </task>
     <task id="LOCAL-00001" summary="Created Classes.">
       <created>1509205447562</created>
@@ -552,9 +405,6 @@
     <option name="localTasksCounter" value="22" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151647000" />
-  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -564,46 +414,8 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.28666666" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info id="Image Layers" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.12578125" side_tool="true" weight="0.34533334" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.87421876" weight="0.22834645" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32829046" />
-      <window_info anchor="bottom" id="Sequence" order="11" weight="0.408" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32965517" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22213247" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.496875" weight="0.39733332" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3296875" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.496875" weight="0.32666665" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32829046" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created Classes." />
@@ -625,455 +437,35 @@
     <MESSAGE value="Final commit." />
     <option name="LAST_COMMIT_MESSAGE" value="Final commit." />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="17" />
-    </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/src.zip!/java/lang/StringBuilder.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/src.zip!/java/lang/String.java" />
-    <entry file="uml://JAVA/">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="" y="">com</node>
-            <node x="" y="">netscape</node>
-            <node x="" y="">oracle</node>
-            <node x="" y="">org</node>
-            <node x="" y="">resources</node>
-            <node x="" y="">toolbarButtonGraphics</node>
-            <node x="" y="">TestLineBreaks</node>
-            <node x="" y="">Controller</node>
-            <node x="" y="">View</node>
-            <node x="" y="">sun</node>
-            <node x="" y="">META-INF</node>
-            <node x="" y="">jdk</node>
-            <node x="" y="">Moblima</node>
-            <node x="" y="">apple</node>
-            <node x="" y="">java</node>
-            <node x="" y="">javax</node>
-            <node x="" y="">Model</node>
-            <node x="" y="">javafx</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.6783216783216783" x="324.0" y="76.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/TestWriteCinemaList.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/src.zip!/java/util/Date.java" />
-    <entry file="file://$PROJECT_DIR$/src/TestLineBreaks.java" />
-    <entry file="file://$PROJECT_DIR$/src/Model/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Holiday.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/TestReadMovie.java" />
-    <entry file="file://$PROJECT_DIR$/src/View/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/StaffView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-492">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/moviegoer/BookingHistoryView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/staff/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Cinema.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="101" column="20" lean-forward="true" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/moviegoer/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="58" selection-start-line="1" selection-start-column="58" selection-end-line="1" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/staff/CinemaList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1800">
-          <caret line="131" column="32" selection-start-line="131" selection-start-column="32" selection-end-line="131" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/moviegoer/ReviewView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="107" column="34" selection-start-line="107" selection-start-column="34" selection-end-line="107" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/data/movieListing.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/data/staffAccount.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="8" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/data/cinemaList.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/data/reviewList.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/data/input_temp.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="22" column="57" lean-forward="true" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/data/holidayList.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/data/showtime.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="35" lean-forward="true" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SuperSuperShowtime.java" />
-    <entry file="file://$PROJECT_DIR$/src/Controller/SuperSuper.java" />
-    <entry file="file://$PROJECT_DIR$/res/data/bookingHistory.dat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-271" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Seat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="42" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Showtime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/staff/ShowtimeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2640">
-          <caret line="193" column="19" selection-start-line="193" selection-start-column="19" selection-end-line="193" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/staff/SystemSetting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2955">
-          <caret line="209" column="60" selection-start-line="209" selection-start-column="26" selection-end-line="209" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/moviegoer/ShowtimeView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/moviegoer/Payment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="105" column="99" selection-start-line="105" selection-start-column="11" selection-end-line="105" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/staff/MovieListing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="96" column="30" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Movie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="44" column="43" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/BookingHistory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/DataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/IOController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4305">
-          <caret line="304" column="35" selection-start-line="304" selection-start-column="35" selection-end-line="304" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/moviegoer/Booking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="61" column="7" lean-forward="true" selection-start-line="61" selection-start-column="7" selection-end-line="61" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/CineplexManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3597">
-          <caret line="166" column="29" selection-start-line="166" selection-start-column="29" selection-end-line="166" selection-end-column="29" />
-          <folding>
-            <element signature="e#2964#2994#0" expanded="true" />
-            <element signature="e#3684#3714#0" expanded="true" />
-            <element signature="e#4247#4277#0" expanded="true" />
-            <element signature="e#4814#4844#0" expanded="true" />
-            <element signature="e#5377#5407#0" expanded="true" />
-            <element signature="e#5955#5985#0" expanded="true" />
-            <element signature="e#6511#6541#0" expanded="true" />
-            <element signature="e#7049#7079#0" expanded="true" />
-            <element signature="e#9648#9678#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/MovieGoerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/moviegoer/MovieListing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Review.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="43" lean-forward="true" selection-end-line="5" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Moblima.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="24" column="79" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="225">
-            <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>MOBLIMA:jar</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>MOBLIMA</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575385973250">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1575385973250" />
+    <state width="1398" height="160" key="GridCell.Tab.0.bottom" timestamp="1575386082216">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="160" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1575386082216" />
+    <state width="1398" height="160" key="GridCell.Tab.0.center" timestamp="1575386082214">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="160" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1575386082214" />
+    <state width="1398" height="160" key="GridCell.Tab.0.left" timestamp="1575386082214">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="160" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1575386082214" />
+    <state width="1398" height="160" key="GridCell.Tab.0.right" timestamp="1575386082215">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="160" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1575386082215" />
+    <state x="200" y="63" key="SettingsEditor" timestamp="1575385991883">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="200" y="63" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1575385991883" />
+    <state x="385" y="278" key="com.intellij.ide.util.TipDialog" timestamp="1575385812311">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="278" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1575385812311" />
+    <state x="372" y="294" key="com.intellij.ide.util.TipDialog/0.23.1391.877@0.23.1391.877" timestamp="1575385158148" />
   </component>
 </project>
